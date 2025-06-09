@@ -15,8 +15,7 @@ class ArchivoSocio
         strcpy(nombre,n);
         tamanioRegistro=sizeof(Socio);
 };
-    int agregarRegistro();
-    int agregarRegistro(Socio reg);
+    int agregarRegistro(Socio soc);
     bool listarRegistros();
    // int buscarSocio(int idSocio);
 
