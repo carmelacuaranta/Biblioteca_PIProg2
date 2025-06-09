@@ -1,17 +1,37 @@
+#include "ArchivoSocio.h"
+#include "Socio.h"
 #include <iostream>
 using namespace std;
 
-int main() {
+int AgregarRegistro(Socio soc){
+    FILE *pSocio;
+    pSocio=fopen("socios.dat", "ab");
+    if(pSocio==nullptr) {
+        cout << "Error de archivo" << endl;
+        return -1;
+    }
 
-   return 0;
-}#include "ArchivoSocio.h"
+    fwrite(&soc, sizeof soc, 1, pSocio);
 
-ArchivoSocio::ArchivoSocio()
-{
-    //ctor
+    fclose(pSocio);
+
+    return 0;
 }
 
-ArchivoSocio::~ArchivoSocio()
-{
-    //dtor
+int ListarRegistros(){
+    Socio soc;
+    FILE *pSocio;
+    pSocio=fopen("socios.dat", "rb");
+
+    if(pSocio==nullptr) {
+        cout << "Error de archivo" << endl;
+        return -1;
+    }
+
+    fread(&soc, sizeof soc, 1, pSocio);
+    soc.MostrarSocio();
+
+    fclose(pSocio);
+
+    return 0;
 }

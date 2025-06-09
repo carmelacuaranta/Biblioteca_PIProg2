@@ -6,11 +6,14 @@
 1747692182 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\socio.h
 	<string>
 
-1747692407 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
+1749480574 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
 	<iostream>
-	"src/Socio.cpp"
+	"Socio.h"
 
 1747692813 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp
 	"Socio.h"
+	<iostream>
+
+1749474951 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
 	<iostream>
 
