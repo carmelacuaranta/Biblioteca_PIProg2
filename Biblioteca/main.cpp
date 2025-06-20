@@ -9,21 +9,22 @@ int main() {
     int opcion = 0;
 
     do {
-        cout << "\nBiblioteca\n";
-        cout << "Seleccione una opción:\n";
-        cout << "1) Menú Socios\n";
-        cout << "0) Salir\n";
+        cout << "Biblioteca" << endl;
+        cout << "Seleccione una opción:" << endl;
+        cout << "1) Menú Socios" << endl;
+        cout << "0) Salir" << endl;
         cout << "Opción N°: ";
         cin >> opcion;
 
         switch (opcion) {
             case 1: {
                 int subOpcion = 0;
-                cout << "\nMenú Socios\n";
-                cout << "1) Ver lista de socios\n";
-                cout << "2) Buscar un socio\n";
-                cout << "3) Añadir un socio\n";
-                cout << "0) Volver\n";
+                cout << "Menú Socios" << endl;
+                cout << "1) Ver lista de socios" << endl;
+                cout << "2) Buscar un socio por ID" << endl;
+                cout << "3) Buscar un socio por nombre" << endl;
+                cout << "4) Añadir un socio" << endl;
+                cout << "0) Volver" << endl;
                 cout << "Opción N°: ";
                 cin >> subOpcion;
 
@@ -31,29 +32,38 @@ int main() {
                     case 1:
                         archivoSocio.ListarSocios();
                         break;
-                    case 2:
-                        cout << "Función Buscar Socio aún no implementada.\n";
-                        break;
+                    case 2: {
+                        int op=0;
+                        cout << "Ingrese el ID que desea buscar: " << endl;
+                        cin >>op;
+                        archivoSocio.BuscarSocioPorID(op);
+                        break; }
                     case 3: {
+                        char nombre[30];
+                        cout << "Ingrese el nombre a buscar: ";
+                        cin.ignore(); // por si quedó salto de línea
+                        cin.getline(nombre, sizeof(nombre));
+                        archivoSocio.BuscarSocioPorNombre(nombre);
+                        break; }
+                    case 4: {
                         Socio nuevoSocio;
                         nuevoSocio.CrearSocio();
                         archivoSocio.AgregarRegistro(nuevoSocio);
-                        cout << "Socio agregado con éxito.\n";
+                        cout << "Socio agregado con éxito." << endl;
                         break;
                     }
                     case 0:
-                        // Volver al menú principal
                         break;
                     default:
-                        cout << "Opción inválida.\n";
+                        cout << "Opción inválida." << endl;
                 }
                 break;
             }
             case 0:
-                cout << "Saliendo del programa.\n";
+                cout << "Saliendo del programa." << endl;
                 break;
             default:
-                cout << "Opción inválida.\n";
+                cout << "Opción inválida." << endl;
         }
     } while (opcion != 0);
 

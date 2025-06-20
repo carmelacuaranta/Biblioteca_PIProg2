@@ -2,7 +2,7 @@
 #define ARCHIVOSOCIO_H
 
 #include "Socio.h"
-#include <cstring>  // Mejor que "string.h" en C++
+#include <cstring>
 
 class ArchivoSocio {
 private:
@@ -12,14 +12,15 @@ private:
 public:
     ArchivoSocio(const char *n = "Socios.dat") {
         strncpy(nombre, n, sizeof(nombre));
-        nombre[sizeof(nombre) - 1] = '\0';  // Seguridad: asegurar null-terminado
+        nombre[sizeof(nombre) - 1] = '\0';
         tamanioRegistro = sizeof(Socio);
     }
 
     int AgregarRegistro(Socio soc);
     bool ListarRegistros();
     int ListarSocios();
-    // int buscarSocio(int idSocio);
+    bool BuscarSocioPorID(int idBuscado);
+    bool BuscarSocioPorNombre(const char* nombreBuscado);
 };
 
 #endif // ARCHIVOSOCIO_H

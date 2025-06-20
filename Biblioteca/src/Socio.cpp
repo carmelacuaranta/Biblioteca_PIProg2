@@ -1,6 +1,6 @@
 #include "Socio.h"
 #include <iostream>
-#include <cstring>  // Para usar strcpy, strncpy, etc.
+#include <cstring>
 
 using namespace std;
 
@@ -28,7 +28,6 @@ Socio::Socio(int id, int numSocio, const char* dni, const char* nombre, const ch
     strncpy(this->email, email, sizeof(this->email));
     strncpy(this->fechaNac, fechaNac, sizeof(this->fechaNac));
 
-    // Asegurar que todos estén null-terminados
     this->dni[sizeof(this->dni) - 1] = '\0';
     this->nombre[sizeof(this->nombre) - 1] = '\0';
     this->apellido[sizeof(this->apellido) - 1] = '\0';

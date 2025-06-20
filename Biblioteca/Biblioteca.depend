@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1750437003 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp
+1750439934 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp
 	"Socio.h"
 	<iostream>
 	<cstring>
 
-1750436945 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\socio.h
+1750439934 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\socio.h
 
 1750438174 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
 	<iostream>
@@ -15,12 +15,13 @@
 	"Socio.h"
 	<iostream>
 
-1750438492 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
+1750439934 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"Socio.h"
 	<iostream>
+	<cstring>
 
-1750438050 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivosocio.h
+1750439934 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivosocio.h
 	"Socio.h"
 	<cstring>
 

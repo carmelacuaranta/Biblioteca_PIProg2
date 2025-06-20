@@ -14,8 +14,7 @@ private:
     char fechaNac[11];
 
 public:
-    // Constructores
-    Socio();  // Constructor por defecto
+    Socio();
     Socio(int id, int numSocio, const char* dni, const char* nombre, const char* apellido,
           const char* telefono, const char* direccion, const char* email, const char* fechaNac);
 
@@ -41,7 +40,6 @@ public:
     void setEmail(const char* emailSocio);
     void setFechaNac(const char* fechaSocio);
 
-    // Métodos para interactuar por consola
     void CrearSocio();
     void MostrarSocio();
 };
