@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Socio.h"
+#include "Libro.h"
 #include "ArchivoSocio.h"
 
 using namespace std;
@@ -8,10 +9,13 @@ int main() {
     ArchivoSocio archivoSocio;
     int opcion = 0;
 
+    //emprolijar el menú! compartimentalizar o algo
+
     do {
         cout << "Biblioteca" << endl;
         cout << "Seleccione una opción:" << endl;
         cout << "1) Menú Socios" << endl;
+        cout << "2) Menú Libros" << endl;
         cout << "0) Salir" << endl;
         cout << "Opción N°: ";
         cin >> opcion;
@@ -24,7 +28,7 @@ int main() {
                 cout << "2) Buscar un socio por ID" << endl;
                 cout << "3) Buscar un socio por nombre" << endl;
                 cout << "4) Añadir un socio" << endl;
-                cout << "0) Volver" << endl;
+                cout << "0) Volver al menú principal" << endl;
                 cout << "Opción N°: ";
                 cin >> subOpcion;
 
@@ -49,7 +53,6 @@ int main() {
                         Socio nuevoSocio;
                         nuevoSocio.CrearSocio();
                         archivoSocio.AgregarRegistro(nuevoSocio);
-                        cout << "Socio agregado con éxito." << endl;
                         break;
                     }
                     case 0:
@@ -59,6 +62,15 @@ int main() {
                 }
                 break;
             }
+            case 2: {
+            Libro lib;
+                   cout << "Menú Libros " << endl;
+                   cout << "Cargar un libro" << endl;
+                   lib.CargarLibro();
+                   lib.MostrarLibro();
+                   break;
+            }
+
             case 0:
                 cout << "Saliendo del programa." << endl;
                 break;

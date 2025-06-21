@@ -4,6 +4,38 @@
 using namespace std;
 
 int ArchivoSocio::AgregarRegistro(Socio soc){
+
+    //para controlar que no exista el ID
+    bool idRepetido=false;
+    FILE* archivoSocioLectura = fopen("socios.dat","rb");
+    if (archivoSocioLectura !=nullptr) {
+        Socio socioGuardado;
+        while (fread(&socioGuardado, sizeof(Socio),1,archivoSocioLectura) == 1){
+            if (socioGuardado.getId() == soc.getId()) {
+                cout << "Id repetido, no se puede guardar el socio." << endl;
+                idRepetido=true;
+                fclose(archivoSocioLectura);
+                return -2;
+            }
+        }
+        fclose(archivoSocioLectura);
+    }
+
+    // para controlar que el mail tenga un @
+    bool tieneArroba = false;
+    const char* email = soc.getEmail();
+    for (int i = 0; email[i] != '\0'; i++) {
+        if (email[i] == '@') {
+            tieneArroba = true;
+            break;
+        }
+    }
+
+if (!tieneArroba) {
+    cout << "El formato del email es incorrecto. Debe contener @. No se podrá guardar." << endl;
+}
+
+
     FILE *pSocio;
     pSocio=fopen("socios.dat", "ab");
     if(pSocio==nullptr) {
@@ -11,14 +43,18 @@ int ArchivoSocio::AgregarRegistro(Socio soc){
         return -1;
     }
 
-    fwrite(&soc, sizeof soc, 1, pSocio);
+    if (tieneArroba == true && idRepetido == false){
+        fwrite(&soc, sizeof soc, 1, pSocio);
+        cout << "Socio guardado correctamente." << endl;
+    }
 
     fclose(pSocio);
+
 
     return 0;
 }
 
-bool ArchivoSocio::ListarRegistros(){
+bool ArchivoSocio::ListarRegistros(){ // esta no la estamos usando mas
     Socio soc;
     FILE *pSocio;
     pSocio=fopen("socios.dat", "rb");

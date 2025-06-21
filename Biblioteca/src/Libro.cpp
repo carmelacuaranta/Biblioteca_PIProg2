@@ -1,0 +1,95 @@
+#include "Libro.h"
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+Libro::Libro() {
+    libroId = 0;
+    isbn = 0;
+    titulo[0] = '\0';
+    autor[0] = '\0';
+    genero[0] = '\0';
+    cantEjemplares = 0;
+    fechaPublicacion = 0;
+}
+
+Libro::Libro(int _libroId, int _isbn, const char* _titulo, const char* _autor,
+             const char* _genero, int _cantEjemplares, int _fechaPublicacion) {
+    libroId = _libroId;
+    isbn = _isbn;
+    strncpy(titulo, _titulo, sizeof(titulo));
+    titulo[sizeof(titulo) - 1] = '\0';
+    strncpy(autor, _autor, sizeof(autor));
+    autor[sizeof(autor) - 1] = '\0';
+    strncpy(genero, _genero, sizeof(genero));
+    genero[sizeof(genero) - 1] = '\0';
+    cantEjemplares = _cantEjemplares;
+    fechaPublicacion = _fechaPublicacion;
+}
+
+//getters
+int Libro::getLibroId() { return libroId; }
+int Libro::getIsbn() { return isbn; }
+const char* Libro::getTitulo() { return titulo; }
+const char* Libro::getAutor() { return autor; }
+const char* Libro::getGenero() { return genero; }
+int Libro::getCantEjemplares() { return cantEjemplares; }
+int Libro::getFechaPublicacion() { return fechaPublicacion; }
+
+//setters
+void Libro::setLibroId(int id) { libroId = id; }
+void Libro::setIsbn(int i) { isbn = i; }
+void Libro::setTitulo(const char* t) {
+    strncpy(titulo, t, sizeof(titulo));
+    titulo[sizeof(titulo) - 1] = '\0';
+}
+void Libro::setAutor(const char* a) {
+    strncpy(autor, a, sizeof(autor));
+    autor[sizeof(autor) - 1] = '\0';
+}
+void Libro::setGenero(const char* g) {
+    strncpy(genero, g, sizeof(genero));
+    genero[sizeof(genero) - 1] = '\0';
+}
+void Libro::setCantEjemplares(int c) { cantEjemplares = c; }
+void Libro::setFechaPublicacion(int f) { fechaPublicacion = f; }
+
+void Libro::CargarLibro(){
+    cout << "Ingrese ID: ";
+    cin >> libroId;
+    cin.ignore();
+
+    cout << "Ingrese número de ISBN: ";
+    cin >> isbn;
+    cin.ignore();
+
+    cout << "Ingrese Título: ";
+    cin.getline(titulo, sizeof(titulo));
+
+    cout << "Ingrese Autor: ";
+    cin.getline(autor, sizeof(autor));
+
+    cout << "Ingrese Género: ";
+    cin.getline(genero, sizeof(genero));
+
+    cout << "Ingrese cantidad de ejemplares: ";
+    cin >> cantEjemplares;
+    cin.ignore();
+
+    cout << "Ingrese fecha de publicación: ";
+    cin >> fechaPublicacion;
+    cin.ignore();
+
+}
+
+void Libro::MostrarLibro() {
+    cout << "ID: " << libroId << endl;
+    cout << "ISBN: " << isbn << endl;
+    cout << "Título: " << titulo << endl;
+    cout << "Autor: " << autor << endl;
+    cout << "Género: " << genero << endl;
+    cout << "Cantidad de ejemplares: " << cantEjemplares << endl;
+    cout << "Fecha de Publicación: " << fechaPublicacion << endl;
+}
+
+

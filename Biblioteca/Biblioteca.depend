@@ -6,16 +6,17 @@
 
 1750439934 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\socio.h
 
-1750438174 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
+1750542434 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
 	<iostream>
 	"Socio.h"
+	"Libro.h"
 	"ArchivoSocio.h"
 
 1747692813 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp
 	"Socio.h"
 	<iostream>
 
-1750439934 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
+1750538983 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"Socio.h"
 	<iostream>
@@ -24,4 +25,11 @@
 1750439934 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivosocio.h
 	"Socio.h"
 	<cstring>
+
+1750541866 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\libro.cpp
+	"Libro.h"
+	<iostream>
+	<cstring>
+
+1750541757 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\libro.h
 
