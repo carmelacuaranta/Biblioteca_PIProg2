@@ -94,7 +94,7 @@ int ArchivoSocio::ListarSocios() {
 bool ArchivoSocio::BuscarSocioPorID(int idBuscado) {
     FILE* p = fopen("socios.dat", "rb");
     if (p == nullptr) {
-        std::cout << "No se pudo abrir el archivo.\n";
+        cout << "No se pudo abrir el archivo.\n";
         return false;
     }
 
@@ -108,7 +108,7 @@ bool ArchivoSocio::BuscarSocioPorID(int idBuscado) {
         }
     }
 
-    std::cout << "No se encontró un socio con ese ID.\n";
+    cout << "No se encontró un socio con ese ID.\n";
     fclose(p);
     return false;
 }
