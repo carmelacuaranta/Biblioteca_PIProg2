@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+//hola manola
+
 int ArchivoLibro::AgregarLibro(Libro lib){
     FILE *pLibro;
     pLibro=fopen("libros.dat", "ab");
