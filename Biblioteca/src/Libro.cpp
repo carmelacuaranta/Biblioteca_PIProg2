@@ -54,42 +54,42 @@ void Libro::setGenero(const char* g) {
 void Libro::setCantEjemplares(int c) { cantEjemplares = c; }
 void Libro::setFechaPublicacion(int f) { fechaPublicacion = f; }
 
-void Libro::CargarLibro(){
+void Libro::agregarLibro(){
     cout << "Ingrese ID: ";
     cin >> libroId;
     cin.ignore();
 
-    cout << "Ingrese número de ISBN: ";
+    cout << "Ingrese numero de ISBN: ";
     cin >> isbn;
     cin.ignore();
 
-    cout << "Ingrese Título: ";
+    cout << "Ingrese Titulo: ";
     cin.getline(titulo, sizeof(titulo));
 
     cout << "Ingrese Autor: ";
     cin.getline(autor, sizeof(autor));
 
-    cout << "Ingrese Género: ";
+    cout << "Ingrese Genero: ";
     cin.getline(genero, sizeof(genero));
 
     cout << "Ingrese cantidad de ejemplares: ";
     cin >> cantEjemplares;
     cin.ignore();
 
-    cout << "Ingrese fecha de publicación: ";
+    cout << "Ingrese fecha de publicacion: ";
     cin >> fechaPublicacion;
     cin.ignore();
 
 }
 
-void Libro::MostrarLibro() {
+void Libro::mostrarLibro() {
     cout << "ID: " << libroId << endl;
     cout << "ISBN: " << isbn << endl;
-    cout << "Título: " << titulo << endl;
+    cout << "Titulo: " << titulo << endl;
     cout << "Autor: " << autor << endl;
-    cout << "Género: " << genero << endl;
+    cout << "Genero: " << genero << endl;
     cout << "Cantidad de ejemplares: " << cantEjemplares << endl;
-    cout << "Fecha de Publicación: " << fechaPublicacion << endl;
+    cout << "Fecha de Publicacion: " << fechaPublicacion << endl;
 }
 
 

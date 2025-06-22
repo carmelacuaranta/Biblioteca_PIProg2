@@ -40,8 +40,8 @@ public:
     void setEmail(const char* emailSocio);
     void setFechaNac(const char* fechaSocio);
 
-    void CrearSocio();
-    void MostrarSocio();
+    void agregarSocio();
+    void mostrarSocio();
 };
 
 #endif // SOCIO_H

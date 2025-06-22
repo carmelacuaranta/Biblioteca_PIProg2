@@ -17,10 +17,10 @@ public:
         tamanioRegistro = sizeof(Libro);
     }
 
-    int AgregarLibro(Libro lib);
-    bool ListarLibros();
-    bool BuscarLibroPorID(int idBuscado);
-    bool BuscarLibroPorTitulo(const char* tituloBuscado);
+    int agregarLibro(Libro lib);
+    bool listarLibros();
+    bool buscarLibroPorID(int idBuscado);
+    bool buscarLibroPorTitulo(const char* tituloBuscado);
 };
 
 #endif // ARCHIVOLIBRO_H

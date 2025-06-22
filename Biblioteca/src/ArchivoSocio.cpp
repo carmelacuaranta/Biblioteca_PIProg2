@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-int ArchivoSocio::AgregarRegistro(Socio soc){
+int ArchivoSocio::agregarRegistro(Socio soc){
 
     //para controlar que no exista el ID
     bool idRepetido=false;
@@ -32,7 +32,7 @@ int ArchivoSocio::AgregarRegistro(Socio soc){
     }
 
 if (!tieneArroba) {
-    cout << "El formato del email es incorrecto. Debe contener @. No se podrá guardar." << endl;
+    cout << "El formato del email es incorrecto. Debe contener @. No se podra guardar." << endl;
 }
 
 
@@ -54,7 +54,9 @@ if (!tieneArroba) {
     return 0;
 }
 
-bool ArchivoSocio::ListarRegistros(){ // esta no la estamos usando mas
+/* esta función no la estamos usando mas
+
+bool ArchivoSocio::listarRegistros(){
     Socio soc;
     FILE *pSocio;
     pSocio=fopen("socios.dat", "rb");
@@ -65,14 +67,15 @@ bool ArchivoSocio::ListarRegistros(){ // esta no la estamos usando mas
     }
 
     fread(&soc, sizeof soc, 1, pSocio);
-    soc.MostrarSocio();
+    soc.mostrarSocio();
 
     fclose(pSocio);
 
     return 0;
 }
+*/
 
-int ArchivoSocio::ListarSocios() {
+int ArchivoSocio::listarSocios() {
     FILE* pSocio = fopen("socios.dat", "rb");
     if (pSocio == nullptr) {
         cout << "Error de archivo." << endl;
@@ -83,7 +86,7 @@ int ArchivoSocio::ListarSocios() {
     cout << "LISTADO DE SOCIOS:" << endl << "-------------------" << endl;
 
     while (fread(&soc, sizeof(Socio), 1, pSocio) == 1) {
-        soc.MostrarSocio();
+        soc.mostrarSocio();
         cout << "-------------------" << endl;
     }
 
@@ -91,7 +94,7 @@ int ArchivoSocio::ListarSocios() {
     return 0;
 }
 
-bool ArchivoSocio::BuscarSocioPorID(int idBuscado) {
+bool ArchivoSocio::buscarSocioPorID(int idBuscado) {
     FILE* p = fopen("socios.dat", "rb");
     if (p == nullptr) {
         cout << "No se pudo abrir el archivo.\n";
@@ -102,20 +105,20 @@ bool ArchivoSocio::BuscarSocioPorID(int idBuscado) {
     while (fread(&soc, sizeof(Socio), 1, p) == 1) {
         if (soc.getId() == idBuscado) {
             cout << "Socio encontrado: " << endl;
-            soc.MostrarSocio();
+            soc.mostrarSocio();
             fclose(p);
             return true;
         }
     }
 
-    cout << "No se encontró un socio con ese ID.\n";
+    cout << "No se encontro un socio con ese ID.\n";
     fclose(p);
     return false;
 }
 
 #include <cstring> // Para strcmp
 
-bool ArchivoSocio::BuscarSocioPorNombre(const char* nombreBuscado) {
+bool ArchivoSocio::buscarSocioPorNombre(const char* nombreBuscado) {
     FILE* p = fopen("socios.dat", "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
@@ -128,13 +131,13 @@ bool ArchivoSocio::BuscarSocioPorNombre(const char* nombreBuscado) {
     while (fread(&soc, sizeof(Socio), 1, p) == 1) {
         if (strcmp(soc.getNombre(), nombreBuscado) == 0) {
             cout << "Socio encontrado: " << endl;
-            soc.MostrarSocio();
+            soc.mostrarSocio();
             encontrado = true;
         }
     }
 
     if (!encontrado)
-        cout << "No se encontró un socio con ese nombre." << endl;
+        cout << "No se encontro un socio con ese nombre." << endl;
 
     fclose(p);
     return encontrado;

@@ -13,33 +13,33 @@ int main() {
 
     do {
         cout << "\n========= BIBLIOTECA =========" << endl;
-        cout << "1) Menú Socios" << endl;
-        cout << "2) Menú Libros" << endl;
+        cout << "1) Menu Socios" << endl;
+        cout << "2) Menu Libros" << endl;
         cout << "0) Salir" << endl;
-        cout << "Opción N°: ";
+        cout << "Opcion Nro: ";
         cin >> opcion;
 
         switch (opcion) {
             case 1: {
                 int subOpcion = 0;
-                cout << "\n--- Menú Socios ---" << endl;
+                cout << "\n--- Menu Socios ---" << endl;
                 cout << "1) Ver lista de socios" << endl;
-                cout << "2) Buscar un socio por ID" << endl;
-                cout << "3) Buscar un socio por nombre" << endl;
-                cout << "4) Añadir un socio" << endl;
-                cout << "0) Volver al menú principal" << endl;
-                cout << "Opción N°: ";
+                cout << "2) Buscar socio por ID" << endl;
+                cout << "3) Buscar socio por nombre" << endl;
+                cout << "4) Agregar socio" << endl;
+                cout << "0) Volver al menu principal" << endl;
+                cout << "Opcion Nro: ";
                 cin >> subOpcion;
 
                 switch (subOpcion) {
                     case 1:
-                        archivoSocio.ListarSocios();
+                        archivoSocio.listarSocios();
                         break;
                     case 2: {
                         int op = 0;
                         cout << "Ingrese el ID que desea buscar: ";
                         cin >> op;
-                        archivoSocio.BuscarSocioPorID(op);
+                        archivoSocio.buscarSocioPorID(op);
                         break;
                     }
                     case 3: {
@@ -47,75 +47,74 @@ int main() {
                         cout << "Ingrese el nombre a buscar: ";
                         cin.ignore();
                         cin.getline(nombre, sizeof(nombre));
-                        archivoSocio.BuscarSocioPorNombre(nombre);
+                        archivoSocio.buscarSocioPorNombre(nombre);
                         break;
                     }
                     case 4: {
                         Socio nuevoSocio;
-                        nuevoSocio.CrearSocio();
-                        archivoSocio.AgregarRegistro(nuevoSocio);
+                        nuevoSocio.agregarSocio();
+                        archivoSocio.agregarRegistro(nuevoSocio);
                         break;
                     }
                     case 0:
                         break;
                     default:
-                        cout << "Opción inválida." << endl;
+                        cout << "Opcion invalida." << endl;
                 }
                 break;
             }
 
             case 2: {
                 int subOpcionLibros = 0;
-                cout << "\n--- Menú Libros ---" << endl;
+                cout << "\n--- Menu Libros ---" << endl;
                 cout << "1) Ver lista de libros" << endl;
-                cout << "2) Añadir un libro" << endl;
-                cout << "3) Buscar un libro por ID" << endl;
-                cout << "4) Buscar un libro por título" << endl;
-                cout << "0) Volver al menú principal" << endl;
-                cout << "Opción N°: ";
+                cout << "2) Agregar libro" << endl;
+                cout << "3) Buscar libro por ID" << endl;
+                cout << "4) Buscar libro por titulo" << endl;
+                cout << "0) Volver al menu principal" << endl;
+                cout << "Opcion Nro: ";
                 cin >> subOpcionLibros;
 
                 switch (subOpcionLibros) {
                     case 1:
-                        archivoLibro.ListarLibros();
+                        archivoLibro.listarLibros();
                         break;
                     case 2: {
                         Libro lib;
-                        lib.CargarLibro();
-                        archivoLibro.AgregarLibro(lib);
+                        lib.agregarLibro();
+                        archivoLibro.agregarLibro(lib);
                         break;
                     }
                     case 3: {
                         int idLibro;
                         cout << "Ingrese el ID del libro que desea buscar: " << endl;
                         cin >> idLibro;
-                        archivoLibro.BuscarLibroPorID(idLibro);
+                        archivoLibro.buscarLibroPorID(idLibro);
                         break;
                     }
                     case 4: {
                         char tituloBusca[30];
-                        cout << "Ingrese el título del libro a buscar: " << endl;
+                        cout << "Ingrese el titulo del libro a buscar: " << endl;
                         cin.ignore();
                         cin.getline(tituloBusca, sizeof(tituloBusca));
-                        archivoLibro.BuscarLibroPorTitulo(tituloBusca);
+                        archivoLibro.buscarLibroPorTitulo(tituloBusca);
                         break;
                     }
                     case 0:
                         break;
                     default:
-                        cout << "Opción inválida." << endl;
+                        cout << "Opcion invalida." << endl;
                 }
                 break;
             }
 
             case 0:
-                cout << "\nSaliendo del programa. ¡Hasta luego!" << endl;
+                cout << "\nSaliendo del programa. Hasta luego." << endl;
                 break;
             default:
-                cout << "Opción inválida." << endl;
+                cout << "Opcion invalida." << endl;
         }
     } while (opcion != 0);
 
     return 0;
 }
-

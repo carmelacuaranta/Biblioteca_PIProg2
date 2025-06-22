@@ -37,8 +37,8 @@ public:
     void setCantEjemplares(int c);
     void setFechaPublicacion(int f);
 
-    void CargarLibro();
-    void MostrarLibro();
+    void agregarLibro();
+    void mostrarLibro();
 };
 
 #endif // LIBRO_H

@@ -16,11 +16,11 @@ public:
         tamanioRegistro = sizeof(Socio);
     }
 
-    int AgregarRegistro(Socio soc);
-    bool ListarRegistros();
-    int ListarSocios();
-    bool BuscarSocioPorID(int idBuscado);
-    bool BuscarSocioPorNombre(const char* nombreBuscado);
+    int agregarRegistro(Socio soc);
+    bool listarRegistros();
+    int listarSocios();
+    bool buscarSocioPorID(int idBuscado);
+    bool buscarSocioPorNombre(const char* nombreBuscado);
 };
 
 #endif // ARCHIVOSOCIO_H

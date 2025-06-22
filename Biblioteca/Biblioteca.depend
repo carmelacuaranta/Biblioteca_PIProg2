@@ -43,3 +43,43 @@
 	"Libro.h"
 	<cstring>
 
+1750629697 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\main.cpp
+	<iostream>
+	"Socio.h"
+	"Libro.h"
+	"ArchivoSocio.h"
+	"ArchivoLibro.h"
+
+1750629466 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\socio.h
+
+1750629466 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\libro.h
+
+1750629466 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivosocio.h
+	"Socio.h"
+	<cstring>
+
+1750629466 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivolibro.h
+	"Libro.h"
+	<cstring>
+
+1750629617 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivolibro.cpp
+	"ArchivoLibro.h"
+	"Libro.h"
+	<iostream>
+
+1750629662 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivosocio.cpp
+	"ArchivoSocio.h"
+	"Socio.h"
+	<iostream>
+	<cstring>
+
+1750629833 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\libro.cpp
+	"Libro.h"
+	<iostream>
+	<cstring>
+
+1750629874 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\socio.cpp
+	"Socio.h"
+	<iostream>
+	<cstring>
+

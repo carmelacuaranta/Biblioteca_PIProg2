@@ -5,7 +5,7 @@ using namespace std;
 
 //hola manola
 
-int ArchivoLibro::AgregarLibro(Libro lib){
+int ArchivoLibro::agregarLibro(Libro lib){
     FILE *pLibro;
     pLibro=fopen("libros.dat", "ab");
     if(pLibro==nullptr) {
@@ -22,7 +22,7 @@ int ArchivoLibro::AgregarLibro(Libro lib){
     return 0;
 }
 
-bool ArchivoLibro::ListarLibros() {
+bool ArchivoLibro::listarLibros() {
     FILE* pLibro = fopen("libros.dat", "rb");
     if (pLibro == nullptr) {
         cout << "Error de archivo." << endl;
@@ -33,7 +33,7 @@ bool ArchivoLibro::ListarLibros() {
     cout << "LISTADO DE LIBROS:" << endl << "-------------------" << endl;
 
     while (fread(&lib, sizeof(Libro), 1, pLibro) == 1) {
-        lib.MostrarLibro();
+        lib.mostrarLibro();
         cout << "-------------------" << endl;
     }
 
@@ -41,7 +41,7 @@ bool ArchivoLibro::ListarLibros() {
     return 0;
 }
 
-bool ArchivoLibro::BuscarLibroPorID(int idBuscado){
+bool ArchivoLibro::buscarLibroPorID(int idBuscado){
     FILE* p = fopen("libros.dat", "rb");
     if (p == nullptr) {
         cout << "No se pudo abrir el archivo.";
@@ -52,18 +52,18 @@ bool ArchivoLibro::BuscarLibroPorID(int idBuscado){
     while (fread(&lib, sizeof(Libro), 1, p) == 1) {
         if (lib.getLibroId() == idBuscado) {
             cout << "Libro encontrado: " << endl;
-            lib.MostrarLibro();
+            lib.mostrarLibro();
             fclose(p);
             return true;
         }
     }
 
-    cout << "No se encontró un socio con ese ID.";
+    cout << "No se encontro un socio con ese ID.";
     fclose(p);
     return false;
 }
 
-bool ArchivoLibro::BuscarLibroPorTitulo(const char* tituloBuscado){
+bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
     FILE* p = fopen("libros.dat", "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
@@ -76,13 +76,13 @@ bool ArchivoLibro::BuscarLibroPorTitulo(const char* tituloBuscado){
     while (fread(&lib, sizeof(Libro), 1, p) == 1) {
         if (strcmp(lib.getTitulo(), tituloBuscado) == 0) {
             cout << "Libro encontrado: " << endl;
-            lib.MostrarLibro();
+            lib.mostrarLibro();
             encontrado = true;
         }
     }
 
     if (!encontrado)
-        cout << "No se encontró un libro con ese título." << endl;
+        cout << "No se encontro un libro con ese titulo." << endl;
 
     fclose(p);
     return encontrado;

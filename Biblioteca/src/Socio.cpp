@@ -59,12 +59,12 @@ void Socio::setDireccion(const char* direccionSocio) { strncpy(direccion, direcc
 void Socio::setEmail(const char* emailSocio) { strncpy(email, emailSocio, sizeof(email)); email[sizeof(email) - 1] = '\0'; }
 void Socio::setFechaNac(const char* fechaSocio) { strncpy(fechaNac, fechaSocio, sizeof(fechaNac)); fechaNac[sizeof(fechaNac) - 1] = '\0'; }
 
-void Socio::CrearSocio() {
+void Socio::agregarSocio() {
     cout << "Ingrese ID: ";
     cin >> id;
     cin.ignore();
 
-    cout << "Ingrese número de socio: ";
+    cout << "Ingrese numero de socio: ";
     cin >> numSocio;
     cin.ignore();
 
@@ -77,10 +77,10 @@ void Socio::CrearSocio() {
     cout << "Ingrese apellido: ";
     cin.getline(apellido, sizeof(apellido));
 
-    cout << "Ingrese teléfono: ";
+    cout << "Ingrese telefono: ";
     cin.getline(telefono, sizeof(telefono));
 
-    cout << "Ingrese dirección: ";
+    cout << "Ingrese direccion: ";
     cin.getline(direccion, sizeof(direccion));
 
     cout << "Ingrese email: ";
@@ -90,14 +90,14 @@ void Socio::CrearSocio() {
     cin.getline(fechaNac, sizeof(fechaNac));
 }
 
-void Socio::MostrarSocio() {
+void Socio::mostrarSocio() {
     cout << "ID: " << id << endl;
-    cout << "Número de Socio: " << numSocio << endl;
+    cout << "Numero de Socio: " << numSocio << endl;
     cout << "DNI: " << dni << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Apellido: " << apellido << endl;
-    cout << "Teléfono: " << telefono << endl;
-    cout << "Dirección: " << direccion << endl;
+    cout << "Telefono: " << telefono << endl;
+    cout << "Direccion: " << direccion << endl;
     cout << "Email: " << email << endl;
     cout << "Fecha de Nacimiento: " << fechaNac << endl;
 }
