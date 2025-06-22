@@ -19,8 +19,8 @@ prestó, a qué socio se lo prestó, cuál fue el día del préstamo y cuál fue
 
 A partir de la descripción se pide:
 -----------------------------------
-•	Definir cuáles son los objetos que se necesitan para registrar la información necesaria.
-•	Para cada uno de los objetos, definir cuáles son las propiedades necesarias.
-•	Definir el tipo de dato que corresponda para representar cada propiedad.
+>	Definir cuáles son los objetos que se necesitan para registrar la información necesaria.
+>	Para cada uno de los objetos, definir cuáles son las propiedades necesarias.
+>	Definir el tipo de dato que corresponda para representar cada propiedad.
 
 Luego determinar cuáles son las clases y cuáles son los archivos necesarios para el sistema.
