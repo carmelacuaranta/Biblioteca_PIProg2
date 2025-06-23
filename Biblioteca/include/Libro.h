@@ -1,5 +1,6 @@
 #ifndef LIBRO_H
 #define LIBRO_H
+#include "Fecha.h"
 
 class Libro {
 private:
@@ -9,15 +10,13 @@ private:
     char autor[50];
     char genero[30];
     int cantEjemplares;
-    int fechaPublicacion;
+    Fecha fechaPublicacion;
 
 public:
-    // Constructor por defecto
     Libro();
 
-    // Constructor con parámetros
     Libro(int _libroId, int _isbn, const char* _titulo, const char* _autor,
-          const char* _genero, int _cantEjemplares, int _fechaPublicacion);
+          const char* _genero, int _cantEjemplares, Fecha _fechaPublicacion);
 
     // Getters
     int getLibroId();
@@ -26,7 +25,7 @@ public:
     const char* getAutor();
     const char* getGenero();
     int getCantEjemplares();
-    int getFechaPublicacion();
+    Fecha getFechaPublicacion();
 
     // Setters
     void setLibroId(int id);
@@ -35,7 +34,7 @@ public:
     void setAutor(const char* a);
     void setGenero(const char* g);
     void setCantEjemplares(int c);
-    void setFechaPublicacion(int f);
+    void setFechaPublicacion(Fecha f);
 
     void agregarLibro();
     void mostrarLibro();

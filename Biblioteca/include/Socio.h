@@ -1,5 +1,6 @@
 #ifndef SOCIO_H
 #define SOCIO_H
+#include "Fecha.h"
 
 class Socio {
 private:
@@ -11,12 +12,12 @@ private:
     char telefono[20];
     char direccion[50];
     char email[50];
-    char fechaNac[11];
+    Fecha fechaNac;
 
 public:
     Socio();
     Socio(int id, int numSocio, const char* dni, const char* nombre, const char* apellido,
-          const char* telefono, const char* direccion, const char* email, const char* fechaNac);
+          const char* telefono, const char* direccion, const char* email, Fecha fechaNac);
 
     // Getters
     int getId();
@@ -27,7 +28,7 @@ public:
     const char* getTelefono();
     const char* getDireccion();
     const char* getEmail();
-    const char* getFechaNac();
+    Fecha getFechaNac();
 
     // Setters
     void setId(int idSocio);
@@ -38,7 +39,7 @@ public:
     void setTelefono(const char* telSocio);
     void setDireccion(const char* direccionSocio);
     void setEmail(const char* emailSocio);
-    void setFechaNac(const char* fechaSocio);
+    void setFechaNac(Fecha fechaSocio);
 
     void agregarSocio();
     void mostrarSocio();

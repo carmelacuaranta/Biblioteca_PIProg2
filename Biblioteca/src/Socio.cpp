@@ -13,11 +13,11 @@ Socio::Socio() {
     strcpy(telefono, "");
     strcpy(direccion, "");
     strcpy(email, "");
-    strcpy(fechaNac, "");
+    fechaNac = Fecha();
 }
 
 Socio::Socio(int id, int numSocio, const char* dni, const char* nombre, const char* apellido,
-             const char* telefono, const char* direccion, const char* email, const char* fechaNac) {
+             const char* telefono, const char* direccion, const char* email, Fecha fechaNac) {
     this->id = id;
     this->numSocio = numSocio;
     strncpy(this->dni, dni, sizeof(this->dni));
@@ -26,7 +26,7 @@ Socio::Socio(int id, int numSocio, const char* dni, const char* nombre, const ch
     strncpy(this->telefono, telefono, sizeof(this->telefono));
     strncpy(this->direccion, direccion, sizeof(this->direccion));
     strncpy(this->email, email, sizeof(this->email));
-    strncpy(this->fechaNac, fechaNac, sizeof(this->fechaNac));
+    this->fechaNac=fechaNac;
 
     this->dni[sizeof(this->dni) - 1] = '\0';
     this->nombre[sizeof(this->nombre) - 1] = '\0';
@@ -34,7 +34,7 @@ Socio::Socio(int id, int numSocio, const char* dni, const char* nombre, const ch
     this->telefono[sizeof(this->telefono) - 1] = '\0';
     this->direccion[sizeof(this->direccion) - 1] = '\0';
     this->email[sizeof(this->email) - 1] = '\0';
-    this->fechaNac[sizeof(this->fechaNac) - 1] = '\0';
+
 }
 
 // Getters
@@ -46,7 +46,7 @@ const char* Socio::getApellido() { return apellido; }
 const char* Socio::getTelefono() { return telefono; }
 const char* Socio::getDireccion() { return direccion; }
 const char* Socio::getEmail() { return email; }
-const char* Socio::getFechaNac() { return fechaNac; }
+Fecha Socio::getFechaNac() { return fechaNac; }
 
 // Setters
 void Socio::setId(int idSocio) { id = idSocio; }
@@ -57,9 +57,10 @@ void Socio::setApellido(const char* apellidoSocio) { strncpy(apellido, apellidoS
 void Socio::setTelefono(const char* telSocio) { strncpy(telefono, telSocio, sizeof(telefono)); telefono[sizeof(telefono) - 1] = '\0'; }
 void Socio::setDireccion(const char* direccionSocio) { strncpy(direccion, direccionSocio, sizeof(direccion)); direccion[sizeof(direccion) - 1] = '\0'; }
 void Socio::setEmail(const char* emailSocio) { strncpy(email, emailSocio, sizeof(email)); email[sizeof(email) - 1] = '\0'; }
-void Socio::setFechaNac(const char* fechaSocio) { strncpy(fechaNac, fechaSocio, sizeof(fechaNac)); fechaNac[sizeof(fechaNac) - 1] = '\0'; }
+void Socio::setFechaNac(Fecha fechaSocio) { fechaNac = fechaSocio; }
 
 void Socio::agregarSocio() {
+    int aux = 0;
     cout << "Ingrese ID: ";
     cin >> id;
     cin.ignore();
@@ -86,8 +87,15 @@ void Socio::agregarSocio() {
     cout << "Ingrese email: ";
     cin.getline(email, sizeof(email));
 
-    cout << "Ingrese fecha de nacimiento: ";
-    cin.getline(fechaNac, sizeof(fechaNac));
+    cout << "Ingrese anio de nacimiento: ";
+    cin >> aux;
+    this->fechaNac.setAnio(aux);
+    cout << "Ingrese mes de nacimiento: ";
+    cin >> aux;
+    this->fechaNac.setMes(aux);
+    cout << "Ingrese dia de nacimiento: ";
+    cin >> aux;
+    this->fechaNac.setDia(aux);
 }
 
 void Socio::mostrarSocio() {
@@ -99,6 +107,6 @@ void Socio::mostrarSocio() {
     cout << "Telefono: " << telefono << endl;
     cout << "Direccion: " << direccion << endl;
     cout << "Email: " << email << endl;
-    cout << "Fecha de Nacimiento: " << fechaNac << endl;
+    cout << "Fecha de Nacimiento: " << fechaNac.toString() << endl;
 }
 

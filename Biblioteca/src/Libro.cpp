@@ -10,11 +10,11 @@ Libro::Libro() {
     autor[0] = '\0';
     genero[0] = '\0';
     cantEjemplares = 0;
-    fechaPublicacion = 0;
+    fechaPublicacion = Fecha();
 }
 
 Libro::Libro(int _libroId, int _isbn, const char* _titulo, const char* _autor,
-             const char* _genero, int _cantEjemplares, int _fechaPublicacion) {
+             const char* _genero, int _cantEjemplares, Fecha _fechaPublicacion) {
     libroId = _libroId;
     isbn = _isbn;
     strncpy(titulo, _titulo, sizeof(titulo));
@@ -34,7 +34,7 @@ const char* Libro::getTitulo() { return titulo; }
 const char* Libro::getAutor() { return autor; }
 const char* Libro::getGenero() { return genero; }
 int Libro::getCantEjemplares() { return cantEjemplares; }
-int Libro::getFechaPublicacion() { return fechaPublicacion; }
+Fecha Libro::getFechaPublicacion() { return fechaPublicacion; }
 
 //setters
 void Libro::setLibroId(int id) { libroId = id; }
@@ -52,9 +52,10 @@ void Libro::setGenero(const char* g) {
     genero[sizeof(genero) - 1] = '\0';
 }
 void Libro::setCantEjemplares(int c) { cantEjemplares = c; }
-void Libro::setFechaPublicacion(int f) { fechaPublicacion = f; }
+void Libro::setFechaPublicacion(Fecha f) { fechaPublicacion = f; }
 
 void Libro::agregarLibro(){
+    int aux = 0;
     cout << "Ingrese ID: ";
     cin >> libroId;
     cin.ignore();
@@ -76,9 +77,15 @@ void Libro::agregarLibro(){
     cin >> cantEjemplares;
     cin.ignore();
 
-    cout << "Ingrese fecha de publicacion: ";
-    cin >> fechaPublicacion;
-    cin.ignore();
+    cout << "Ingrese anio de publicacion: ";
+    cin >> aux;
+    this->fechaPublicacion.setAnio(aux);
+    cout << "Ingrese mes de publicacion: ";
+    cin >> aux;
+    this->fechaPublicacion.setMes(aux);
+    cout << "Ingrese dia de publicacion: ";
+    cin >> aux;
+    this->fechaPublicacion.setDia(aux);
 
 }
 
@@ -89,7 +96,7 @@ void Libro::mostrarLibro() {
     cout << "Autor: " << autor << endl;
     cout << "Genero: " << genero << endl;
     cout << "Cantidad de ejemplares: " << cantEjemplares << endl;
-    cout << "Fecha de Publicacion: " << fechaPublicacion << endl;
+    cout << "Fecha de Publicacion: " << fechaPublicacion.toString() << endl;
 }
 
 
