@@ -1,8 +1,16 @@
 #include <iostream>
 #include "ArchivoPrestamo.h"
+#include "ArchivoSocio.h"
+#include "ArchivoLibro.h"
 using namespace std;
 
 int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
+    //para avlidar que existan los id de socio y libro
+    ArchivoSocio soc;
+    ArchivoLibro lib;
+    bool idSocioValido = soc.buscarSocioPorID(pres.getIdSocio());
+    bool idLibroValido = lib.buscarLibroPorID(pres.getIdLibro());
+
     FILE *pPrestamo;
     pPrestamo=fopen("Prestamos.dat", "ab");
     if(pPrestamo==nullptr) {
@@ -10,8 +18,12 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
         return -1;
     }
 
+    if (idSocioValido == true && idLibroValido == true){
         fwrite(&pres, sizeof pres, 1, pPrestamo);
         cout << "Prestamo registrdo correctamente." << endl;
+    } else {
+        cout << "No se puede realizar el préstamo." << endl;
+    }
 
     fclose(pPrestamo);
 

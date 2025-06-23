@@ -7,12 +7,13 @@
 1750686885 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\socio.h
 	"Fecha.h"
 
-1750690782 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
+1750715977 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
 	<iostream>
 	"Socio.h"
 	"Libro.h"
 	"ArchivoSocio.h"
 	"ArchivoLibro.h"
+	"ArchivoPrestamo.h"
 	"Prestamo.h"
 
 1747692813 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp

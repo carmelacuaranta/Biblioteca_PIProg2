@@ -58,7 +58,7 @@ bool ArchivoLibro::buscarLibroPorID(int idBuscado){
         }
     }
 
-    cout << "No se encontro un socio con ese ID.";
+    cout << "No se encontro un libro con ese ID." << endl;
     fclose(p);
     return false;
 }
