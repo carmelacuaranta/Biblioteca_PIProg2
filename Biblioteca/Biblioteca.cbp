@@ -35,6 +35,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/ArchivoLibro.h" />
+		<Unit filename="include/ArchivoPrestamo.h" />
 		<Unit filename="include/ArchivoSocio.h" />
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Libro.h" />
@@ -42,6 +43,7 @@
 		<Unit filename="include/Socio.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ArchivoLibro.cpp" />
+		<Unit filename="src/ArchivoPrestamo.cpp" />
 		<Unit filename="src/ArchivoSocio.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/Libro.cpp" />

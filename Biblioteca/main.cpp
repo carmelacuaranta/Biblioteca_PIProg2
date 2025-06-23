@@ -3,6 +3,7 @@
 #include "Libro.h"
 #include "ArchivoSocio.h"
 #include "ArchivoLibro.h"
+#include "ArchivoPrestamo.h"
 #include "Prestamo.h"
 
 using namespace std;
@@ -10,6 +11,7 @@ using namespace std;
 int main() {
     ArchivoSocio archivoSocio;
     ArchivoLibro archivoLibro;
+    ArchivoPrestamo archivoPrestamo;
     int opcion = 0;
 
     do {
@@ -112,8 +114,8 @@ int main() {
             case 3: {
                 int subOpcionPrestamos = 0;
                 cout << "\n--- Menu Prestamos ---" << endl;
-                cout << "1) Cargar un Prestamo y verlo" << endl;
-                cout << "2) Agregar Prestamo" << endl;
+                cout << "1) Agregar Prestamo" << endl;
+                cout << "2) Mostrar lista de prestamos" << endl;
                 cout << "3) Buscar Prestamo por ID" << endl;
                 cout << "4) Buscar Prestamo por titulo" << endl;
                 cout << "0) Volver al menu principal" << endl;
@@ -123,12 +125,12 @@ int main() {
                     case 1:{
                         Prestamo prest;
                         prest.cargarPrestamo();
-                        prest.mostrarPrestamo();
+                        archivoPrestamo.agregarPrestamo(prest);
                         break;
                     }
 
                     case 2: {
-                        cout << "En preparación..." << endl;
+                        archivoPrestamo.listarPrestamos();
                         break;
                     }
                     case 3: {

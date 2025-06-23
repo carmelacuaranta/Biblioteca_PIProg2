@@ -18,9 +18,6 @@ class Prestamo
         Prestamo(int idPrestamo, int idLibro, int idSocio, Fecha fechaPrestado, Fecha fechaDevolucion, bool vencido, bool finalizado);
         void mostrarPrestamo();
         void cargarPrestamo();
-        //void listarPrestamos();
-        //void listarVencidos();
-        //void listarPrestados();
 
         // Getters
         int getIdPrestamo();
