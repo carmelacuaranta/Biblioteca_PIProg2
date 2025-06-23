@@ -3,6 +3,7 @@
 #include "Libro.h"
 #include "ArchivoSocio.h"
 #include "ArchivoLibro.h"
+#include "Prestamo.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ int main() {
         cout << "\n========= BIBLIOTECA =========" << endl;
         cout << "1) Menu Socios" << endl;
         cout << "2) Menu Libros" << endl;
+        cout << "3) Menu Prestamos" << endl;
         cout << "0) Salir" << endl;
         cout << "Opcion Nro: ";
         cin >> opcion;
@@ -98,6 +100,43 @@ int main() {
                         cin.ignore();
                         cin.getline(tituloBusca, sizeof(tituloBusca));
                         archivoLibro.buscarLibroPorTitulo(tituloBusca);
+                        break;
+                    }
+                    case 0:
+                        break;
+                    default:
+                        cout << "Opcion invalida." << endl;
+                }
+                break;
+            }
+            case 3: {
+                int subOpcionPrestamos = 0;
+                cout << "\n--- Menu Prestamos ---" << endl;
+                cout << "1) Cargar un Prestamo y verlo" << endl;
+                cout << "2) Agregar Prestamo" << endl;
+                cout << "3) Buscar Prestamo por ID" << endl;
+                cout << "4) Buscar Prestamo por titulo" << endl;
+                cout << "0) Volver al menu principal" << endl;
+                cout << "Opcion Nro: ";
+                cin >> subOpcionPrestamos;
+                switch (subOpcionPrestamos) {
+                    case 1:{
+                        Prestamo prest;
+                        prest.cargarPrestamo();
+                        prest.mostrarPrestamo();
+                        break;
+                    }
+
+                    case 2: {
+                        cout << "En preparación..." << endl;
+                        break;
+                    }
+                    case 3: {
+                        cout << "En preparación..." << endl;
+                        break;
+                    }
+                    case 4: {
+                        cout << "En preparación..." << endl;
                         break;
                     }
                     case 0:

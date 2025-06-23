@@ -88,13 +88,14 @@
 1750687952 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\fecha.h
 	<string>
 
-1750687952 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\fecha.cpp
+1750688306 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\fecha.cpp
 	<iostream>
 	"Fecha.h"
 
-1750686380 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\prestamo.cpp
+1750689768 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\prestamo.cpp
 	<iostream>
 	"Prestamo.h"
 
-1750686103 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\prestamo.h
+1750689768 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\prestamo.h
+	"Fecha.h"
 
