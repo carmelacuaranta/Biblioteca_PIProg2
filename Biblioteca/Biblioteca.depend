@@ -66,7 +66,7 @@
 	"Libro.h"
 	<cstring>
 
-1750807812 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivolibro.cpp
+1750808183 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivolibro.cpp
 	"ArchivoLibro.h"
 	"Libro.h"
 	<iostream>
@@ -171,7 +171,7 @@
 	<iostream>
 	"Prestamo.h"
 
-1750807752 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menu.cpp
+1750807944 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menu.cpp
 	<iostream>
 	"ArchivoSocio.h"
 	"ArchivoLibro.h"

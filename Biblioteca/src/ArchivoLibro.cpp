@@ -80,7 +80,6 @@ bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
             encontrado = true;
         }
     }
-
     if (!encontrado)
         cout << "No se encontro un libro con ese titulo." << endl;
 
