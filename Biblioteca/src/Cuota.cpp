@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include "Cuota.h"
+#include "ArchivoSocio.h"
 
 Cuota::Cuota() {
     idCuota = 0;
@@ -32,20 +33,28 @@ void Cuota::setFecha(Fecha f) { fecha = f; }
 void Cuota::setPagada(bool p) { pagada = p; }
 
 void Cuota::agregarCuota(){
+    //para validar que exista el id del socio
+    ArchivoSocio archivoSoc;
+    bool idSocioValido = false;
+
     int aux = 0;
     cout << "Ingrese ID: ";
     cin >> idCuota;
     cin.ignore();
 
     cout << "Ingrese ID del socio: ";
-    cin >> idSocio;
+    cin >> aux;
     cin.ignore();
+    idSocioValido = archivoSoc.buscarSocioPorID(aux);
+    if (idSocioValido == true ){
+        setIdSocio(aux);
+    }
 
     cout << "Ingrese monto: ";
     cin >> monto;
     cin.ignore();
 
-    cout << "¿Está pagada? para SÍ ingrese 1, para NO, 0: ";
+    cout << "¿Está pagada? para SI ingrese 1, para NO, 0: ";
     cin >> aux;
     cin.ignore();
     switch (aux) {

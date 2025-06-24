@@ -4,6 +4,7 @@
 #include "ArchivoSocio.h"
 #include "ArchivoLibro.h"
 #include "ArchivoPrestamo.h"
+#include "ArchivoCuota.h"
 #include "Prestamo.h"
 #include "Cuota.h"
 
@@ -13,6 +14,7 @@ int main() {
     ArchivoSocio archivoSocio;
     ArchivoLibro archivoLibro;
     ArchivoPrestamo archivoPrestamo;
+    ArchivoCuota archivoCuota;
     int opcion = 0;
 
     do {
@@ -153,10 +155,10 @@ int main() {
             case 4: {
                 int subOpcionCuotas = 0;
                 cout << "\n--- Menu Cuotas ---" << endl;
-                cout << "1) Crear una cuota y verla" << endl;
-                cout << "2) Mostrar lista de cuota" << endl;
+                cout << "1) Cargar una cuota" << endl;
+                cout << "2) Mostrar lista de cuotas" << endl;
                 cout << "3) Buscar cuota por ID" << endl;
-                cout << "4) Buscar cuota por titulo" << endl;
+                cout << "4) Generar cuotas" << endl;
                 cout << "0) Volver al menu principal" << endl;
                 cout << "Opcion Nro: ";
                 cin >> subOpcionCuotas;
@@ -164,12 +166,12 @@ int main() {
                     case 1:{
                         Cuota cuot;
                         cuot.agregarCuota();
-                        cuot.mostrarCuota();
+                        archivoCuota.agregarCuota(cuot);
                         break;
                     }
 
                     case 2: {
-                        cout << "en preparación" << endl;
+                        archivoCuota.listarCuotas();
                         break;
                     }
                     case 3: {
