@@ -87,3 +87,26 @@ bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
     fclose(p);
     return encontrado;
 }
+
+bool ArchivoLibro::buscarLibroPorGenero(const char* generoBuscado){
+    FILE* p = fopen("libros.dat", "rb");
+    if (p == nullptr) {
+        cout << "Error de archivo." << endl;
+        return false;
+    }
+
+    Libro lib;
+    bool encontrado = false;
+
+    while (fread(&lib, sizeof(Libro), 1, p) == 1) {
+        if (strcmp(lib.getGenero(), generoBuscado) == 0) {
+            lib.mostrarLibro();
+            encontrado = true;
+        }
+    }
+    if(!encontrado) {
+        cout << "No se encontro un libro con ese genero." << endl;
+    }
+    fclose(p);
+    return encontrado;
+}

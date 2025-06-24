@@ -22,7 +22,7 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
         fwrite(&pres, sizeof pres, 1, pPrestamo);
         cout << "Prestamo registrdo correctamente." << endl;
     } else {
-        cout << "No se puede realizar el préstamo." << endl;
+        cout << "No se puede realizar el prestamo." << endl;
     }
 
     fclose(pPrestamo);

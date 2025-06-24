@@ -31,7 +31,7 @@ void Fecha::setDia(int dia){
     if (dia >=1 && dia <=31){
         _dia = dia;
     } else {
-        cout << "Día inválido. Queda 1 por defecto." << endl;
+        cout << "Día invalido. Queda 1 por defecto." << endl;
     }
 }
 
@@ -39,7 +39,7 @@ void Fecha::setMes(int mes){
     if (mes >=1 && mes <=12){
         _mes = mes;
     } else {
-        cout << "Mes inválido. Queda 1 por defecto." << endl;
+        cout << "Mes invalido. Queda 1 por defecto." << endl;
         }
 }
 

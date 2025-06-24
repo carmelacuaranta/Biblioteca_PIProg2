@@ -41,6 +41,7 @@
 		<Unit filename="include/Cuota.h" />
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Libro.h" />
+		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Prestamo.h" />
 		<Unit filename="include/Socio.h" />
 		<Unit filename="main.cpp" />
@@ -51,6 +52,7 @@
 		<Unit filename="src/Cuota.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/Libro.cpp" />
+		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Prestamo.cpp" />
 		<Unit filename="src/Socio.cpp" />
 		<Extensions />

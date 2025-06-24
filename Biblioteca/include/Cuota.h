@@ -30,7 +30,6 @@ class Cuota
 
         void mostrarCuota();
         void agregarCuota();
-
 };
 
 #endif // CUOTA_H

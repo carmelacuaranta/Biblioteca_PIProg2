@@ -21,6 +21,7 @@ public:
     bool listarLibros();
     bool buscarLibroPorID(int idBuscado);
     bool buscarLibroPorTitulo(const char* tituloBuscado);
+    bool buscarLibroPorGenero(const char* generoBuscado);
 };
 
 #endif // ARCHIVOLIBRO_H

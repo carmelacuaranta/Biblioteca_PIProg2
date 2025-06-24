@@ -48,14 +48,14 @@ void Prestamo::cargarPrestamo(){
     cin >> aux;
     this->fechaPrestado.setAnio(aux);
 
-    cout << "Información sobre la finalización del prestamo: " << endl;
+    cout << "Informacion sobre la finalización del prestamo: " << endl;
     cout << "Ingrese el dia de finalización del prestamo: " << endl;
     cin >> aux;
     this->fechaDevolucion.setDia(aux);
-    cout << "Ingrese el mes de finalización del prestamo: " << endl;
+    cout << "Ingrese el mes de finalizacion del prestamo: " << endl;
     cin >> aux;
     this->fechaDevolucion.setMes(aux);
-    cout << "Ingrese el anio de finalización del prestamo: " << endl;
+    cout << "Ingrese el anio de finalizacion del prestamo: " << endl;
     cin >> aux;
     this->fechaDevolucion.setAnio(aux);
 }

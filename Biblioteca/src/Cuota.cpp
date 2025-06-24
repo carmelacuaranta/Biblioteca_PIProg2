@@ -54,7 +54,7 @@ void Cuota::agregarCuota(){
     cin >> monto;
     cin.ignore();
 
-    cout << "¿Está pagada? para SI ingrese 1, para NO, 0: ";
+    cout << "Esta pagada? para SI ingrese 1, para NO, 0: ";
     cin >> aux;
     cin.ignore();
     switch (aux) {
@@ -65,7 +65,7 @@ void Cuota::agregarCuota(){
         pagada = true;
         break;
     default:
-        cout << "Valor inválido." << endl;
+        cout << "Valor invalido." << endl;
         break;
     }
 
@@ -84,15 +84,9 @@ void Cuota::mostrarCuota() {
     cout << "ID: " << idCuota << endl;
     cout << "ID Socio: " << idSocio << endl;
     cout << "Monto: " << monto << endl;
-    cout << "Está pagada: " << endl;
+    cout << "Esta pagada: " << endl;
     if (pagada == true ){
         cout << "SI" << endl;
     } else { cout << "NO" << endl;}
     cout << "Fecha de pago: " << fecha.toString() << endl;
 }
-
-
-
-
-
-

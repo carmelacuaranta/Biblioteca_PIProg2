@@ -54,26 +54,6 @@ if (!tieneArroba) {
     return 0;
 }
 
-/* esta función no la estamos usando mas
-
-bool ArchivoSocio::listarRegistros(){
-    Socio soc;
-    FILE *pSocio;
-    pSocio=fopen("socios.dat", "rb");
-
-    if(pSocio==nullptr) {
-        cout << "Error de archivo." << endl;
-        return -1;
-    }
-
-    fread(&soc, sizeof soc, 1, pSocio);
-    soc.mostrarSocio();
-
-    fclose(pSocio);
-
-    return 0;
-}
-*/
 
 int ArchivoSocio::listarSocios() {
     FILE* pSocio = fopen("socios.dat", "rb");

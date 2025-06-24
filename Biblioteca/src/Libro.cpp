@@ -97,5 +97,3 @@ void Libro::mostrarLibro() {
     cout << "Cantidad de ejemplares: " << cantEjemplares << endl;
     cout << "Fecha de Publicacion: " << fechaPublicacion.toString() << endl;
 }
-
-
