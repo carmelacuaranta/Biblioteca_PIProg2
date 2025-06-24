@@ -5,6 +5,7 @@
 #include "ArchivoLibro.h"
 #include "ArchivoPrestamo.h"
 #include "Prestamo.h"
+#include "Cuota.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ int main() {
         cout << "1) Menu Socios" << endl;
         cout << "2) Menu Libros" << endl;
         cout << "3) Menu Prestamos" << endl;
+        cout << "4) Menu Cuotas" << endl;
         cout << "0) Salir" << endl;
         cout << "Opcion Nro: ";
         cin >> opcion;
@@ -131,6 +133,43 @@ int main() {
 
                     case 2: {
                         archivoPrestamo.listarPrestamos();
+                        break;
+                    }
+                    case 3: {
+                        cout << "En preparación..." << endl;
+                        break;
+                    }
+                    case 4: {
+                        cout << "En preparación..." << endl;
+                        break;
+                    }
+                    case 0:
+                        break;
+                    default:
+                        cout << "Opcion invalida." << endl;
+                }
+                break;
+            }
+            case 4: {
+                int subOpcionCuotas = 0;
+                cout << "\n--- Menu Cuotas ---" << endl;
+                cout << "1) Crear una cuota y verla" << endl;
+                cout << "2) Mostrar lista de cuota" << endl;
+                cout << "3) Buscar cuota por ID" << endl;
+                cout << "4) Buscar cuota por titulo" << endl;
+                cout << "0) Volver al menu principal" << endl;
+                cout << "Opcion Nro: ";
+                cin >> subOpcionCuotas;
+                switch (subOpcionCuotas) {
+                    case 1:{
+                        Cuota cuot;
+                        cuot.agregarCuota();
+                        cuot.mostrarCuota();
+                        break;
+                    }
+
+                    case 2: {
+                        cout << "en preparación" << endl;
                         break;
                     }
                     case 3: {

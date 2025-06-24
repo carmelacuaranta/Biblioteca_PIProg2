@@ -86,7 +86,6 @@ void Libro::agregarLibro(){
     cout << "Ingrese dia de publicacion: ";
     cin >> aux;
     this->fechaPublicacion.setDia(aux);
-
 }
 
 void Libro::mostrarLibro() {
