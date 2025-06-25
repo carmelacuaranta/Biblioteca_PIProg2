@@ -22,7 +22,7 @@ void mostrarMenu() {
         cout << "1) Menu Socios" << endl;
         cout << "2) Menu Libros" << endl;
         cout << "3) Menu Prestamos" << endl;
-        cout << "4) Menu Cuotas" << endl;
+        cout << "3) Menu Cuotas" << endl;
         cout << "0) Salir" << endl;
         cout << "Opcion Nro: ";
         cin >> opcion;
@@ -36,6 +36,7 @@ void mostrarMenu() {
                 cout << "2) Buscar socio por ID" << endl;
                 cout << "3) Buscar socio por nombre" << endl;
                 cout << "4) Agregar socio" << endl;
+                //cout << "5) cargar socios prediseñados" << endl;
                 cout << "0) Volver al menu principal" << endl;
                 cout << "Opcion Nro: ";
                 cin >> subOpcion;
@@ -65,6 +66,10 @@ void mostrarMenu() {
                         archivoSocio.agregarRegistro(nuevoSocio);
                         break;
                     }
+                    case 5: {
+                        archivoSocio.cargaVariosAux();
+                        break;
+                    }
                     case 0:
                         break;
                     default:
@@ -82,6 +87,7 @@ void mostrarMenu() {
                 cout << "3) Buscar libro por ID" << endl;
                 cout << "4) Buscar libro por titulo" << endl;
                 cout << "5) Buscar libro por genero" << endl;
+                //cout << "6) Cargar libros prediseñados" << endl;
                 cout << "0) Volver al menu principal" << endl;
                 cout << "Opcion Nro: ";
                 cin >> subOpcionLibros;
@@ -117,6 +123,11 @@ void mostrarMenu() {
                         cin.ignore();
                         cin.getline(generoBuscado, sizeof(generoBuscado));
                         archivoLibro.buscarLibroPorGenero(generoBuscado);
+                        break;
+                    }
+                    case 6: {
+                        //habría que comprobar si está vacía
+                        archivoLibro.cargaVariosAux();
                         break;
                     }
                     case 0:
@@ -201,7 +212,6 @@ void mostrarMenu() {
                 }
                 break;
             }
-
             case 0:
                 cout << "\nSaliendo del programa. Hasta luego." << endl;
                 break;

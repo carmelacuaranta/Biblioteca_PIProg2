@@ -7,31 +7,25 @@
 1750686885 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\socio.h
 	"Fecha.h"
 
-1750797146 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
+1750815082 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\main.cpp
 	<iostream>
-	"Socio.h"
-	"Libro.h"
-	"ArchivoSocio.h"
-	"ArchivoLibro.h"
-	"ArchivoPrestamo.h"
-	"Prestamo.h"
-	"Cuota.h"
+	"Menu.h"
 
 1747692813 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp
 	"Socio.h"
 	<iostream>
 
-1750685755 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
+1750817846 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"Socio.h"
 	<iostream>
 	<cstring>
 
-1750685585 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivosocio.h
+1750817823 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivosocio.h
 	"Socio.h"
 	<cstring>
 
-1750796654 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\libro.cpp
+1750815082 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\libro.cpp
 	"Libro.h"
 	<iostream>
 	<cstring>
@@ -39,12 +33,12 @@
 1750688214 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\libro.h
 	"Fecha.h"
 
-1750717302 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivolibro.cpp
+1750816858 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivolibro.cpp
 	"ArchivoLibro.h"
 	"Libro.h"
 	<iostream>
 
-1750685585 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivolibro.h
+1750816336 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivolibro.h
 	"Libro.h"
 	<cstring>
 
@@ -90,18 +84,18 @@
 1750687952 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\fecha.h
 	<string>
 
-1750688306 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\fecha.cpp
+1750815082 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\fecha.cpp
 	<iostream>
 	"Fecha.h"
 
-1750689768 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\prestamo.cpp
+1750815082 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\prestamo.cpp
 	<iostream>
 	"Prestamo.h"
 
 1750715490 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\prestamo.h
 	"Fecha.h"
 
-1750717456 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivoprestamo.cpp
+1750815082 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivoprestamo.cpp
 	<iostream>
 	"ArchivoPrestamo.h"
 	"ArchivoSocio.h"
@@ -112,12 +106,12 @@
 	<iostream>
 	<string.h>
 
-1750797804 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\cuota.cpp
+1750815082 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\cuota.cpp
 	<iostream>
 	"Cuota.h"
 	"ArchivoSocio.h"
 
-1750796951 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\cuota.h
+1750815082 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\cuota.h
 	"Fecha.h"
 
 1750800394 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivocuota.cpp
@@ -184,4 +178,18 @@
 
 1750803768 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menu.h
 	<string>
+
+1750815082 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\menu.h
+	<string>
+
+1750816816 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menu.cpp
+	<iostream>
+	"ArchivoSocio.h"
+	"ArchivoLibro.h"
+	"ArchivoPrestamo.h"
+	"ArchivoCuota.h"
+	"Socio.h"
+	"Libro.h"
+	"Prestamo.h"
+	"Cuota.h"
 

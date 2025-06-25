@@ -21,6 +21,7 @@ public:
     int listarSocios();
     bool buscarSocioPorID(int idBuscado);
     bool buscarSocioPorNombre(const char* nombreBuscado);
+    bool cargaVariosAux();
 };
 
 #endif // ARCHIVOSOCIO_H

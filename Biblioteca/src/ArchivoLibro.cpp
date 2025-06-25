@@ -3,8 +3,6 @@
 #include <iostream>
 using namespace std;
 
-//hola manola
-
 int ArchivoLibro::agregarLibro(Libro lib){
     FILE *pLibro;
     pLibro=fopen("libros.dat", "ab");
@@ -57,7 +55,6 @@ bool ArchivoLibro::buscarLibroPorID(int idBuscado){
             return true;
         }
     }
-
     cout << "No se encontro un libro con ese ID." << endl;
     fclose(p);
     return false;
@@ -108,4 +105,39 @@ bool ArchivoLibro::buscarLibroPorGenero(const char* generoBuscado){
     }
     fclose(p);
     return encontrado;
+}
+
+bool ArchivoLibro::cargaVariosAux(){
+    FILE* p = fopen("libros.dat", "ab");
+    if (p == nullptr) {
+        cout << "Error de archivo." << endl;
+        return false;
+    }
+    Fecha fecha = Fecha(10,3,2021);
+    Libro aux1 = Libro(1, 9789872778736, "El jorobadito", "Roberto Arlt",
+          "Cuentos",1, fecha);
+    fwrite(&aux1, sizeof aux1, 1, p);
+
+    fecha.setAnio(2020);
+    fecha.setMes(5);
+    fecha.setDia(2);
+    Libro aux2 = Libro(2, 9789878289953, "El gato y la ciudad", "Nick Bradley",
+          "Novela", 1, fecha);
+    fwrite(&aux2, sizeof aux2, 1, p);
+
+    fecha.setAnio(2021);
+    fecha.setMes(8);
+    fecha.setDia(24);
+    Libro aux3 = Libro(3, 9789876445973, "Corazon de Amazonita", "Gloria Castanares",
+          "Novela", 1, fecha);
+    fwrite(&aux3, sizeof aux3, 1, p);
+
+    fecha.setAnio(1961);
+    fecha.setMes(11);
+    fecha.setDia(30);
+    Libro aux4 = Libro(4, 9789873743047, "Ferdydurke", "Witold Gombrowicz",
+          "Novela", 1, fecha);
+    fwrite(&aux4, sizeof aux4, 1, p);
+
+    fclose(p);
 }

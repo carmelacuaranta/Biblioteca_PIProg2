@@ -122,3 +122,34 @@ bool ArchivoSocio::buscarSocioPorNombre(const char* nombreBuscado) {
     fclose(p);
     return encontrado;
 }
+
+bool ArchivoSocio::cargaVariosAux(){
+    FILE* p = fopen("socios.dat", "ab");
+    if (p == nullptr) {
+        cout << "Error de archivo." << endl;
+        return false;
+    }
+    Fecha fecha = Fecha(10,10,1980);
+    Socio aux1 =  Socio(1, 01, "24908987", "Juan", "Sosa", "1234", "Wallaby 12", "jsosa@mail.com", fecha);
+    fwrite(&aux1, sizeof aux1, 1, p);
+
+    fecha.setAnio(1990);
+    fecha.setMes(3);
+    fecha.setDia(22);
+    Socio aux2 =  Socio(2, 02, "33926749", "Juana", "LopezGomez", "1234", "Calle Falsa 123", "jgomez@mail.com", fecha);
+    fwrite(&aux2, sizeof aux2, 1, p);
+
+    fecha.setAnio(2000);
+    fecha.setMes(1);
+    fecha.setDia(12);
+    Socio aux3 =  Socio(3, 03, "44908987", "Maria", "Lopez", "1234", "Private Drive 4", "mlopez@mail.com", fecha);
+    fwrite(&aux3, sizeof aux3, 1, p);
+
+    fecha.setAnio(1985);
+    fecha.setMes(10);
+    fecha.setDia(5);
+    Socio aux4 =  Socio(4, 04, "39483481", "Pedro", "Gimenez", "1234", "Siempreviva 742", "pgimenez@mail.com", fecha);
+    fwrite(&aux4, sizeof aux4, 1, p);
+
+    fclose(p);
+}
