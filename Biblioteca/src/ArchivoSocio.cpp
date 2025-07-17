@@ -4,7 +4,7 @@
 using namespace std;
 
 int ArchivoSocio::agregarRegistro(Socio soc){
-
+    system("cls");
     //para controlar que no exista el ID
     bool idRepetido=false;
     FILE* archivoSocioLectura = fopen("socios.dat","rb");

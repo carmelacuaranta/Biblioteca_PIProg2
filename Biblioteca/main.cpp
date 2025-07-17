@@ -1,10 +1,11 @@
 #include <iostream>
-#include "Menu.h"
+#include "MenuPrincipal.h"
 
 using namespace std;
 
 int main() {
 
-    mostrarMenu();
+    MenuPrincipal menu;
+    menu.mostrar();
     return 0;
 }

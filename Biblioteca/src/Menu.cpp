@@ -1,16 +1,115 @@
 #include <iostream>
-#include "ArchivoSocio.h"
-#include "ArchivoLibro.h"
-#include "ArchivoPrestamo.h"
-#include "ArchivoCuota.h"
-#include "Socio.h"
-#include "Libro.h"
-#include "Prestamo.h"
-#include "Cuota.h"
+#include "Menu.h"
 
 using namespace std;
 
+Menu::Menu(int cantidad) {
+    cantidadOpciones = cantidad;
+    opciones = new string[cantidadOpciones];
+}
+
+Menu::~Menu() {
+    delete[] opciones;
+}
+
+void Menu::setOpcion(int indice, const std::string& texto) {
+    if (indice >= 0 && indice < cantidadOpciones) {
+        opciones[indice] = texto;
+    }
+}
+
+//void Menu::mostrar() {
+//}
+
+//int Menu::seleccionarOpcion() {
+//return 0;
+//}
+
+/*
 void mostrarMenu() {
+    ArchivoSocio archivoSocio;
+    ArchivoLibro archivoLibro;
+    ArchivoPrestamo archivoPrestamo;
+    ArchivoCuota archivoCuota;
+    int opcion = 1, y = 0;
+
+    do {
+        rlutil::setBackgroundColor(rlutil::BLACK);
+        rlutil::setColor(rlutil::WHITE);
+        rlutil::hidecursor(); // Oculta el cursor
+
+        rlutil::locate(30,10);
+        std::cout << "BIBLIOTECA BARRACUDAS AZULES" << std::endl;
+        rlutil::locate(30,11);
+        std::cout << "============================" << std::endl;
+
+
+        rlutil::locate(30,12);
+        std::cout << "Menu Socios" << std::endl;
+        rlutil::locate(30,13);
+        std::cout << "Menu Libros" << std::endl;
+        rlutil::locate(30,14);
+        std::cout << "Menu Prestamos" << std::endl;
+        rlutil::locate(30,15);
+        std::cout << "Menu Cuotas" << std::endl;
+        //std::cout << "Menu Prestamos" << std::endl;
+        rlutil::locate(30,16);
+        std::cout << "Salir" << std::endl;
+        std::cout << "Opcion: " << std::endl;
+
+        // Ubicación inicial del puntero
+        rlutil::locate(27,12 + y);
+        std::cout << (char)175 << std::endl; //"casteamos" el 175 como un char en lugar de un int
+        rlutil::locate(58,12 + y);
+        std::cout << (char)174 << std::endl;
+
+        switch (rlutil::getkey())
+        {
+        case 14: // ARRIBA
+            rlutil::locate(27,12 + y);
+            std::cout << " " << std::endl; // esto borra el cursor cuando cambia de posiciónrlutil::locate(58,12 + y);
+            rlutil::locate(58,12 + y);
+            std::cout << " " << std::endl;
+            y--;
+            if (y < 0) {
+                y = 4;
+            }
+            break;
+        case 15: // ABAJO
+            rlutil::locate(27,12 + y);
+            std::cout << " " << std::endl; // esto borra el cursor cuando cambia de posición
+            rlutil::locate(58,12 + y);
+            std::cout << " " << std::endl;
+            y++;
+            if (y > 4) {
+                y = 0;
+            }
+            break;
+        case 1: // ENTER
+            switch (y)
+            {
+            case 0:
+                //opcion = 1;
+            case 1:
+                //opcion = 2;
+            case 2:
+                //opcion = 3;
+            case 3:
+                //opcion = 4;
+
+            case 4:
+                opcion = 0;
+            }
+            break;
+        default:
+            break;
+        }
+
+    } while (opcion != 0);
+}
+*/
+
+/** void mostrarMenu() {
     ArchivoSocio archivoSocio;
     ArchivoLibro archivoLibro;
     ArchivoPrestamo archivoPrestamo;
@@ -22,7 +121,7 @@ void mostrarMenu() {
         cout << "1) Menu Socios" << endl;
         cout << "2) Menu Libros" << endl;
         cout << "3) Menu Prestamos" << endl;
-        cout << "3) Menu Cuotas" << endl;
+        cout << "4) Menu Cuotas" << endl;
         cout << "0) Salir" << endl;
         cout << "Opcion Nro: ";
         cin >> opcion;
@@ -220,3 +319,4 @@ void mostrarMenu() {
         }
     } while (opcion != 0);
 }
+**/

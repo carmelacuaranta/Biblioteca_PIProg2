@@ -39,20 +39,27 @@
 		<Unit filename="include/ArchivoPrestamo.h" />
 		<Unit filename="include/ArchivoSocio.h" />
 		<Unit filename="include/Cuota.h" />
+		<Unit filename="include/Cursor.h" />
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Libro.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/MenuPrincipal.h" />
+		<Unit filename="include/MenuSocio.h" />
 		<Unit filename="include/Prestamo.h" />
 		<Unit filename="include/Socio.h" />
+		<Unit filename="include/rlutil.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ArchivoCuota.cpp" />
 		<Unit filename="src/ArchivoLibro.cpp" />
 		<Unit filename="src/ArchivoPrestamo.cpp" />
 		<Unit filename="src/ArchivoSocio.cpp" />
 		<Unit filename="src/Cuota.cpp" />
+		<Unit filename="src/Cursor.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/Libro.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/MenuPrincipal.cpp" />
+		<Unit filename="src/MenuSocio.cpp" />
 		<Unit filename="src/Prestamo.cpp" />
 		<Unit filename="src/Socio.cpp" />
 		<Extensions />

@@ -1,10 +1,25 @@
 #ifndef MENU_H
 #define MENU_H
-#pragma once
 #include <string>
+#include "Cursor.h"
 
 using namespace std;
 
-void mostrarMenu();
+class Menu {
+private:
+    string* opciones;
+    int cantidadOpciones;
+    Cursor cursor(int maxOpciones);
 
-#endif // MENU_H
+public:
+    Menu(int cantidad);
+    virtual ~Menu(); // Destructor
+    //void mostrar();  // Solo sirve para Menúes que se implementen
+    //int seleccionarOpcion();  // no necesitamos?
+
+
+protected:
+    void setOpcion(int indice, const string& texto); // Cada submenu tiene sus propias opciones
+};
+
+#endif
