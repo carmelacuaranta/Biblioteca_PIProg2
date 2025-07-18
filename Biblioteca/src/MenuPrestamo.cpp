@@ -1,13 +1,11 @@
 #include <iostream>
-#include "MenuPrincipal.h"
-#include "MenuSocio.h"
-#include "ArchivoSocio.h"
+using namespace std;
+#include "MenuPrestamo.h"
+#include "ArchivoPrestamo.h"
+#include "Prestamo.h"
 #include "rlutil.h"
 
-using namespace std;
-
-// ARREGLAR ESTO. NO TIENE SENTIDO CARGAR EL MENU ACA SI LO MOSTRAMOS POR PANTALLA
-MenuSocio::MenuSocio() : Menu(5) {
+MenuPrestamo::MenuPrestamo() : Menu(4) {
     /*setOpcion(0, "Menu Socios");
     setOpcion(1, "Menu Libros");
     setOpcion(2, "Menu Prestamos");
@@ -15,32 +13,30 @@ MenuSocio::MenuSocio() : Menu(5) {
     setOpcion(4, "Salir");*/
 }
 
-void MenuSocio::mostrar() {
+void MenuPrestamo::mostrar() {
     system("cls");
-    ArchivoSocio archivoSocio;
-    int cantidadOpciones = 5, y = 0;
+    ArchivoPrestamo archivoPrestamo;
+    int cantidadOpciones = 4, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
     do {
-        //Oculta el cursor del terminal
+        // Oculta el cursor del terminal
         cursor.ocultar();
 
         rlutil::locate(30,10);
-        cout << "MENU SOCIOS" << endl;
+        cout << "MENU PRESTAMOS" << endl;
         rlutil::locate(30,11);
         cout << "============================" << endl;
         rlutil::locate(30,12);
-        cout << "Ver lista de socios" << endl;
+        cout << "Ver lista de prestamos" << endl;
         rlutil::locate(30,13);
-        cout << "Buscar socio por ID" << endl;
+        cout << "Agregar prestamo" << endl;
         rlutil::locate(30,14);
-        cout << "Buscar socio por nombre" << endl;
+        cout << "Buscar prestamo por ID" << endl;
         rlutil::locate(30,15);
-        cout << "Agregar socio" << endl;
+        cout << "Buscar prestamo por titulo" << endl;
         rlutil::locate(30,16);
-        cout << "Cargar socios de prueba" << endl;
-        rlutil::locate(30,17);
         cout << "Volver" << endl;
 
 
@@ -61,53 +57,37 @@ void MenuSocio::mostrar() {
             case 0:
                 {
                 system("cls");
-                archivoSocio.listarSocios();
+                archivoPrestamo.listarPrestamos();
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 1:
                 {
-                int id = 0;
                 system("cls");
-                cout << "Ingrese el ID que desea buscar: ";
-                cin >> id;
-                archivoSocio.buscarSocioPorID(id);
-                rlutil::anykey();
+                Prestamo prest;
+                prest.cargarPrestamo();
+                archivoPrestamo.agregarPrestamo(prest);
                 system("cls");
                 break;
                 }
             case 2:
                 {
-                char nombre[30];
                 system("cls");
-                cout << "Ingrese el nombre a buscar: ";
-                cin.ignore();
-                cin.getline(nombre, sizeof(nombre));
-                archivoSocio.buscarSocioPorNombre(nombre);
+                cout << "...en preparacion...";
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 3:
                 {
-                Socio nuevoSocio;
                 system("cls");
-                nuevoSocio.agregarSocio();
-                archivoSocio.agregarRegistro(nuevoSocio);
+                cout << "...en preparacion...";
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 4:
-                {
-                system("cls");
-                archivoSocio.cargaVariosAux();
-                rlutil::anykey();
-                system("cls");
-                break;
-                }
-            case 5:
                 {
                 salir = true;
                 system("cls");

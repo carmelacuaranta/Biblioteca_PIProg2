@@ -1,24 +1,18 @@
 #include <iostream>
-#include "MenuPrincipal.h"
-#include "MenuSocio.h"
-#include "ArchivoSocio.h"
+#include "MenuLibro.h"
+#include "ArchivoLibro.h"
+#include "Libro.h"
+#include "Cursor.h"
+using namespace std;
 #include "rlutil.h"
 
-using namespace std;
-
-// ARREGLAR ESTO. NO TIENE SENTIDO CARGAR EL MENU ACA SI LO MOSTRAMOS POR PANTALLA
-MenuSocio::MenuSocio() : Menu(5) {
-    /*setOpcion(0, "Menu Socios");
-    setOpcion(1, "Menu Libros");
-    setOpcion(2, "Menu Prestamos");
-    setOpcion(3, "Menu Cuotas");
-    setOpcion(4, "Salir");*/
+MenuLibro::MenuLibro() : Menu(6) {
 }
 
-void MenuSocio::mostrar() {
+void MenuLibro::mostrar() {
     system("cls");
-    ArchivoSocio archivoSocio;
-    int cantidadOpciones = 5, y = 0;
+    ArchivoLibro archivoLibro;
+    int cantidadOpciones = 6, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -27,22 +21,23 @@ void MenuSocio::mostrar() {
         cursor.ocultar();
 
         rlutil::locate(30,10);
-        cout << "MENU SOCIOS" << endl;
+        cout << "MENU LIBROS" << endl;
         rlutil::locate(30,11);
         cout << "============================" << endl;
         rlutil::locate(30,12);
-        cout << "Ver lista de socios" << endl;
+        cout << "Ver lista de libros" << endl;
         rlutil::locate(30,13);
-        cout << "Buscar socio por ID" << endl;
+        cout << "Agregar libro" << endl;
         rlutil::locate(30,14);
-        cout << "Buscar socio por nombre" << endl;
+        cout << "Buscar libro por ID" << endl;
         rlutil::locate(30,15);
-        cout << "Agregar socio" << endl;
+        cout << "Buscar libro por titulo" << endl;
         rlutil::locate(30,16);
-        cout << "Cargar socios de prueba" << endl;
+        cout << "Buscar libro por genero" << endl;
         rlutil::locate(30,17);
+        cout << "Cargar libros predefinidos" << endl;
+        rlutil::locate(30,18);
         cout << "Volver" << endl;
-
 
         // Ubicación inicial del puntero
         cursor.dibujar(y);
@@ -61,53 +56,63 @@ void MenuSocio::mostrar() {
             case 0:
                 {
                 system("cls");
-                archivoSocio.listarSocios();
+                archivoLibro.listarLibros();
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 1:
                 {
-                int id = 0;
+                Libro nuevoLibro;
                 system("cls");
-                cout << "Ingrese el ID que desea buscar: ";
-                cin >> id;
-                archivoSocio.buscarSocioPorID(id);
+                nuevoLibro.agregarLibro();
+                archivoLibro.agregarLibro(nuevoLibro);
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 2:
                 {
-                char nombre[30];
+                int id = 0;
                 system("cls");
-                cout << "Ingrese el nombre a buscar: ";
-                cin.ignore();
-                cin.getline(nombre, sizeof(nombre));
-                archivoSocio.buscarSocioPorNombre(nombre);
+                cout << "Ingrese el ID que desea buscar: ";
+                cin >> id;
+                archivoLibro.buscarLibroPorID(id);
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 3:
                 {
-                Socio nuevoSocio;
+                char titulo[30];
                 system("cls");
-                nuevoSocio.agregarSocio();
-                archivoSocio.agregarRegistro(nuevoSocio);
+                cout << "Ingrese el titulo a buscar: ";
+                cin.ignore();
+                cin.getline(titulo, sizeof(titulo));
+                archivoLibro.buscarLibroPorTitulo(titulo);
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 4:
                 {
+                char genero[30];
+                cout << "Ingrese el genero que desea buscar: " << endl;
+                cin.ignore();
+                cin.getline(genero, sizeof(genero));
+                archivoLibro.buscarLibroPorGenero(genero);
+                break;
+                }
+            case 5:
+                {
                 system("cls");
-                archivoSocio.cargaVariosAux();
+                archivoLibro.cargaVariosAux();
+                cout << "Se han cargado libros" << endl;
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
-            case 5:
+            case 6:
                 {
                 salir = true;
                 system("cls");

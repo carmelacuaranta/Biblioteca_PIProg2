@@ -1,17 +1,23 @@
 #include <iostream>
 #include "rlutil.h"
-//#include "Menu.h"
+
 #include "MenuPrincipal.h"
 #include "MenuSocio.h"
-#include "Cursor.h"
+#include "MenuLibro.h"
+#include "MenuPrestamo.h"
+#include "MenuCuota.h"
+
 #include "ArchivoSocio.h"
 #include "ArchivoLibro.h"
 #include "ArchivoPrestamo.h"
 #include "ArchivoCuota.h"
+
 #include "Socio.h"
 #include "Libro.h"
 #include "Prestamo.h"
 #include "Cuota.h"
+
+#include "Cursor.h"
 #include "rlutil.h"
 
 using namespace std;
@@ -30,36 +36,38 @@ MenuPrincipal::MenuPrincipal() : Menu(4) {
 
 void MenuPrincipal::mostrar() {
     int opcion = 4, y = 0;
-    Cursor cursor(opcion);
+    bool salir = false;
+    Cursor cursor(opcion, y);
     MenuSocio menuSocio;
+    MenuLibro menuLibro;
+    MenuPrestamo menuPrestamo;
+    MenuCuota menuCuota;
 
 
     do {
-        rlutil::setBackgroundColor(rlutil::BLACK);
-        rlutil::setColor(rlutil::WHITE);
-        rlutil::hidecursor(); // Oculta el cursor
+        //Oculta el cursor del terminal
+        cursor.ocultar();
 
         rlutil::locate(30,10);
-        std::cout << "BIBLIOTECA BARRACUDAS AZULES" << std::endl;
+        cout << "BIBLIOTECA BARRACUDAS AZULES" << std::endl;
         rlutil::locate(30,11);
-        std::cout << "============================" << std::endl;
+        cout << "============================" << std::endl;
         rlutil::locate(30,12);
-        std::cout << "Menu Socios" << std::endl;
+        cout << "Menu Socios" << std::endl;
         rlutil::locate(30,13);
-        std::cout << "Menu Libros" << std::endl;
+        cout << "Menu Libros" << std::endl;
         rlutil::locate(30,14);
-        std::cout << "Menu Prestamos" << std::endl;
+        cout << "Menu Prestamos" << std::endl;
         rlutil::locate(30,15);
-        std::cout << "Menu Cuotas" << std::endl;
+        cout << "Menu Cuotas" << std::endl;
         rlutil::locate(30,16);
-        std::cout << "Salir" << std::endl;
-        std::cout << "Opcion: " << std::endl;
+        cout << "Salir" << std::endl;
 
         // Ubicación inicial del puntero
         rlutil::locate(27,12 + y);
-        std::cout << (char)175 << std::endl; //"casteamos" el 175 como un char en lugar de un int
+        cout << (char)175 << std::endl; //"casteamos" el 175 como un char en lugar de un int
         rlutil::locate(59,12 + y);
-        std::cout << (char)174 << std::endl;
+        cout << (char)174 << std::endl;
 
 
         switch (rlutil::getkey())
@@ -73,25 +81,31 @@ void MenuPrincipal::mostrar() {
         case 1: // ENTER
             switch (y)
             {
-            case 0: //opcion = 1;
+            case 0:
+                {
                 menuSocio.mostrar();
                 break;
+                }
             case 1:
-                //opcion = 2;
+                menuLibro.mostrar();
                 break;
             case 2:
-                //opcion = 3;
+                menuPrestamo.mostrar();
                 break;
             case 3:
-                //opcion = 4;
+                menuCuota.mostrar();
                 break;
             case 4:
-                opcion = 0;
+                {
+                salir = true;
+                cout << "Hasta pronto!" << endl;
+                break;
+                }
             }
             break;
         default:
             break;
         }
 
-    } while (opcion != 0);
+    } while (!salir);
 }

@@ -5,16 +5,19 @@ class Cursor {
 private:
     int posicionActual;
     int maxOpciones;
+    int yInicio;
 
 public:
-    Cursor(int cantidadOpciones);
-
+    Cursor(int cantidadOpciones, int yBase);
+    void ocultar();
+    void dibujar(int y);
     int moverArriba(int posicionActual);
     int moverAbajo(int posicionActual);
-    int getPosicion() const;
+    /**int getPosicion() const;
 
     // Este método puede usarse para mostrar el cursor
     bool estaEn(int posicion) const;
+    **/
 };
 
 #endif

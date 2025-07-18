@@ -2,6 +2,7 @@
 #define ARCHIVOCUOTA_H
 #include "Cuota.h"
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 

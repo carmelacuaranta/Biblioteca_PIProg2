@@ -152,4 +152,5 @@ bool ArchivoSocio::cargaVariosAux(){
     fwrite(&aux4, sizeof aux4, 1, p);
 
     fclose(p);
+    cout << "Se han cargado 4 socios" << endl;
 }

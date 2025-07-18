@@ -43,6 +43,9 @@
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Libro.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/MenuCuota.h" />
+		<Unit filename="include/MenuLibro.h" />
+		<Unit filename="include/MenuPrestamo.h" />
 		<Unit filename="include/MenuPrincipal.h" />
 		<Unit filename="include/MenuSocio.h" />
 		<Unit filename="include/Prestamo.h" />
@@ -58,6 +61,9 @@
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/Libro.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/MenuCuota.cpp" />
+		<Unit filename="src/MenuLibro.cpp" />
+		<Unit filename="src/MenuPrestamo.cpp" />
 		<Unit filename="src/MenuPrincipal.cpp" />
 		<Unit filename="src/MenuSocio.cpp" />
 		<Unit filename="src/Prestamo.cpp" />
