@@ -64,10 +64,7 @@ void MenuPrincipal::mostrar() {
         cout << "Salir" << std::endl;
 
         // Ubicación inicial del puntero
-        rlutil::locate(27,12 + y);
-        cout << (char)175 << std::endl; //"casteamos" el 175 como un char en lugar de un int
-        rlutil::locate(59,12 + y);
-        cout << (char)174 << std::endl;
+        cursor.dibujar(y);
 
 
         switch (rlutil::getkey())

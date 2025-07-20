@@ -252,7 +252,7 @@
 1752867183 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menulibro.h
 	<Menu.h>
 
-1752880693 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menucuota.cpp
+1752880926 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menucuota.cpp
 	<iostream>
 	"MenuCuota.h"
 	"ArchivoCuota.h"
