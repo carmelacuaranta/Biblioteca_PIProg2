@@ -24,6 +24,9 @@ public:
     void listarPrestamosPorIdLibro(int idBuscado);
     void listarPrestamosPorIdSocio(int idBuscado);
     int obtenerUltimoID();
+    int modificarRegistro(Prestamo pres, int pos);
+    bool bajaLogica();
+    Prestamo leerRegistro(int pos);
 };
 
 #endif // ARCHIVOPRESTAMO_H

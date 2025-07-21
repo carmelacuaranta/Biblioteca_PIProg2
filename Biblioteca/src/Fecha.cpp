@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "Fecha.h"
 
 using namespace std;
@@ -49,6 +50,15 @@ void Fecha::setAnio(int anio){
 
 std::string Fecha::toString(){
     return std::to_string(_dia) + "/" + std::to_string(_mes) + "/" + std::to_string(_anio);
+}
+
+void Fecha::cargarFechaSistema(){
+    time_t t = time(nullptr);
+    tm* now = localtime(&t);
+
+    _dia = now->tm_mday;
+    _mes = now->tm_mon + 1;  // tm_mon va de 0 a 11
+    _anio = now->tm_year + 1900;  // tm_year cuenta desde 1900
 }
 
 bool Fecha::esMayorQue(Fecha otraFecha, Fecha fechaActual){

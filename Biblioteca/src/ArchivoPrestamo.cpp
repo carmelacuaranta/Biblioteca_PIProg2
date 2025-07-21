@@ -130,7 +130,7 @@ int ArchivoPrestamo::obtenerUltimoID() {
     if (p == nullptr) return 0;
 
     Prestamo pres;
-    fseek(p, -sizeof(Prestamo), SEEK_END);  // Nos posicionamos al final
+    fseek(p, -sizeof(Prestamo), SEEK_END);  // SEEK_END posicion al final
     if (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
         fclose(p);
         return pres.getIdPrestamo();
@@ -138,5 +138,55 @@ int ArchivoPrestamo::obtenerUltimoID() {
 
     fclose(p);
     return 0;
+}
+
+Prestamo ArchivoPrestamo::leerRegistro(int pos){
+    Prestamo pres;
+    FILE *pPrestamo;
+    pPrestamo = fopen("prestamos.dat","rb");
+    if(pPrestamo==nullptr){
+        cout << "Eror de archivo." << endl;
+        return pres;
+    }
+    fseek(pPrestamo,pos*sizeof(Prestamo),0);
+    fread(&pres, sizeof(Prestamo), 1, pPrestamo);
+    fclose(pPrestamo);
+    return pres;
+}
+
+bool ArchivoPrestamo::bajaLogica(){
+    Prestamo pres;
+    ArchivoPrestamo archiPrestamo("prestamos.dat");
+    int id;
+    cout << "ingresar id del prestamo a eliminar: ";
+    cin >> id;
+    int encontro = archiPrestamo.buscarPrestamoPorId(id);
+    if (encontro < 0){
+        cout << "No hay prestamos con ese id." << endl;
+        return false;
+    }
+    pres=archiPrestamo.leerRegistro(encontro);
+    if (pres.getEstado()==false){
+        cout << "Ya estaba eliminado. " << endl;
+        return false;
+    } else {
+        pres.setEstado(false);
+        if(archiPrestamo.modificarRegistro(pres,encontro)==1){
+            cout << "Elimindo con éxito. " << endl;
+           return true;
+        } else { return false;}
+    }
+}
+
+int ArchivoPrestamo::modificarRegistro(Prestamo pres, int pos){
+    FILE *p;
+    p = fopen("prestamos.dat","rb+");
+    if (p == nullptr){
+        return -1;
+    }
+    fseek(p,pos*sizeof(Prestamo),0);
+    int escribio=fwrite(&pres, sizeof(Prestamo), 1, p);
+    fclose(p);
+    return escribio;
 }
 
