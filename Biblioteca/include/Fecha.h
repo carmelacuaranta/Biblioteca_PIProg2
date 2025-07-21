@@ -19,6 +19,7 @@ class Fecha{
     void setMes(int mes);
     void setAnio(int anio);
     std::string toString();
+    bool esMayorQue(Fecha otraFecha,Fecha fechaActual);
 };
 
 #endif // FECHA_H

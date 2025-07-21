@@ -13,6 +13,7 @@ class Prestamo
         Fecha fechaDevolucion;
         bool vencido;
         bool finalizado;
+        bool estado;
     public:
         Prestamo();
         Prestamo(int idPrestamo, int idLibro, int idSocio, Fecha fechaPrestado, Fecha fechaDevolucion, bool vencido, bool finalizado);
@@ -27,6 +28,7 @@ class Prestamo
         Fecha getFechaDevolucion();
         bool getVencido();
         bool getFinalizado();
+        bool getEstado();
 
         // Setters
         void setIdPrestamo(int id);
@@ -36,6 +38,7 @@ class Prestamo
         void setFechaDevolucion(Fecha f);
         void setVencido(bool v);
         void setFinalizado(bool f);
+        void setEstado(bool f);
 };
 
 #endif // PRESTAMO_H

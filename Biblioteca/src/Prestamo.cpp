@@ -8,6 +8,7 @@ Prestamo::Prestamo() {
     idSocio = 0;
     vencido = false;
     finalizado = false;
+    estado=true;
 }
 
 Prestamo::Prestamo(int _idPrestamo, int _idLibro, int _idSocio, Fecha _fechaPrestado, Fecha _fechaDevolucion, bool _vencido, bool _finalizado) {
@@ -18,6 +19,7 @@ Prestamo::Prestamo(int _idPrestamo, int _idLibro, int _idSocio, Fecha _fechaPres
     fechaDevolucion = _fechaDevolucion;
     vencido = _vencido;
     finalizado = _finalizado;
+    estado=true;
 }
 
 void Prestamo::mostrarPrestamo(){
@@ -68,6 +70,7 @@ Fecha Prestamo::getFechaPrestado() { return fechaPrestado; }
 Fecha Prestamo::getFechaDevolucion() { return fechaDevolucion; }
 bool Prestamo::getVencido() { return vencido; }
 bool Prestamo::getFinalizado() { return finalizado; }
+bool Prestamo::getEstado() { return estado; }
 
 // Setters
 void Prestamo::setIdPrestamo(int id) { idPrestamo = id; }
@@ -77,3 +80,4 @@ void Prestamo::setFechaPrestado(Fecha f) { fechaPrestado = f; }
 void Prestamo::setFechaDevolucion(Fecha f) { fechaDevolucion = f; }
 void Prestamo::setVencido(bool v) { vencido = v; }
 void Prestamo::setFinalizado(bool f) { finalizado = f; }
+void Prestamo::setEstado(bool f) { estado = f; }

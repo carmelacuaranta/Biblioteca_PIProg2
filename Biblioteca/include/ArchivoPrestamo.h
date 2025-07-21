@@ -20,6 +20,9 @@ public:
 
     int agregarPrestamo(Prestamo pres);
     bool listarPrestamos();
+    int buscarPrestamoPorId(int idBuscado);
+    void listarPrestamosPorIdLibro(int idBuscado);
+    void listarPrestamosPorIdSocio(int idBuscado);
 };
 
 #endif // ARCHIVOPRESTAMO_H

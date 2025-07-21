@@ -16,8 +16,9 @@ MenuPrestamo::MenuPrestamo() : Menu(4) {
 void MenuPrestamo::mostrar() {
     system("cls");
     ArchivoPrestamo archivoPrestamo;
-    int cantidadOpciones = 4, y = 0;
+    int cantidadOpciones = 5, y = 0;
     bool salir = false;
+    int aux;
     Cursor cursor(cantidadOpciones, y);
 
     do {
@@ -35,8 +36,10 @@ void MenuPrestamo::mostrar() {
         rlutil::locate(30,14);
         cout << "Buscar prestamo por ID" << endl;
         rlutil::locate(30,15);
-        cout << "Buscar prestamo por titulo" << endl;
+        cout << "Buscar prestamos por socio" << endl;
         rlutil::locate(30,16);
+        cout << "Buscar prestamos por libro" << endl;
+        rlutil::locate(30,17);
         cout << "Volver" << endl;
 
 
@@ -74,7 +77,9 @@ void MenuPrestamo::mostrar() {
             case 2:
                 {
                 system("cls");
-                cout << "...en preparacion...";
+                cout << "Ingrese el ID del préstamo que busca: ";
+                cin >> aux;
+                archivoPrestamo.buscarPrestamoPorId(aux);
                 rlutil::anykey();
                 system("cls");
                 break;
@@ -82,12 +87,24 @@ void MenuPrestamo::mostrar() {
             case 3:
                 {
                 system("cls");
-                cout << "...en preparacion...";
+                cout << "Ingrese el ID del socio: ";
+                cin >> aux;
+                archivoPrestamo.listarPrestamosPorIdSocio(aux);
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 4:
+                {
+                system("cls");
+                cout << "Ingrese el ID del libro: ";
+                cin >> aux;
+                archivoPrestamo.listarPrestamosPorIdLibro(aux);
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 5:
                 {
                 salir = true;
                 system("cls");
