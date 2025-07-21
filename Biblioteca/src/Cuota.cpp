@@ -8,6 +8,7 @@ Cuota::Cuota() {
     monto = 0.0f;
     idSocio = 0;
     pagada = false;
+    estado=true;
 }
 
 Cuota::Cuota(int _idCuota, float _monto, int _idSocio, Fecha _fecha, bool _pagada) {
@@ -16,6 +17,7 @@ Cuota::Cuota(int _idCuota, float _monto, int _idSocio, Fecha _fecha, bool _pagad
     idSocio = _idSocio;
     fecha = _fecha;
     pagada = _pagada;
+    estado=true;
 }
 
 //Getters
@@ -24,6 +26,7 @@ float Cuota::getMonto() const { return monto; }
 int Cuota::getIdSocio() const { return idSocio; }
 Fecha Cuota::getFecha() const { return fecha; }
 bool Cuota::getPagada() const { return pagada; }
+bool Cuota::getEstado() { return estado; }
 
 //Setters
 void Cuota::setIdCuota(int id) { idCuota = id; }
@@ -31,11 +34,12 @@ void Cuota::setMonto(float m) { monto = m; }
 void Cuota::setIdSocio(int id) { idSocio = id; }
 void Cuota::setFecha(Fecha f) { fecha = f; }
 void Cuota::setPagada(bool p) { pagada = p; }
+void Cuota::setEstado(bool est) { estado = est; }
 
 void Cuota::agregarCuota(){
     //para validar que exista el id del socio
     ArchivoSocio archivoSoc;
-    bool idSocioValido = false;
+    int idSocioValido = -1;
 
     int aux = 0;
     cout << "Ingrese ID: ";
@@ -46,7 +50,7 @@ void Cuota::agregarCuota(){
     cin >> aux;
     cin.ignore();
     idSocioValido = archivoSoc.buscarSocioPorID(aux);
-    if (idSocioValido == true ){
+    if (idSocioValido < 0 ){
         setIdSocio(aux);
     }
 
@@ -78,6 +82,7 @@ void Cuota::agregarCuota(){
     cout << "Ingrese dia de pago: ";
     cin >> aux;
     this->fecha.setDia(aux);
+    estado = true;
 }
 
 void Cuota::mostrarCuota() {
@@ -89,4 +94,8 @@ void Cuota::mostrarCuota() {
         cout << "SI" << endl;
     } else { cout << "NO" << endl;}
     cout << "Fecha de pago: " << fecha.toString() << endl;
+    if (estado == true ){
+        cout << "Estado: activa. "<< endl;;
+    } else {
+    cout << "Estado: eliminada. " << endl;}
 }

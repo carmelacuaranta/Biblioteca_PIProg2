@@ -24,7 +24,7 @@ MenuCuota::MenuCuota() : Menu(4) {
 void MenuCuota::mostrar() {
     system("cls");
     ArchivoCuota archivoCuota;
-    int cantidadOpciones = 4, y = 0;
+    int cantidadOpciones = 6, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -37,16 +37,20 @@ void MenuCuota::mostrar() {
         rlutil::locate(30,11);
         cout << "============================" << endl;
         rlutil::locate(30,12);
-        cout << "Ver lista de prestamos" << endl;
+        cout << "Ver lista de cuotas" << endl;
         rlutil::locate(30,13);
-        cout << "Agregar prestamo" << endl;
+        cout << "Cargar una cuota" << endl;
         rlutil::locate(30,14);
-        cout << "Buscar prestamo por ID" << endl;
+        cout << "Buscar por ID del socio" << endl;
         rlutil::locate(30,15);
-        cout << "Buscar prestamo por titulo" << endl;
+        cout << "Buscar por ID de la cuota" << endl;
         rlutil::locate(30,16);
+        cout << "Eliminar cuota" << endl;
+        rlutil::locate(30,17);
+        cout << "Generar cuotas" << endl;
+        rlutil::locate(30,18);
         cout << "Volver" << endl;
-
+        //falta agregar PAGAR CUOTA y GENERAR CUOTAS del mes
 
         // Ubicación inicial del puntero
         cursor.dibujar(y);
@@ -83,7 +87,10 @@ void MenuCuota::mostrar() {
             case 2:
                 {
                 system("cls");
-                cout << "...en preparacion...";
+                int aux;
+                cout << "Ingrese ID del socio: " << endl;
+                cin >> aux;
+                archivoCuota.buscarCuotaPorIDSocio(aux);
                 rlutil::anykey();
                 system("cls");
                 break;
@@ -91,12 +98,39 @@ void MenuCuota::mostrar() {
             case 3:
                 {
                 system("cls");
-                cout << "...en preparacion...";
+                int aux;
+                cout << "Ingrese ID de la cuota: " << endl;
+                cin >> aux;
+                archivoCuota.buscarCuotaPorID(aux);
                 rlutil::anykey();
                 system("cls");
                 break;
                 }
             case 4:
+                {
+                system("cls");
+                archivoCuota.bajaLogica();
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 5:
+                {
+                system("cls");
+                Fecha fecha;
+                int aux;
+                cout << "Ingrese el año de cuota: ";
+                cin >> aux;
+                fecha.setAnio(aux);
+                cout << "Ingrese el mes de cuota: ";
+                cin >> aux;
+                fecha.setMes(aux);
+                archivoCuota.generarCuotasDelMes(500,fecha);
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 6:
                 {
                 salir = true;
                 system("cls");

@@ -13,14 +13,16 @@ class ArchivoCuota
     int tamanioRegistro;
 
 public:
-    ArchivoCuota(const char *n = "Cuota.dat") {
-        strncpy(cuota, n, sizeof(cuota));
-        cuota[sizeof(cuota) - 1] = '\0';
-        tamanioRegistro = sizeof(Cuota);
-    }
-
+    ArchivoCuota();
     int agregarCuota(Cuota cuo);
     bool listarCuotas();
+    int buscarCuotaPorID(int idBuscado);
+    int buscarCuotaPorIDSocio(int idBuscado);
+    bool generarCuotasDelMes(float monto, Fecha fecha);
+    int modificarRegistro(Cuota cu, int pos);
+    int modificarCuota(int idCuota);
+    Cuota leerRegistro(int pos);
+    bool bajaLogica();
 };
 
 #endif // ARCHIVOCUOTA_H

@@ -12,6 +12,7 @@ class Cuota
         int idSocio;
         Fecha fecha;
         bool pagada;
+        bool estado;
 
     public:
         Cuota();
@@ -22,11 +23,13 @@ class Cuota
         int getIdSocio() const;
         Fecha getFecha() const;
         bool getPagada() const;
+        bool getEstado();
         void setIdCuota(int id);
         void setMonto(float m);
         void setIdSocio(int id);
         void setFecha(Fecha f);
         void setPagada(bool p);
+        void setEstado(bool est);
 
         void mostrarCuota();
         void agregarCuota();

@@ -213,3 +213,12 @@ int ArchivoSocio::modificarSocio(int idSocio){
     ArchivoSocio archiSocio("socios.dat");
     archiSocio.buscarSocioPorID(idSocio);
 }
+
+int ArchivoSocio::cantidadRegistros() {
+    FILE* f = fopen("socios.dat", "rb");
+    if (f == nullptr) return 0;
+    fseek(f, 0, SEEK_END);
+    int tam = ftell(f);
+    fclose(f);
+    return tam / sizeof(Socio);
+}

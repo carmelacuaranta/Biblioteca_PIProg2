@@ -26,6 +26,7 @@ public:
     int modificarSocio(int idSocio);
     Socio leerRegistro(int pos);
     bool bajaLogica();
+    int cantidadRegistros();
 };
 
 #endif // ARCHIVOSOCIO_H

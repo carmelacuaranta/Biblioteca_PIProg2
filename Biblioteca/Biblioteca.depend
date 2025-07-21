@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1753052778 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp
+1753063647 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\socio.cpp
 	"Socio.h"
 	<iostream>
 	<cstring>
@@ -15,13 +15,13 @@
 	"Socio.h"
 	<iostream>
 
-1753061622 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
+1753107832 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"Socio.h"
 	<iostream>
 	<cstring>
 
-1753061622 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivosocio.h
+1753107862 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivosocio.h
 	"Socio.h"
 	<cstring>
 
@@ -106,20 +106,22 @@
 	<iostream>
 	<string.h>
 
-1753046582 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\cuota.cpp
+1753105664 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\cuota.cpp
 	<iostream>
 	"Cuota.h"
 	"ArchivoSocio.h"
 
-1753046582 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\cuota.h
+1753101156 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\cuota.h
 	"Fecha.h"
 
-1753046582 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivocuota.cpp
+1753108403 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivocuota.cpp
 	<iostream>
 	<string.h>
 	"ArchivoCuota.h"
+	"ArchivoSocio.h"
+	"Socio.h"
 
-1753046582 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivocuota.h
+1753107126 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivocuota.h
 	"Cuota.h"
 	<iostream>
 	<cstring>
@@ -291,7 +293,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1753046582 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menucuota.cpp
+1753107550 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menucuota.cpp
 	<iostream>
 	"MenuCuota.h"
 	"ArchivoCuota.h"
