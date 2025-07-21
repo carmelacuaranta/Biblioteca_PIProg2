@@ -95,7 +95,7 @@
 1753114432 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\prestamo.h
 	"Fecha.h"
 
-1753114466 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivoprestamo.cpp
+1753116975 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivoprestamo.cpp
 	<iostream>
 	"ArchivoPrestamo.h"
 	"ArchivoSocio.h"
@@ -314,7 +314,7 @@
 1753046582 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\menulibro.h
 	<Menu.h>
 
-1753046582 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menuprestamo.cpp
+1753114647 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menuprestamo.cpp
 	<iostream>
 	"MenuPrestamo.h"
 	"ArchivoPrestamo.h"
