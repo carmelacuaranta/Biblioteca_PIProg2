@@ -21,11 +21,11 @@ Cuota::Cuota(int _idCuota, float _monto, int _idSocio, Fecha _fecha, bool _pagad
 }
 
 //Getters
-int Cuota::getIdCuota() const { return idCuota; }
-float Cuota::getMonto() const { return monto; }
-int Cuota::getIdSocio() const { return idSocio; }
-Fecha Cuota::getFecha() const { return fecha; }
-bool Cuota::getPagada() const { return pagada; }
+int Cuota::getIdCuota() { return idCuota; }
+float Cuota::getMonto() { return monto; }
+int Cuota::getIdSocio() { return idSocio; }
+Fecha Cuota::getFecha() { return fecha; }
+bool Cuota::getPagada() { return pagada; }
 bool Cuota::getEstado() { return estado; }
 
 //Setters
@@ -94,8 +94,4 @@ void Cuota::mostrarCuota() {
         cout << "SI" << endl;
     } else { cout << "NO" << endl;}
     cout << "Fecha de pago: " << fecha.toString() << endl;
-    if (estado == true ){
-        cout << "Estado: activa. "<< endl;;
-    } else {
-    cout << "Estado: eliminada. " << endl;}
 }

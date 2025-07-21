@@ -17,13 +17,14 @@ class Cuota
     public:
         Cuota();
         Cuota(int _idCuota, float _monto, int _idSocio, Fecha _fecha, bool _pagada);
-        //Getters y Setters
-        int getIdCuota() const;
-        float getMonto() const;
-        int getIdSocio() const;
-        Fecha getFecha() const;
-        bool getPagada() const;
+
+        int getIdCuota();
+        float getMonto();
+        int getIdSocio();
+        Fecha getFecha();
+        bool getPagada();
         bool getEstado();
+
         void setIdCuota(int id);
         void setMonto(float m);
         void setIdSocio(int id);

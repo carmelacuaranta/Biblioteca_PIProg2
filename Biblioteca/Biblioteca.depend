@@ -15,7 +15,7 @@
 	"Socio.h"
 	<iostream>
 
-1753107832 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
+1753110285 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"Socio.h"
 	<iostream>
@@ -106,22 +106,22 @@
 	<iostream>
 	<string.h>
 
-1753105664 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\cuota.cpp
+1753109755 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\cuota.cpp
 	<iostream>
 	"Cuota.h"
 	"ArchivoSocio.h"
 
-1753101156 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\cuota.h
+1753109755 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\cuota.h
 	"Fecha.h"
 
-1753108403 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivocuota.cpp
+1753108931 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivocuota.cpp
 	<iostream>
 	<string.h>
 	"ArchivoCuota.h"
 	"ArchivoSocio.h"
 	"Socio.h"
 
-1753107126 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivocuota.h
+1753108954 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivocuota.h
 	"Cuota.h"
 	<iostream>
 	<cstring>
@@ -293,7 +293,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1753107550 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menucuota.cpp
+1753109096 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menucuota.cpp
 	<iostream>
 	"MenuCuota.h"
 	"ArchivoCuota.h"
@@ -346,7 +346,7 @@
 1753046582 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\menusocio.h
 	"Menu.h"
 
-1753050789 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menusocio.cpp
+1753110351 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menusocio.cpp
 	<iostream>
 	"MenuPrincipal.h"
 	"MenuSocio.h"

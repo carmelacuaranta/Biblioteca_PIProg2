@@ -24,7 +24,7 @@ MenuCuota::MenuCuota() : Menu(4) {
 void MenuCuota::mostrar() {
     system("cls");
     ArchivoCuota archivoCuota;
-    int cantidadOpciones = 6, y = 0;
+    int cantidadOpciones = 7, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -49,8 +49,9 @@ void MenuCuota::mostrar() {
         rlutil::locate(30,17);
         cout << "Generar cuotas" << endl;
         rlutil::locate(30,18);
+        cout << "Pagar una cuota" << endl;
+        rlutil::locate(30,19);
         cout << "Volver" << endl;
-        //falta agregar PAGAR CUOTA y GENERAR CUOTAS del mes
 
         // Ubicación inicial del puntero
         cursor.dibujar(y);
@@ -131,6 +132,18 @@ void MenuCuota::mostrar() {
                 break;
                 }
             case 6:
+                {
+                system("cls");
+                Fecha fecha;
+                int aux;
+                cout << "Ingrese el ID de la cuota que desea pagar: ";
+                cin >> aux;
+                archivoCuota.pagarCuota(aux);
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 7:
                 {
                 salir = true;
                 system("cls");

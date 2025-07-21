@@ -123,7 +123,10 @@ void MenuSocio::mostrar() {
             case 6:
                 {
                 system("cls");
-                cout << "en preparación" << endl;
+                int aux;
+                cout<<"Ingrese ID del socio que desea modificar: ";
+                cin >> aux;
+                archivoSocio.modificarSocio(aux);
                 rlutil::anykey();
                 system("cls");
                 break;

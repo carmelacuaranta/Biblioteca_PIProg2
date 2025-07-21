@@ -191,3 +191,34 @@ bool ArchivoCuota::bajaLogica(){
         } else { return false;}
     }
 }
+
+bool ArchivoCuota::pagarCuota(int idCuota) {
+    ArchivoCuota archi;
+    int pos = archi.buscarCuotaPorID(idCuota);
+    if (pos == -1) {
+        cout << "No hay una cuota con ese ID." << endl;
+        return false;
+    }
+
+    Cuota cu = archi.leerRegistro(pos);
+
+    if (!cu.getEstado()) {
+        cout << "La cuota fue eliminada y no puede pagarse." << endl;
+        return false;
+    }
+
+    if (cu.getPagada()) {
+        cout << "La cuota ya estaba pagada." << endl;
+        return false;
+    }
+
+    cu.setPagada(true);
+
+    if (archi.modificarRegistro(cu, pos) == 1) {
+        cout << "Registro de pago exitoso." << endl;
+        return true;
+    } else {
+        cout << "No se pudo modificar el registro." << endl;
+        return false;
+    }
+}

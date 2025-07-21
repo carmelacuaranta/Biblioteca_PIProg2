@@ -209,9 +209,60 @@ int ArchivoSocio::modificarRegistro(Socio soc, int pos){
 }
 
 int ArchivoSocio::modificarSocio(int idSocio){
-    //necesito id del socio, y nuevos datos
     ArchivoSocio archiSocio("socios.dat");
-    archiSocio.buscarSocioPorID(idSocio);
+
+    int pos = archiSocio.buscarSocioPorID(idSocio);
+    if (pos == -1) {
+        cout << "No se encontro socio con ese ID." << endl;
+        return -1;
+    }
+
+    Socio soc = archiSocio.leerRegistro(pos);
+    if (soc.getEstado()==false) {
+        cout << "Socio eliminado, no se puede modificar." << endl;
+        return -2;
+    }
+
+    cout << "Ingrese los nuevos datos del socio:" << endl;
+
+    char nombre[30], apellido[30], dni[10], direccion[50], email[50], telefono[50];
+    int idSocioNuevo = soc.getId();  // se mantiene
+    int numSocioNuevo = soc.getNumSocio();
+    Fecha fechaNac = soc.getFechaNac();
+
+    cout << "Nombre/s: ";
+    cin.ignore();
+    cin.getline(nombre, 30);
+    cout << "Apellido: ";
+    cin.getline(apellido, 30);
+    cout << "DNI: ";
+    cin.getline(dni, 10);
+    cout << "Direccion: ";
+    cin.getline(direccion, 50);
+    cout << "Email: ";
+    cin.getline(email, 50);
+    cout << "telefono: ";
+    cin.getline(telefono, 50);
+
+    cout << "Fecha de nacimiento:" << endl;
+    int dia, mes, anio;
+    cout << "Dia: "; cin >> dia;
+    cout << "Mes: "; cin >> mes;
+    cout << "Anio: "; cin >> anio;
+    fechaNac.setDia(dia);
+    fechaNac.setMes(mes);
+    fechaNac.setAnio(anio);
+
+    Socio nuevoSocio(idSocioNuevo, numSocioNuevo,dni, nombre, apellido, telefono, direccion, email,fechaNac);
+    nuevoSocio.setEstado(true);
+
+    if (archiSocio.modificarRegistro(nuevoSocio, pos) == 1){
+        cout << "Se actualizo correctamente." << endl;
+        return 1;
+    } else {
+        cout << "Error al modificar el socio." << endl;
+        return 0;
+    }
 }
 
 int ArchivoSocio::cantidadRegistros() {

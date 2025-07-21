@@ -23,6 +23,7 @@ public:
     int modificarCuota(int idCuota);
     Cuota leerRegistro(int pos);
     bool bajaLogica();
+    bool pagarCuota(int idCuota);
 };
 
 #endif // ARCHIVOCUOTA_H
