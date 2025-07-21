@@ -7,23 +7,30 @@ using namespace std;
 int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
     ArchivoLibro lib;
     ArchivoSocio soc;
+
     int idSocioValido = soc.buscarSocioPorID(pres.getIdSocio());
     int idLibroValido = lib.buscarLibroPorID(pres.getIdLibro());
+
+    if (idSocioValido < 0 || idLibroValido < 0) {
+        cout << "No se puede realizar el préstamo. ID inválido." << endl;
+        return -1;
+    }
+
     FILE *pPrestamo = fopen("prestamos.dat", "ab");
     if(pPrestamo == nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
     }
 
-    pres.setEstado(true);
-    if (idSocioValido >= 0 && idLibroValido >=0){
-        fwrite(&pres, sizeof pres, 1, pPrestamo);
-        cout << "Prestamo registrado." << endl;
-    }
+    int nuevoID = obtenerUltimoID() + 1;
+    pres.setIdPrestamo(nuevoID);      // ID autoincremental
+    pres.setEstado(true);     // Estado activo
 
-
+    fwrite(&pres, sizeof(Prestamo), 1, pPrestamo);
     fclose(pPrestamo);
-    return 0;
+
+    cout << "Préstamo registrado con ID: " << nuevoID << endl;
+    return nuevoID;
 }
 
 bool ArchivoPrestamo::listarPrestamos() {
@@ -116,5 +123,20 @@ void ArchivoPrestamo::listarPrestamosPorIdSocio(int idBuscado){
     if (!encontrado) {
         cout << "No se encontraron préstamos activos con ese ID de socio." << endl;
     }
+}
+
+int ArchivoPrestamo::obtenerUltimoID() {
+    FILE* p = fopen("prestamos.dat", "rb");
+    if (p == nullptr) return 0;
+
+    Prestamo pres;
+    fseek(p, -sizeof(Prestamo), SEEK_END);  // Nos posicionamos al final
+    if (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
+        fclose(p);
+        return pres.getIdPrestamo();
+    }
+
+    fclose(p);
+    return 0;
 }
 

@@ -23,6 +23,7 @@ public:
     int buscarPrestamoPorId(int idBuscado);
     void listarPrestamosPorIdLibro(int idBuscado);
     void listarPrestamosPorIdSocio(int idBuscado);
+    int obtenerUltimoID();
 };
 
 #endif // ARCHIVOPRESTAMO_H

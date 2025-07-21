@@ -32,8 +32,6 @@ void Prestamo::mostrarPrestamo(){
 
 void Prestamo::cargarPrestamo(){
     int aux;
-    cout << "Ingrese ID del prestamo: " << endl;
-    cin >> idPrestamo;
     cout << "Ingrese ID del Socio: " << endl;
     cin >> idSocio;
     cout << "Ingrese ID del Libro: " << endl;
