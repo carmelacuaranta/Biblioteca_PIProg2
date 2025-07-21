@@ -15,7 +15,7 @@
 	"Socio.h"
 	<iostream>
 
-1753110285 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
+1753110518 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"Socio.h"
 	<iostream>
@@ -33,12 +33,12 @@
 1753061991 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\libro.h
 	"Fecha.h"
 
-1753063554 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivolibro.cpp
+1753111380 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\archivolibro.cpp
 	"ArchivoLibro.h"
 	"Libro.h"
 	<iostream>
 
-1753063488 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivolibro.h
+1753111319 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\archivolibro.h
 	"Libro.h"
 	<cstring>
 
@@ -303,7 +303,7 @@
 1753046582 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\menucuota.h
 	<Menu.h>
 
-1753062727 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menulibro.cpp
+1753111467 source:d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\src\menulibro.cpp
 	<iostream>
 	"MenuLibro.h"
 	"ArchivoLibro.h"

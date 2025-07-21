@@ -128,7 +128,10 @@ void MenuLibro::mostrar() {
             case 7:
                 {
                 system("cls");
-                cout << "En preparación" << endl;
+                int aux;
+                cout << "Ingrese el ID del libro a modificar: " << endl;
+                cin >> aux;
+                archivoLibro.modificarLibro(aux);
                 rlutil::anykey();
                 system("cls");
                 break;

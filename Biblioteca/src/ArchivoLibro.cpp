@@ -158,9 +158,6 @@ int ArchivoLibro::modificarRegistro(Libro lib, int pos){
     return escribio;
 }
 
-int ArchivoLibro::modificarLibro(int idLibro){
-}
-
 Libro ArchivoLibro::leerRegistro(int pos){
     Libro lib;
     FILE *pLibro;
@@ -196,5 +193,62 @@ bool ArchivoLibro::bajaLogica(){
             cout << "Libro elimindo con éxito. " << endl;
            return true;
         } else { return false;}
+    }
+}
+
+int ArchivoLibro::modificarLibro(int idLibro){
+    ArchivoLibro archiLibro("libros.dat");
+
+    int pos = archiLibro.buscarLibroPorID(idLibro);
+    if (pos == -1) {
+        cout << "No existe un libro con ese ID." << endl;
+        return -1;
+    }
+
+    Libro lib = archiLibro.leerRegistro(pos);
+    if (lib.getEstado()==false) {
+        cout << "Libro eliminado, no se puede modificar." << endl;
+        return -2;
+    }
+
+    cout << "Ingrese los nuevos datos del libro:" << endl;
+
+    char titulo[100], autor[50], genero[30];
+    int idNuevo = lib.getLibroId();
+    int isbnNuevo = lib.getIsbn();
+    int cantidadNuevo = lib.getCantEjemplares();
+    Fecha fechaPubli = lib.getFechaPublicacion();
+
+    cout << "Titulo: ";
+    cin.ignore();
+    cin.getline(titulo, 100);
+    cout << "Autor: ";
+    cin.getline(autor, 50);
+    cout << "Genero: ";
+    cin.getline(genero, 30);
+    cout << "ISBN: ";
+    cin >> isbnNuevo;
+    cout << "Cantidad de ejemplares: ";
+    cin >> cantidadNuevo;
+
+
+    cout << "Fecha de publicacion:" << endl;
+    int dia, mes, anio;
+    cout << "Dia: "; cin >> dia;
+    cout << "Mes: "; cin >> mes;
+    cout << "Anio: "; cin >> anio;
+    fechaPubli.setDia(dia);
+    fechaPubli.setMes(mes);
+    fechaPubli.setAnio(anio);
+
+    Libro nuevoLibro(idNuevo, isbnNuevo, titulo, autor, genero, cantidadNuevo, fechaPubli);
+    nuevoLibro.setEstado(true);
+
+    if (archiLibro.modificarRegistro(nuevoLibro, pos) == 1){
+        cout << "Se actualizo correctamente." << endl;
+        return 1;
+    } else {
+        cout << "Error al modificar el libro." << endl;
+        return 0;
     }
 }
