@@ -27,6 +27,7 @@ public:
     int modificarRegistro(Prestamo pres, int pos);
     bool bajaLogica();
     Prestamo leerRegistro(int pos);
+    int modificarPrestamo(int idPrestamo);
 };
 
 #endif // ARCHIVOPRESTAMO_H

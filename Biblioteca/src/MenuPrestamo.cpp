@@ -16,7 +16,7 @@ MenuPrestamo::MenuPrestamo() : Menu(4) {
 void MenuPrestamo::mostrar() {
     system("cls");
     ArchivoPrestamo archivoPrestamo;
-    int cantidadOpciones = 6, y = 0;
+    int cantidadOpciones = 7, y = 0;
     bool salir = false;
     int aux;
     Cursor cursor(cantidadOpciones, y);
@@ -42,6 +42,8 @@ void MenuPrestamo::mostrar() {
         rlutil::locate(30,17);
         cout << "Eliminar un prestamo" << endl;
         rlutil::locate(30,18);
+        cout << "Modificar un prestamo" << endl;
+        rlutil::locate(30,19);
         cout << "Volver" << endl;
 
 
@@ -115,6 +117,16 @@ void MenuPrestamo::mostrar() {
                 break;
                 }
             case 6:
+                {
+                system("cls");
+                cout << "ID del prestamo a modificar: ";
+                cin >> aux;
+                archivoPrestamo.modificarPrestamo(aux);
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 7:
                 {
                 salir = true;
                 system("cls");

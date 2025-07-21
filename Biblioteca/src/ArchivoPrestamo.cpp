@@ -190,3 +190,45 @@ int ArchivoPrestamo::modificarRegistro(Prestamo pres, int pos){
     return escribio;
 }
 
+
+int ArchivoPrestamo::modificarPrestamo(int idPrestamo){
+    ArchivoPrestamo archiPrestamo("prestamos.dat");
+
+    int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
+    if (pos == -1) {
+        cout << "No se encontro socio con ese ID." << endl;
+        return -1;
+    }
+
+    Prestamo pres = archiPrestamo.leerRegistro(pos);
+    if (pres.getEstado()==false) {
+        cout << "Prestamo eliminado, no se puede modificar." << endl;
+        return -2;
+    }
+
+    int idNuevo=pres.getIdPrestamo();
+    Fecha fechaP = pres.getFechaPrestado();
+    Fecha fechaD=pres.getFechaDevolucion();
+    bool ven=pres.getVencido();
+    bool fin=pres.getFinalizado();
+
+
+    cout << "Ingrese los nuevos datos:" << endl;
+    int idLibroNuevo;
+    int idSocioNuevo;
+
+    cout << "ID SOCIO: ";
+    cin>> idSocioNuevo;
+    cout << "ID LIBRO: ";
+    cin>> idLibroNuevo;
+
+    Prestamo nuevoPrestamo(idNuevo,idLibroNuevo, idSocioNuevo, fechaP, fechaD, ven, ven);
+
+    if (archiPrestamo.modificarRegistro(nuevoPrestamo, pos) == 1){
+        cout << "Se actualizo correctamente." << endl;
+        return 1;
+    } else {
+        cout << "Error al modificar el prestamo." << endl;
+        return 0;
+    }
+}
