@@ -31,15 +31,17 @@ bool ArchivoLibro::listarLibros() {
     cout << "LISTADO DE LIBROS:" << endl << "-------------------" << endl;
 
     while (fread(&lib, sizeof(Libro), 1, pLibro) == 1) {
-        lib.mostrarLibro();
-        cout << "-------------------" << endl;
+        if(lib.getEstado()==true){
+            lib.mostrarLibro();
+            cout << "-------------------" << endl;
+        }
     }
 
     fclose(pLibro);
     return 0;
 }
 
-bool ArchivoLibro::buscarLibroPorID(int idBuscado){
+int ArchivoLibro::buscarLibroPorID(int idBuscado){
     FILE* p = fopen("libros.dat", "rb");
     if (p == nullptr) {
         cout << "No se pudo abrir el archivo.";
@@ -47,17 +49,19 @@ bool ArchivoLibro::buscarLibroPorID(int idBuscado){
     }
 
     Libro lib;
+    int pos=0;
     while (fread(&lib, sizeof(Libro), 1, p) == 1) {
         if (lib.getLibroId() == idBuscado) {
             cout << "Libro encontrado: " << endl;
             lib.mostrarLibro();
             fclose(p);
-            return true;
+            return pos;
         }
+        pos++;
     }
     cout << "No se encontro un libro con ese ID." << endl;
     fclose(p);
-    return false;
+    return -1;
 }
 
 bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
@@ -140,4 +144,57 @@ bool ArchivoLibro::cargaVariosAux(){
     fwrite(&aux4, sizeof aux4, 1, p);
 
     fclose(p);
+}
+
+int ArchivoLibro::modificarRegistro(Libro lib, int pos){
+    FILE *pLibro;
+    pLibro= fopen("libros.dat","rb+");
+    if (pLibro == nullptr){
+        return -1;
+    }
+    fseek(pLibro,pos*tamanioRegistro,0);
+    int escribio=fwrite(&lib, tamanioRegistro, 1, pLibro);
+    fclose(pLibro);
+    return escribio;
+}
+
+int ArchivoLibro::modificarLibro(int idLibro){
+}
+
+Libro ArchivoLibro::leerRegistro(int pos){
+    Libro lib;
+    FILE *pLibro;
+    pLibro= fopen("libros.dat","rb");
+    if(pLibro==nullptr){
+        cout << "Eror de archivo." << endl;
+        return lib;
+    }
+    fseek(pLibro,pos*tamanioRegistro,0);
+    fread(&lib, tamanioRegistro, 1, pLibro);
+    fclose(pLibro);
+    return lib;
+}
+
+bool ArchivoLibro::bajaLogica(){
+    Libro lib;
+    ArchivoLibro archiLibro("libros.dat");
+    int id;
+    cout << "ingresar id del libro a eliminar: ";
+    cin >> id;
+    int encontro = archiLibro.buscarLibroPorID(id);
+    if (encontro < 0){
+        cout << "No existe un libro con ese id." << endl;
+        return false;
+    }
+    lib=archiLibro.leerRegistro(encontro);
+    if (lib.getEstado()==false){
+        cout << "El libro ya estaba eliminado. " << endl;
+        return false;
+    } else {
+        lib.setEstado(false);
+        if(archiLibro.modificarRegistro(lib,encontro)==1){
+            cout << "Libro elimindo con éxito. " << endl;
+           return true;
+        } else { return false;}
+    }
 }

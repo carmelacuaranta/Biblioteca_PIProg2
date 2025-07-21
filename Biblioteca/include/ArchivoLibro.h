@@ -19,10 +19,14 @@ public:
 
     int agregarLibro(Libro lib);
     bool listarLibros();
-    bool buscarLibroPorID(int idBuscado);
+    int buscarLibroPorID(int idBuscado);
     bool buscarLibroPorTitulo(const char* tituloBuscado);
     bool buscarLibroPorGenero(const char* generoBuscado);
     bool cargaVariosAux();
+    int modificarRegistro(Libro lib, int pos);
+    int modificarLibro(int idLibro);
+    Libro leerRegistro(int pos);
+    bool bajaLogica();
 };
 
 #endif // ARCHIVOLIBRO_H

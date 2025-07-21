@@ -11,6 +11,7 @@ Libro::Libro() {
     genero[0] = '\0';
     cantEjemplares = 0;
     fechaPublicacion = Fecha();
+    estado=true;
 }
 
 Libro::Libro(int _libroId, int _isbn, const char* _titulo, const char* _autor,
@@ -25,6 +26,7 @@ Libro::Libro(int _libroId, int _isbn, const char* _titulo, const char* _autor,
     genero[sizeof(genero) - 1] = '\0';
     cantEjemplares = _cantEjemplares;
     fechaPublicacion = _fechaPublicacion;
+    estado = true;
 }
 
 //getters
@@ -35,6 +37,7 @@ const char* Libro::getAutor() { return autor; }
 const char* Libro::getGenero() { return genero; }
 int Libro::getCantEjemplares() { return cantEjemplares; }
 Fecha Libro::getFechaPublicacion() { return fechaPublicacion; }
+bool Libro::getEstado() { return estado;}
 
 //setters
 void Libro::setLibroId(int id) { libroId = id; }
@@ -53,6 +56,7 @@ void Libro::setGenero(const char* g) {
 }
 void Libro::setCantEjemplares(int c) { cantEjemplares = c; }
 void Libro::setFechaPublicacion(Fecha f) { fechaPublicacion = f; }
+void Libro::setEstado(bool est){estado=est;}
 
 void Libro::agregarLibro(){
     int aux = 0;
@@ -96,4 +100,9 @@ void Libro::mostrarLibro() {
     cout << "Genero: " << genero << endl;
     cout << "Cantidad de ejemplares: " << cantEjemplares << endl;
     cout << "Fecha de Publicacion: " << fechaPublicacion.toString() << endl;
+    if (estado==true){
+        cout<<"estado: disponible. "<< endl;
+    } else {
+        cout << "estado: elimindo. " << endl;
+    }
 }

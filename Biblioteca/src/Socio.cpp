@@ -27,6 +27,7 @@ Socio::Socio(int id, int numSocio, const char* dni, const char* nombre, const ch
     strncpy(this->direccion, direccion, sizeof(this->direccion));
     strncpy(this->email, email, sizeof(this->email));
     this->fechaNac=fechaNac;
+    estado=true;
 
     this->dni[sizeof(this->dni) - 1] = '\0';
     this->nombre[sizeof(this->nombre) - 1] = '\0';
@@ -47,6 +48,7 @@ const char* Socio::getTelefono() { return telefono; }
 const char* Socio::getDireccion() { return direccion; }
 const char* Socio::getEmail() { return email; }
 Fecha Socio::getFechaNac() { return fechaNac; }
+bool Socio::getEstado(){return estado;}
 
 // Setters
 void Socio::setId(int idSocio) { id = idSocio; }
@@ -58,6 +60,7 @@ void Socio::setTelefono(const char* telSocio) { strncpy(telefono, telSocio, size
 void Socio::setDireccion(const char* direccionSocio) { strncpy(direccion, direccionSocio, sizeof(direccion)); direccion[sizeof(direccion) - 1] = '\0'; }
 void Socio::setEmail(const char* emailSocio) { strncpy(email, emailSocio, sizeof(email)); email[sizeof(email) - 1] = '\0'; }
 void Socio::setFechaNac(Fecha fechaSocio) { fechaNac = fechaSocio; }
+void Socio::setEstado(bool est) { estado = est;}
 
 void Socio::agregarSocio() {
     int aux = 0;
@@ -99,14 +102,14 @@ void Socio::agregarSocio() {
 }
 
 void Socio::mostrarSocio() {
-    cout << "ID: " << id << endl;
-    cout << "Numero de Socio: " << numSocio << endl;
-    cout << "DNI: " << dni << endl;
-    cout << "Nombre: " << nombre << endl;
-    cout << "Apellido: " << apellido << endl;
-    cout << "Telefono: " << telefono << endl;
-    cout << "Direccion: " << direccion << endl;
-    cout << "Email: " << email << endl;
-    cout << "Fecha de Nacimiento: " << fechaNac.toString() << endl;
+        cout << "ID: " << id << endl;
+        cout << "Numero de Socio: " << numSocio << endl;
+        cout << "DNI: " << dni << endl;
+        cout << "Nombre: " << nombre << endl;
+        cout << "Apellido: " << apellido << endl;
+        cout << "Telefono: " << telefono << endl;
+        cout << "Direccion: " << direccion << endl;
+        cout << "Email: " << email << endl;
+        cout << "Fecha de Nacimiento: " << fechaNac.toString() << endl;
 }
 

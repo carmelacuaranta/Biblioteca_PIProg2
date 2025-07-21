@@ -18,7 +18,7 @@ MenuSocio::MenuSocio() : Menu(5) {
 void MenuSocio::mostrar() {
     system("cls");
     ArchivoSocio archivoSocio;
-    int cantidadOpciones = 5, y = 0;
+    int cantidadOpciones = 7, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -41,6 +41,10 @@ void MenuSocio::mostrar() {
         rlutil::locate(30,16);
         cout << "Cargar socios de prueba" << endl;
         rlutil::locate(30,17);
+        cout << "Eliminar socio" << endl;
+        rlutil::locate(30,18);
+        cout << "Modificar socio" << endl;
+        rlutil::locate(30,19);
         cout << "Volver" << endl;
 
 
@@ -108,6 +112,23 @@ void MenuSocio::mostrar() {
                 break;
                 }
             case 5:
+                {
+                system("cls");
+                cout << "Eliminar un socio." << endl;
+                archivoSocio.bajaLogica();
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 6:
+                {
+                system("cls");
+                cout << "en preparación" << endl;
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 7:
                 {
                 salir = true;
                 system("cls");

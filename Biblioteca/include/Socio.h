@@ -13,6 +13,7 @@ private:
     char direccion[50];
     char email[50];
     Fecha fechaNac;
+    bool estado; //activo, borrado
 
 public:
     Socio();
@@ -29,6 +30,7 @@ public:
     const char* getDireccion();
     const char* getEmail();
     Fecha getFechaNac();
+    bool getEstado();
 
     // Setters
     void setId(int idSocio);
@@ -40,6 +42,7 @@ public:
     void setDireccion(const char* direccionSocio);
     void setEmail(const char* emailSocio);
     void setFechaNac(Fecha fechaSocio);
+    void setEstado(bool est);
 
     void agregarSocio();
     void mostrarSocio();

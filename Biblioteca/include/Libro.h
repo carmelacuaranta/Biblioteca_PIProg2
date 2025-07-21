@@ -11,6 +11,7 @@ private:
     char genero[30];
     int cantEjemplares;
     Fecha fechaPublicacion;
+    bool estado;
 
 public:
     Libro();
@@ -26,6 +27,7 @@ public:
     const char* getGenero();
     int getCantEjemplares();
     Fecha getFechaPublicacion();
+    bool getEstado();
 
     // Setters
     void setLibroId(int id);
@@ -35,6 +37,7 @@ public:
     void setGenero(const char* g);
     void setCantEjemplares(int c);
     void setFechaPublicacion(Fecha f);
+    void setEstado(bool est);
 
     void agregarLibro();
     void mostrarLibro();

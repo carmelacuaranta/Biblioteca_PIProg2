@@ -19,9 +19,13 @@ public:
     int agregarRegistro(Socio soc);
     bool listarRegistros();
     int listarSocios();
-    bool buscarSocioPorID(int idBuscado);
+    int buscarSocioPorID(int idBuscado);
     bool buscarSocioPorNombre(const char* nombreBuscado);
     bool cargaVariosAux();
+    int modificarRegistro(Socio soc, int pos);
+    int modificarSocio(int idSocio);
+    Socio leerRegistro(int pos);
+    bool bajaLogica();
 };
 
 #endif // ARCHIVOSOCIO_H

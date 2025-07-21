@@ -12,7 +12,7 @@ MenuLibro::MenuLibro() : Menu(6) {
 void MenuLibro::mostrar() {
     system("cls");
     ArchivoLibro archivoLibro;
-    int cantidadOpciones = 6, y = 0;
+    int cantidadOpciones = 8, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -37,6 +37,10 @@ void MenuLibro::mostrar() {
         rlutil::locate(30,17);
         cout << "Cargar libros predefinidos" << endl;
         rlutil::locate(30,18);
+        cout << "Eliminar libro" << endl;
+        rlutil::locate(30,19);
+        cout << "Modificar libro" << endl;
+        rlutil::locate(30,20);
         cout << "Volver" << endl;
 
         // Ubicación inicial del puntero
@@ -113,6 +117,23 @@ void MenuLibro::mostrar() {
                 break;
                 }
             case 6:
+                {
+                system("cls");
+                cout << "Ingrese el ID del libro que desea eliminar: " << endl;
+                archivoLibro.bajaLogica();
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 7:
+                {
+                system("cls");
+                cout << "En preparación" << endl;
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 8:
                 {
                 salir = true;
                 system("cls");

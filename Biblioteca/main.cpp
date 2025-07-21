@@ -4,7 +4,6 @@
 using namespace std;
 
 int main() {
-
     MenuPrincipal menu;
     menu.mostrar();
     return 0;
