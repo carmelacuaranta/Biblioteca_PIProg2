@@ -16,7 +16,7 @@ MenuPrestamo::MenuPrestamo() : Menu(4) {
 void MenuPrestamo::mostrar() {
     system("cls");
     ArchivoPrestamo archivoPrestamo;
-    int cantidadOpciones = 7, y = 0;
+    int cantidadOpciones = 10, y = 0;
     bool salir = false;
     int aux;
     Cursor cursor(cantidadOpciones, y);
@@ -30,7 +30,7 @@ void MenuPrestamo::mostrar() {
         rlutil::locate(30,11);
         cout << "============================" << endl;
         rlutil::locate(30,12);
-        cout << "Ver lista de prestamos" << endl;
+        cout << "Ver lista de prestamos activos" << endl;
         rlutil::locate(30,13);
         cout << "Agregar prestamo" << endl;
         rlutil::locate(30,14);
@@ -44,6 +44,12 @@ void MenuPrestamo::mostrar() {
         rlutil::locate(30,18);
         cout << "Modificar un prestamo" << endl;
         rlutil::locate(30,19);
+        cout << "Extender fecha devolucion" << endl;
+        rlutil::locate(30,20);
+        cout << "Registrar evolución" << endl;
+        rlutil::locate(30,21);
+         cout << "Listar prestamos vencidos" << endl;
+        rlutil::locate(30,22);
         cout << "Volver" << endl;
 
 
@@ -127,6 +133,34 @@ void MenuPrestamo::mostrar() {
                 break;
                 }
             case 7:
+                {
+                system("cls");
+                cout << "ID del prestamo a modificar: ";
+                cin >> aux;
+                archivoPrestamo.extenderFechaDevolucion(aux);
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 8:
+                {
+                system("cls");
+                cout << "ID del prestamo a finalizar: ";
+                cin >> aux;
+                archivoPrestamo.registrarDevolucion(aux);
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 9:
+                {
+                system("cls");
+                archivoPrestamo.listarPrestamosVencidos();
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 10:
                 {
                 salir = true;
                 system("cls");

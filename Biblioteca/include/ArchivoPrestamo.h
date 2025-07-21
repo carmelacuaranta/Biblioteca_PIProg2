@@ -28,6 +28,9 @@ public:
     bool bajaLogica();
     Prestamo leerRegistro(int pos);
     int modificarPrestamo(int idPrestamo);
+    int extenderFechaDevolucion(int idPrestamo);
+    int registrarDevolucion(int idPrestamo);
+    void listarPrestamosVencidos();
 };
 
 #endif // ARCHIVOPRESTAMO_H

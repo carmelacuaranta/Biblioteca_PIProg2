@@ -44,7 +44,7 @@ bool ArchivoPrestamo::listarPrestamos() {
     cout << "LISTADO DE PRESTAMOS:" << endl << "-------------------" << endl;
 
     while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
-        if(pres.getEstado()==true){
+        if(pres.getEstado()==true && pres.getFinalizado()==false){
             pres.mostrarPrestamo();
             cout << "-------------------" << endl;
         }
@@ -231,4 +231,116 @@ int ArchivoPrestamo::modificarPrestamo(int idPrestamo){
         cout << "Error al modificar el prestamo." << endl;
         return 0;
     }
+}
+
+int ArchivoPrestamo::extenderFechaDevolucion(int idPrestamo){
+
+    ArchivoPrestamo archiPrestamo("prestamos.dat");
+    int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
+    if (pos == -1) {
+        cout << "No se encontro prestamo con ese ID." << endl;
+        return -1;
+    }
+
+    Prestamo pres = archiPrestamo.leerRegistro(pos);
+    if (pres.getEstado()==false) {
+        cout << "Prestamo eliminado, no se puede modificar." << endl;
+        return -2;
+    }
+
+    int idNuevo=pres.getIdPrestamo();
+    int idLibroNuevo=pres.getIdLibro();
+    int idSocioNuevo=pres.getIdSocio();
+    Fecha fechaP = pres.getFechaPrestado();
+    bool ven=false;
+    bool fin=false;
+
+    int anio, mes, dia;
+
+    cout << "Ingrese anio:" << endl;
+    cin >> anio;
+    cout << "Ingrese mes:" << endl;
+    cin >> mes;
+    cout << "Ingrese dia:" << endl;
+    cin >> dia;
+
+    Fecha fechaD(dia,mes,anio);
+
+    Prestamo nuevoPrestamo(idNuevo,idLibroNuevo, idSocioNuevo, fechaP, fechaD, ven, ven);
+
+    if (archiPrestamo.modificarRegistro(nuevoPrestamo, pos) == 1){
+        cout << "Se actualizo correctamente." << endl;
+        return 1;
+    } else {
+        cout << "Error al modificar el prestamo." << endl;
+        return 0;
+    }
+}
+
+int ArchivoPrestamo::registrarDevolucion(int idPrestamo){
+    ArchivoPrestamo archiPrestamo("prestamos.dat");
+    int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
+    if (pos == -1) {
+        cout << "No se encontro prestamo con ese ID." << endl;
+        return -1;
+    }
+
+    Prestamo pres = archiPrestamo.leerRegistro(pos);
+    if (pres.getEstado()==false) {
+        cout << "Prestamo eliminado, no se puede modificar." << endl;
+        return -2;
+    }
+
+    int idNuevo=pres.getIdPrestamo();
+    int idLibroNuevo=pres.getIdLibro();
+    int idSocioNuevo=pres.getIdSocio();
+    Fecha fechaP = pres.getFechaPrestado();
+    Fecha fechaD = pres.getFechaDevolucion();
+    bool ven=pres.getVencido();
+    bool fin=true;
+
+    Prestamo nuevoPrestamo(idNuevo,idLibroNuevo, idSocioNuevo, fechaP, fechaD, ven, fin);
+
+    if (archiPrestamo.modificarRegistro(nuevoPrestamo, pos) == 1){
+        cout << "Devolucion registrada." << endl;
+        return 1;
+    } else {
+        cout << "Error al registrar devolucion." << endl;
+        return 0;
+    }
+}
+
+void ArchivoPrestamo::listarPrestamosVencidos() {
+    FILE* p = fopen("prestamos.dat", "rb");
+    if (p == nullptr) {
+        cout << "Error al abrir el archivo de préstamos." << endl;
+        return;
+    }
+
+    Prestamo pres;
+    Fecha hoy;
+    hoy.cargarFechaSistema();
+
+    bool hayVencidos = false;
+    cout << "PRESTAMOS VENCIDOS:" << endl << "-------------------" << endl;
+
+    while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
+        // Solo prestamos activos y no finalizados
+        if (pres.getEstado() && !pres.getFinalizado()) {
+            Fecha fechaLimite = pres.getFechaDevolucion();
+
+            if (fechaLimite.esMayorQue(hoy, fechaLimite)) {
+                // Está vencido
+                pres.mostrarPrestamo();
+                cout << "-------------------" << endl;
+                hayVencidos = true;
+            }
+        }
+    }
+
+    if (!hayVencidos) {
+        cout << "No hay préstamos vencidos." << endl;
+    }
+
+    fclose(p);
 }
