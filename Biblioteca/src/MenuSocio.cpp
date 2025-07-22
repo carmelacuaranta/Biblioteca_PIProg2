@@ -18,7 +18,7 @@ MenuSocio::MenuSocio() : Menu(5) {
 void MenuSocio::mostrar() {
     system("cls");
     ArchivoSocio archivoSocio;
-    int cantidadOpciones = 7, y = 0;
+    int cantidadOpciones = 8, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -45,6 +45,8 @@ void MenuSocio::mostrar() {
         rlutil::locate(30,18);
         cout << "Modificar socio" << endl;
         rlutil::locate(30,19);
+        cout << "Ver lista de morosos" << endl;
+        rlutil::locate(30,20);
         cout << "Volver" << endl;
 
 
@@ -132,6 +134,13 @@ void MenuSocio::mostrar() {
                 break;
                 }
             case 7:
+                {
+                system("cls");
+                archivoSocio.listarSociosConDeudas();
+                rlutil::anykey();
+                system("cls");
+                }
+            case 8:
                 {
                 salir = true;
                 system("cls");

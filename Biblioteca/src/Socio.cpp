@@ -112,4 +112,3 @@ void Socio::mostrarSocio() {
         cout << "Email: " << email << endl;
         cout << "Fecha de Nacimiento: " << fechaNac.toString() << endl;
 }
-

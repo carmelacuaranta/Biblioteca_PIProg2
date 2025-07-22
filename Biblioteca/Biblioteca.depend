@@ -357,3 +357,182 @@
 	"ArchivoSocio.h"
 	"rlutil.h"
 
+1753179766 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\main.cpp
+	<iostream>
+	"MenuPrincipal.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\menuprincipal.h
+	<Menu.h>
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\menu.h
+	<string>
+	"Cursor.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\cursor.h
+
+1753185457 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\archivocuota.cpp
+	<iostream>
+	<string.h>
+	"ArchivoCuota.h"
+	"ArchivoSocio.h"
+	"Socio.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\archivocuota.h
+	"Cuota.h"
+	<iostream>
+	<cstring>
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\cuota.h
+	"Fecha.h"
+
+1753186695 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\fecha.h
+	<string>
+
+1753187566 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\archivosocio.h
+	"Socio.h"
+	<cstring>
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\socio.h
+	"Fecha.h"
+
+1753190201 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\archivolibro.cpp
+	"ArchivoLibro.h"
+	"Libro.h"
+	"Prestamo.h"
+	<iostream>
+
+1753190185 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\archivolibro.h
+	"Libro.h"
+	<cstring>
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\libro.h
+	"Fecha.h"
+
+1753186426 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\archivoprestamo.cpp
+	<iostream>
+	"ArchivoPrestamo.h"
+	"ArchivoSocio.h"
+	"ArchivoLibro.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\archivoprestamo.h
+	"Prestamo.h"
+	<iostream>
+	<string.h>
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\prestamo.h
+	"Fecha.h"
+
+1753187585 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\archivosocio.cpp
+	"ArchivoSocio.h"
+	"ArchivoCuota.h"
+	"Socio.h"
+	<iostream>
+	<cstring>
+
+1753179766 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\cuota.cpp
+	<iostream>
+	"Cuota.h"
+	"ArchivoSocio.h"
+
+1753179766 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\cursor.cpp
+	<iostream>
+	"rlutil.h"
+	"Cursor.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1753186940 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\fecha.cpp
+	<iostream>
+	<ctime>
+	"Fecha.h"
+
+1753190185 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\libro.cpp
+	"Libro.h"
+	<iostream>
+	<cstring>
+
+1753179766 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1753190302 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\menucuota.cpp
+	<iostream>
+	"MenuCuota.h"
+	"ArchivoCuota.h"
+	"Cuota.h"
+	"rlutil.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\menucuota.h
+	<Menu.h>
+
+1753190373 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\menulibro.cpp
+	<iostream>
+	"MenuLibro.h"
+	"ArchivoLibro.h"
+	"Libro.h"
+	"Cursor.h"
+	"rlutil.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\menulibro.h
+	<Menu.h>
+
+1753179766 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\menuprestamo.cpp
+	<iostream>
+	"MenuPrestamo.h"
+	"ArchivoPrestamo.h"
+	"Prestamo.h"
+	"rlutil.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\menuprestamo.h
+	<Menu.h>
+
+1753179766 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\menuprincipal.cpp
+	<iostream>
+	"rlutil.h"
+	"MenuPrincipal.h"
+	"MenuSocio.h"
+	"MenuLibro.h"
+	"MenuPrestamo.h"
+	"MenuCuota.h"
+	"ArchivoSocio.h"
+	"ArchivoLibro.h"
+	"ArchivoPrestamo.h"
+	"ArchivoCuota.h"
+	"Socio.h"
+	"Libro.h"
+	"Prestamo.h"
+	"Cuota.h"
+	"Cursor.h"
+	"rlutil.h"
+
+1753179766 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\menusocio.h
+	"Menu.h"
+
+1753187724 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\menusocio.cpp
+	<iostream>
+	"MenuPrincipal.h"
+	"MenuSocio.h"
+	"ArchivoSocio.h"
+	"rlutil.h"
+
+1753179766 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\prestamo.cpp
+	<iostream>
+	"Prestamo.h"
+
+1753187566 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\socio.cpp
+	"Socio.h"
+	<iostream>
+	<cstring>
+

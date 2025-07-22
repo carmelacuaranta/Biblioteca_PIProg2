@@ -331,7 +331,7 @@ void ArchivoPrestamo::listarPrestamosVencidos() {
         if (pres.getEstado() && !pres.getFinalizado()) {
             Fecha fechaLimite = pres.getFechaDevolucion();
 
-            if (fechaLimite.esMayorQue(hoy, fechaLimite)) {
+            if (fechaLimite.esMayorQue(hoy)) {
                 // Está vencido
                 pres.mostrarPrestamo();
                 cout << "-------------------" << endl;

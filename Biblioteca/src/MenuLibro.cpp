@@ -12,7 +12,7 @@ MenuLibro::MenuLibro() : Menu(6) {
 void MenuLibro::mostrar() {
     system("cls");
     ArchivoLibro archivoLibro;
-    int cantidadOpciones = 8, y = 0;
+    int cantidadOpciones = 9, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -41,6 +41,8 @@ void MenuLibro::mostrar() {
         rlutil::locate(30,19);
         cout << "Modificar libro" << endl;
         rlutil::locate(30,20);
+        cout << "Libros mas prestados" << endl;
+        rlutil::locate(30,21);
         cout << "Volver" << endl;
 
         // Ubicacion inicial del puntero
@@ -137,6 +139,14 @@ void MenuLibro::mostrar() {
                 break;
                 }
             case 8:
+                {
+                system("cls");
+                archivoLibro.listarLibrosMasPrestados(5);
+                rlutil::anykey();
+                system("cls");
+                break;
+                }
+            case 9:
                 {
                 salir = true;
                 system("cls");

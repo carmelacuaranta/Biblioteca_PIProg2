@@ -1,5 +1,6 @@
 #include "ArchivoLibro.h"
 #include "Libro.h"
+#include "Prestamo.h"
 #include <iostream>
 using namespace std;
 
@@ -250,5 +251,80 @@ int ArchivoLibro::modificarLibro(int idLibro){
     } else {
         cout << "Error al modificar el libro." << endl;
         return 0;
+    }
+}
+
+void ArchivoLibro::listarLibrosMasPrestados(int cantidadMaxima = 5) {
+    const int MAX_LIBROS = 1000; // Tamaño máximo asumido
+    struct LibroPrestamos {
+        int idLibro;
+        int cantidadPrestamos;
+    };
+
+    LibroPrestamos conteoPrestamos[MAX_LIBROS] = {0};
+    int totalLibrosUnicos = 0;
+
+    // 1. Contar préstamos por libro
+    FILE* pPrestamos = fopen("prestamos.dat", "rb");
+    if (pPrestamos == nullptr) {
+        cout << "No hay préstamos registrados." << endl;
+        return;
+    }
+
+    Prestamo prestamo;
+    while (fread(&prestamo, sizeof(Prestamo), 1, pPrestamos) == 1) {
+        if (prestamo.getEstado()) {
+            bool encontrado = false;
+            // Buscar si ya tenemos este libro en el array
+            for (int i = 0; i < totalLibrosUnicos; i++) {
+                if (conteoPrestamos[i].idLibro == prestamo.getIdLibro()) {
+                    conteoPrestamos[i].cantidadPrestamos++;
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            // Si no estaba, lo agregamos
+            if (!encontrado && totalLibrosUnicos < MAX_LIBROS) {
+                conteoPrestamos[totalLibrosUnicos].idLibro = prestamo.getIdLibro();
+                conteoPrestamos[totalLibrosUnicos].cantidadPrestamos = 1;
+                totalLibrosUnicos++;
+            }
+        }
+    }
+    fclose(pPrestamos);
+
+    // 2. Ordenar los libros por cantidad de préstamos (bubble sort)
+    for (int i = 0; i < totalLibrosUnicos - 1; i++) {
+        for (int j = 0; j < totalLibrosUnicos - i - 1; j++) {
+            if (conteoPrestamos[j].cantidadPrestamos < conteoPrestamos[j+1].cantidadPrestamos) {
+                // Intercambiar
+                LibroPrestamos temp = conteoPrestamos[j];
+                conteoPrestamos[j] = conteoPrestamos[j+1];
+                conteoPrestamos[j+1] = temp;
+            }
+        }
+    }
+
+    // 3. Mostrar resultados
+    cout << "====================================" << endl;
+    cout << "   LIBROS MAS PRESTADOS (Top " << cantidadMaxima << ")" << endl;
+    cout << "====================================" << endl;
+
+    int mostrar = (totalLibrosUnicos < cantidadMaxima) ? totalLibrosUnicos : cantidadMaxima;
+
+    for (int i = 0; i < mostrar; i++) {
+        Libro libro = leerRegistro(buscarLibroPorID(conteoPrestamos[i].idLibro));
+        if (libro.getEstado()) {
+            cout << "Posicion " << i+1 << ":" << endl;
+            cout << "Titulo: " << libro.getTitulo() << endl;
+            cout << "Autor: " << libro.getAutor() << endl;
+            cout << "Veces prestado: " << conteoPrestamos[i].cantidadPrestamos << endl;
+            cout << "----------------------------" << endl;
+        }
+    }
+
+    if (totalLibrosUnicos == 0) {
+        cout << "No hay libros prestados registrados." << endl;
     }
 }

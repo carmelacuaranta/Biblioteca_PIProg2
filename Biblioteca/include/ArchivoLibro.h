@@ -27,6 +27,7 @@ public:
     int modificarLibro(int idLibro);
     Libro leerRegistro(int pos);
     bool bajaLogica();
+    void listarLibrosMasPrestados(int cantidadMaxima);
 };
 
 #endif // ARCHIVOLIBRO_H

@@ -61,6 +61,7 @@ void Fecha::cargarFechaSistema(){
     _anio = now->tm_year + 1900;  // tm_year cuenta desde 1900
 }
 
+/**
 bool Fecha::esMayorQue(Fecha otraFecha, Fecha fechaActual) const{
     if (otraFecha.getAnio() > fechaActual.getAnio()){
         //la mayor es la otra, todavia no paso
@@ -97,6 +98,24 @@ bool Fecha::esMayorQue(Fecha otraFecha, Fecha fechaActual) const{
         }
 
     }
+    return false;
+}
+**/
+
+bool Fecha::esMayorQue(const Fecha& otraFecha) const {
+    // Compara años
+    if (_anio > otraFecha._anio) return true;
+    if (_anio < otraFecha._anio) return false;
+
+    // Mismo año, compara meses
+    if (_mes > otraFecha._mes) return true;
+    if (_mes < otraFecha._mes) return false;
+
+    // Mismo mes, compara días
+    if (_dia > otraFecha._dia) return true;
+    if (_dia < otraFecha._dia) return false;
+
+    // Fechas iguales
     return false;
 }
 
@@ -158,6 +177,6 @@ void Fecha::cargarManualAnioMes() {
     _anio = a;
 }
 
-const bool Fecha::estaEntre(Fecha inicio, Fecha fin) {
-    return !inicio.esMayorQue(inicio, fin) && !esMayorQue(inicio, fin);
+bool Fecha::estaEntre(const Fecha& inicio, const Fecha& fin) const {
+    return !esMayorQue(fin) && !inicio.esMayorQue(*this);
 }

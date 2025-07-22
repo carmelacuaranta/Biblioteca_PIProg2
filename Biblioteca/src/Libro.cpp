@@ -101,8 +101,10 @@ void Libro::mostrarLibro() {
     cout << "Cantidad de ejemplares: " << cantEjemplares << endl;
     cout << "Fecha de Publicacion: " << fechaPublicacion.toString() << endl;
     if (estado==true){
-        cout<<"estado: disponible. "<< endl;
+        cout<<"Estado: disponible. "<< endl;
     } else {
-        cout << "estado: elimindo. " << endl;
+        cout << "Estado: eliminado. " << endl;
     }
 }
+
+

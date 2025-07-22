@@ -27,6 +27,7 @@ public:
     Socio leerRegistro(int pos);
     bool bajaLogica();
     int cantidadRegistros();
+    void listarSociosConDeudas();
 };
 
 #endif // ARCHIVOSOCIO_H

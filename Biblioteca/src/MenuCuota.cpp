@@ -158,6 +158,7 @@ void MenuCuota::mostrar() {
                 cout << "Presione cualquier tecla para volver.";
                 rlutil::anykey();
                 system("cls");
+                break;
                 }
             case 8:
                 {

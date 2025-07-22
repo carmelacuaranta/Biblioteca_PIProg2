@@ -231,7 +231,7 @@ float ArchivoCuota::calcularRecaudacion(Fecha inicio, Fecha fin) {
 
         while (fread(&cuota, sizeof(Cuota), 1, p)) {
             Fecha fechaPago = cuota.getFecha();
-            if (fechaPago.estaEntre(fin, inicio)) {
+            if (fechaPago.estaEntre(inicio, fin)) {
                 cout << cuota.getMonto() << endl;
                 total += cuota.getMonto();
             }

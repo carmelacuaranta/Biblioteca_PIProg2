@@ -31,9 +31,9 @@ class Fecha{
         static bool esBisiesto(int anio);
         bool esFechaValida(int d, int m, int a);
 
-        bool esMayorQue(Fecha otraFecha, Fecha fechActual) const;
+        bool esMayorQue(const Fecha& otraFecha) const;
 
-        const bool estaEntre(Fecha inicio, Fecha fin);
+        bool estaEntre(const Fecha& inicio, const Fecha& fin) const;
 };
 
 #endif // FECHA_H

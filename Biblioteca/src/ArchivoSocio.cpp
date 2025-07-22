@@ -1,4 +1,5 @@
 #include "ArchivoSocio.h"
+#include "ArchivoCuota.h"
 #include "Socio.h"
 #include <iostream>
 #include <cstring>
@@ -272,4 +273,49 @@ int ArchivoSocio::cantidadRegistros() {
     int tam = ftell(f);
     fclose(f);
     return tam / sizeof(Socio);
+}
+
+void ArchivoSocio::listarSociosConDeudas() {
+    ArchivoCuota archivoCuota;
+    int cantidadSocios = cantidadRegistros();
+    bool hayDeudas = false;
+
+    cout << "LISTADO DE SOCIOS CON DEUDAS" << endl;
+    cout << "---------------------------" << endl;
+
+    for(int i = 0; i < cantidadSocios; i++) {
+        Socio socio = leerRegistro(i);
+        if(socio.getEstado()) {
+            FILE* pCuota = fopen("cuotas.dat", "rb");
+            if(pCuota != nullptr) {
+                Cuota cuota;
+                int cuotasPendientes = 0;
+                float totalAdeudado = 0.0f;
+
+                while(fread(&cuota, sizeof(Cuota), 1, pCuota) == 1) {
+                    if(cuota.getIdSocio() == socio.getId() &&
+                       cuota.getEstado() &&
+                       !cuota.getPagada()) {
+                        cuotasPendientes++;
+                        totalAdeudado += cuota.getMonto();
+                    }
+                }
+                fclose(pCuota);
+
+                if(cuotasPendientes > 0) {
+                    hayDeudas = true;
+                    cout << "ID: " << socio.getId()
+                         << " - " << socio.getApellido() << ", " << socio.getNombre()
+                         << " - Cuotas pendientes: " << cuotasPendientes
+                         << " - Total: $" << totalAdeudado << endl;
+                }
+            }
+        }
+    }
+
+    if(!hayDeudas) {
+        cout << "No hay socios con cuotas pendientes de pago." << endl;
+    }
+
+    cout << "---------------------------" << endl;
 }
