@@ -65,12 +65,13 @@ int ArchivoSocio::listarSocios() {
     }
 
     Socio soc;
-    cout << "LISTADO DE SOCIOS:" << endl << "-------------------" << endl;
+    cout << "LISTADO DE SOCIOS:" << endl;
+    cout << "-----------------" << endl;
 
     while (fread(&soc, sizeof(Socio), 1, pSocio) == 1) {
             if(soc.getEstado()==true){
                 soc.mostrarSocio();
-                cout << "-------------------" << endl;
+                cout << "-----------------" << endl;
             }
     }
 

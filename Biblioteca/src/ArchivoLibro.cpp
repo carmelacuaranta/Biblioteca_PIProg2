@@ -76,6 +76,9 @@ bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
     bool encontrado = false;
 
     while (fread(&lib, sizeof(Libro), 1, p) == 1) {
+            cout << "Leído desde archivo: [" << lib.getTitulo() << "]" << endl;
+    cout << "Buscando: [" << tituloBuscado << "]" << endl;
+
         if (strcmp(lib.getTitulo(), tituloBuscado) == 0) {
             cout << "Libro encontrado: " << endl;
             lib.mostrarLibro();

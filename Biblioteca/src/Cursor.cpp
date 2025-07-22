@@ -17,9 +17,9 @@ void Cursor::ocultar() {
 
 void Cursor::dibujar(int y) {
     rlutil::locate(27, 12 + y);
-    cout << (char)76 << endl;
+    cout << /*(char)76*/"[" << endl;
     rlutil::locate(59, 12 + y);
-    cout << (char)74 << endl;
+    cout << /*(char)74*/ "]" << endl;
 }
 
 int Cursor::moverArriba(int posicionActual) {

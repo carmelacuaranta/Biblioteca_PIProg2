@@ -99,6 +99,7 @@ void Socio::agregarSocio() {
     cout << "Ingrese dia de nacimiento: ";
     cin >> aux;
     this->fechaNac.setDia(aux);
+    estado=true;
 }
 
 void Socio::mostrarSocio() {

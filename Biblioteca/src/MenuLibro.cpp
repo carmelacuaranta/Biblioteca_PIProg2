@@ -93,7 +93,6 @@ void MenuLibro::mostrar() {
                 char titulo[30];
                 system("cls");
                 cout << "Ingrese el titulo a buscar: ";
-                cin.ignore();
                 cin.getline(titulo, sizeof(titulo));
                 archivoLibro.buscarLibroPorTitulo(titulo);
                 rlutil::anykey();
@@ -103,10 +102,12 @@ void MenuLibro::mostrar() {
             case 4:
                 {
                 char genero[30];
+                system("cls");
                 cout << "Ingrese el genero que desea buscar: " << endl;
-                cin.ignore();
                 cin.getline(genero, sizeof(genero));
                 archivoLibro.buscarLibroPorGenero(genero);
+                rlutil::anykey();
+                system("cls");
                 break;
                 }
             case 5:
