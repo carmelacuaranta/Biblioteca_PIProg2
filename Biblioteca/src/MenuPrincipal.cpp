@@ -24,7 +24,7 @@ using namespace std;
 
 
 // Primero completa el menú correspondiente, en este caso Menú Principal.
-// Esto se hace para cada SubMenú sin intervención del usuario, cada vez que se invoca a dicho SubMenú.
+// Esto se hace para cada SubMenú sin intervencion del usuario, cada vez que se invoca a dicho SubMenú.
 
 MenuPrincipal::MenuPrincipal() : Menu(4) {
     setOpcion(0, "Menu Socios");
@@ -63,7 +63,7 @@ void MenuPrincipal::mostrar() {
         rlutil::locate(30,16);
         cout << "Salir" << std::endl;
 
-        // Ubicación inicial del puntero
+        // Ubicacion inicial del puntero
         cursor.dibujar(y);
 
 

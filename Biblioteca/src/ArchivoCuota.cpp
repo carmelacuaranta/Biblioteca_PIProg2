@@ -186,7 +186,7 @@ bool ArchivoCuota::bajaLogica(){
     } else {
         cu.setEstado(false);
         if(archiCuota.modificarRegistro(cu,encontro)==1){
-            cout << "Eliminado con éxito. " << endl;
+            cout << "Eliminado con exito. " << endl;
            return true;
         } else { return false;}
     }
@@ -221,4 +221,22 @@ bool ArchivoCuota::pagarCuota(int idCuota) {
         cout << "No se pudo modificar el registro." << endl;
         return false;
     }
+}
+
+float ArchivoCuota::calcularRecaudacion(Fecha inicio, Fecha fin) {
+    float total = 0;
+        Cuota cuota;
+        FILE* p = fopen("cuotas.dat", "rb");
+        if (p == nullptr) return 0;
+
+        while (fread(&cuota, sizeof(Cuota), 1, p)) {
+            Fecha fechaPago = cuota.getFecha();
+            if (fechaPago.estaEntre(fin, inicio)) {
+                cout << cuota.getMonto() << endl;
+                total += cuota.getMonto();
+            }
+        }
+
+        fclose(p);
+    return total;
 }

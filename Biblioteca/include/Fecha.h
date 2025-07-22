@@ -3,24 +3,37 @@
 #pragma once
 #include <string>
 
-
 class Fecha{
     private:
-    int _dia, _mes, _anio;
+        int _dia;
+        int _mes;
+        int _anio;
 
     public:
-    Fecha();
-    Fecha(int dia, int mes, int anio);
+        Fecha();
+        Fecha(int dia, int mes, int anio);
 
-    int getDia();
-    int getMes();
-    int getAnio();
-    void setDia(int dia);
-    void setMes(int mes);
-    void setAnio(int anio);
-    std::string toString();
-    void cargarFechaSistema();
-    bool esMayorQue(Fecha otraFecha,Fecha fechaActual);
+        int getDia();
+        int getMes();
+        int getAnio();
+
+        void setDia(int dia);
+        void setMes(int mes);
+        void setAnio(int anio);
+
+        void cargarFechaSistema();
+        void cargarManual();
+        void cargarManualAnioMes();
+        std::string toString();
+
+        bool esValida();
+
+        static bool esBisiesto(int anio);
+        bool esFechaValida(int d, int m, int a);
+
+        bool esMayorQue(Fecha otraFecha, Fecha fechActual) const;
+
+        const bool estaEntre(Fecha inicio, Fecha fin);
 };
 
 #endif // FECHA_H

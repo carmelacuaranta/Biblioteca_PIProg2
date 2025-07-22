@@ -48,7 +48,7 @@ void MenuSocio::mostrar() {
         cout << "Volver" << endl;
 
 
-        // Ubicación inicial del puntero
+        // Ubicacion inicial del puntero
         cursor.dibujar(y);
 
         switch (rlutil::getkey())

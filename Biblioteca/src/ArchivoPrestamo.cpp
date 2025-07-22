@@ -41,7 +41,8 @@ bool ArchivoPrestamo::listarPrestamos() {
     }
 
     Prestamo pres;
-    cout << "LISTADO DE PRESTAMOS:" << endl << "-------------------" << endl;
+    cout << "LISTADO DE PRESTAMOS:" << endl;
+    cout << "--------------------" << endl;
 
     while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
         if(pres.getEstado()==true && pres.getFinalizado()==false){
@@ -158,7 +159,7 @@ bool ArchivoPrestamo::bajaLogica(){
     Prestamo pres;
     ArchivoPrestamo archiPrestamo("prestamos.dat");
     int id;
-    cout << "ingresar id del prestamo a eliminar: ";
+    cout << "Ingresar id del prestamo a eliminar: ";
     cin >> id;
     int encontro = archiPrestamo.buscarPrestamoPorId(id);
     if (encontro < 0){
@@ -172,7 +173,7 @@ bool ArchivoPrestamo::bajaLogica(){
     } else {
         pres.setEstado(false);
         if(archiPrestamo.modificarRegistro(pres,encontro)==1){
-            cout << "Elimindo con éxito. " << endl;
+            cout << "Eliminado con exito. " << endl;
            return true;
         } else { return false;}
     }
@@ -322,7 +323,8 @@ void ArchivoPrestamo::listarPrestamosVencidos() {
     hoy.cargarFechaSistema();
 
     bool hayVencidos = false;
-    cout << "PRESTAMOS VENCIDOS:" << endl << "-------------------" << endl;
+    cout << "PRESTAMOS VENCIDOS:" << endl;
+    cout << "-------------------" << endl;
 
     while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
         // Solo prestamos activos y no finalizados

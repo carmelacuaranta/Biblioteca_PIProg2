@@ -42,41 +42,41 @@
 	"Libro.h"
 	<cstring>
 
-1752724180 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\main.cpp
+1753126432 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\main.cpp
 	<iostream>
 	"MenuPrincipal.h"
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\socio.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\socio.h
 	"Fecha.h"
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\libro.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\libro.h
 	"Fecha.h"
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivosocio.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivosocio.h
 	"Socio.h"
 	<cstring>
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivolibro.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivolibro.h
 	"Libro.h"
 	<cstring>
 
-1752863675 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivolibro.cpp
+1753126432 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivolibro.cpp
 	"ArchivoLibro.h"
 	"Libro.h"
 	<iostream>
 
-1752864387 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivosocio.cpp
+1753126432 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"Socio.h"
 	<iostream>
 	<cstring>
 
-1752687818 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\libro.cpp
+1753126432 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\libro.cpp
 	"Libro.h"
 	<iostream>
 	<cstring>
 
-1752687818 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\socio.cpp
+1753126432 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\socio.cpp
 	"Socio.h"
 	<iostream>
 	<cstring>
@@ -127,54 +127,57 @@
 	<iostream>
 	<cstring>
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\fecha.h
+1753147953 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\fecha.h
 	<string>
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivoprestamo.h
+1753149804 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivoprestamo.h
 	"Prestamo.h"
 	<iostream>
 	<string.h>
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\prestamo.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\prestamo.h
 	"Fecha.h"
 
-1752880273 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivocuota.h
+1753138450 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivocuota.h
 	"Cuota.h"
 	<iostream>
 	<cstring>
 
-1752687818 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\cuota.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\cuota.h
 	"Fecha.h"
 
-1752687818 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivocuota.cpp
+1753147120 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivocuota.cpp
 	<iostream>
 	<string.h>
 	"ArchivoCuota.h"
+	"ArchivoSocio.h"
+	"Socio.h"
 
-1752687818 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivoprestamo.cpp
+1753149804 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivoprestamo.cpp
 	<iostream>
 	"ArchivoPrestamo.h"
 	"ArchivoSocio.h"
 	"ArchivoLibro.h"
 
-1752687818 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\cuota.cpp
+1753142751 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\cuota.cpp
 	<iostream>
 	"Cuota.h"
 	"ArchivoSocio.h"
 
-1752687818 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\fecha.cpp
+1753147953 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\fecha.cpp
 	<iostream>
+	<ctime>
 	"Fecha.h"
 
-1752687818 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\prestamo.cpp
+1753141845 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\prestamo.cpp
 	<iostream>
 	"Prestamo.h"
 
-1752880400 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menu.cpp
+1753126432 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menu.cpp
 	<iostream>
 	"Menu.h"
 
-1752724180 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menu.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menu.h
 	<string>
 	"Cursor.h"
 
@@ -186,7 +189,7 @@
 	<iostream>
 	"Menu.h"
 
-1752863398 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\rlutil.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -200,7 +203,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1752880745 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menuprincipal.cpp
+1753141845 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menuprincipal.cpp
 	<iostream>
 	"rlutil.h"
 	"MenuPrincipal.h"
@@ -219,27 +222,27 @@
 	"Cursor.h"
 	"rlutil.h"
 
-1752724180 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menuprincipal.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menuprincipal.h
 	<Menu.h>
 
-1752879346 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\cursor.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\cursor.h
 
-1752879346 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\cursor.cpp
+1753141845 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\cursor.cpp
 	<iostream>
 	"rlutil.h"
 	"Cursor.h"
 
-1752880836 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menusocio.cpp
+1753141845 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menusocio.cpp
 	<iostream>
 	"MenuPrincipal.h"
 	"MenuSocio.h"
 	"ArchivoSocio.h"
 	"rlutil.h"
 
-1752724180 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menusocio.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menusocio.h
 	"Menu.h"
 
-1752880836 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menulibro.cpp
+1753141845 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menulibro.cpp
 	<iostream>
 	"MenuLibro.h"
 	"ArchivoLibro.h"
@@ -247,27 +250,27 @@
 	"Cursor.h"
 	"rlutil.h"
 
-1752867183 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menulibro.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menulibro.h
 	<Menu.h>
 
-1752880926 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menucuota.cpp
+1753148185 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menucuota.cpp
 	<iostream>
 	"MenuCuota.h"
 	"ArchivoCuota.h"
 	"Cuota.h"
 	"rlutil.h"
 
-1752880067 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menucuota.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menucuota.h
 	<Menu.h>
 
-1752880836 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menuprestamo.cpp
+1753149153 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menuprestamo.cpp
 	<iostream>
 	"MenuPrestamo.h"
 	"ArchivoPrestamo.h"
 	"Prestamo.h"
 	"rlutil.h"
 
-1752879450 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menuprestamo.h
+1753126432 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\menuprestamo.h
 	<Menu.h>
 
 1753046582 d:\biblioteca\documents\tup\programación 2\biblioteca\biblioteca\include\menuprincipal.h

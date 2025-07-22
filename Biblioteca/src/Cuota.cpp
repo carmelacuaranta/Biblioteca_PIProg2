@@ -8,7 +8,7 @@ Cuota::Cuota() {
     monto = 0.0f;
     idSocio = 0;
     pagada = false;
-    estado=true;
+    estado = true;
 }
 
 Cuota::Cuota(int _idCuota, float _monto, int _idSocio, Fecha _fecha, bool _pagada) {
@@ -89,7 +89,7 @@ void Cuota::mostrarCuota() {
     cout << "ID: " << idCuota << endl;
     cout << "ID Socio: " << idSocio << endl;
     cout << "Monto: " << monto << endl;
-    cout << "Esta pagada: " << endl;
+    cout << "Esta pagada: ";
     if (pagada == true ){
         cout << "SI" << endl;
     } else { cout << "NO" << endl;}

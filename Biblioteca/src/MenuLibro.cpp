@@ -43,7 +43,7 @@ void MenuLibro::mostrar() {
         rlutil::locate(30,20);
         cout << "Volver" << endl;
 
-        // Ubicación inicial del puntero
+        // Ubicacion inicial del puntero
         cursor.dibujar(y);
 
         switch (rlutil::getkey())

@@ -30,7 +30,7 @@ void MenuPrestamo::mostrar() {
         rlutil::locate(30,11);
         cout << "============================" << endl;
         rlutil::locate(30,12);
-        cout << "Ver lista de prestamos activos" << endl;
+        cout << "Listar prestamos activos" << endl;
         rlutil::locate(30,13);
         cout << "Agregar prestamo" << endl;
         rlutil::locate(30,14);
@@ -46,14 +46,14 @@ void MenuPrestamo::mostrar() {
         rlutil::locate(30,19);
         cout << "Extender fecha devolucion" << endl;
         rlutil::locate(30,20);
-        cout << "Registrar evolución" << endl;
+        cout << "Registrar evolucion" << endl;
         rlutil::locate(30,21);
-         cout << "Listar prestamos vencidos" << endl;
+        cout << "Listar prestamos vencidos" << endl;
         rlutil::locate(30,22);
         cout << "Volver" << endl;
 
 
-        // Ubicación inicial del puntero
+        // Ubicacion inicial del puntero
         cursor.dibujar(y);
 
         switch (rlutil::getkey())
@@ -87,7 +87,7 @@ void MenuPrestamo::mostrar() {
             case 2:
                 {
                 system("cls");
-                cout << "Ingrese el ID del préstamo que busca: ";
+                cout << "Ingrese el ID del prestamo que busca: ";
                 cin >> aux;
                 archivoPrestamo.buscarPrestamoPorId(aux);
                 rlutil::anykey();

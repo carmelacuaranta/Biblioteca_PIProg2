@@ -24,7 +24,7 @@ MenuCuota::MenuCuota() : Menu(4) {
 void MenuCuota::mostrar() {
     system("cls");
     ArchivoCuota archivoCuota;
-    int cantidadOpciones = 7, y = 0;
+    int cantidadOpciones = 8, y = 0;
     bool salir = false;
     Cursor cursor(cantidadOpciones, y);
 
@@ -51,9 +51,11 @@ void MenuCuota::mostrar() {
         rlutil::locate(30,18);
         cout << "Pagar una cuota" << endl;
         rlutil::locate(30,19);
+        cout << "Calcular recaudacion" << endl;
+        rlutil::locate(30,20);
         cout << "Volver" << endl;
 
-        // Ubicación inicial del puntero
+        // Ubicacion inicial del puntero
         cursor.dibujar(y);
 
         switch (rlutil::getkey())
@@ -120,13 +122,11 @@ void MenuCuota::mostrar() {
                 system("cls");
                 Fecha fecha;
                 int aux;
-                cout << "Ingrese el año de cuota: ";
+                cout << "Ingrese la fecha de la cuota: " << endl;
+                fecha.cargarManualAnioMes();
+                cout << "Ingrese el importe: ";
                 cin >> aux;
-                fecha.setAnio(aux);
-                cout << "Ingrese el mes de cuota: ";
-                cin >> aux;
-                fecha.setMes(aux);
-                archivoCuota.generarCuotasDelMes(500,fecha);
+                archivoCuota.generarCuotasDelMes(aux,fecha);
                 rlutil::anykey();
                 system("cls");
                 break;
@@ -144,6 +144,22 @@ void MenuCuota::mostrar() {
                 break;
                 }
             case 7:
+                {
+                system("cls");
+                Fecha inicio, fin;
+                float aux;
+                cout << "Ingrese la fecha inicial para calcular lo recaudado: ";
+                inicio.cargarManual();
+                cout << "Ingrese la fecha final para calcular lo recaudado: " << endl;
+                fin.cargarManual();
+                aux = archivoCuota.calcularRecaudacion(inicio,fin);
+                cout << "El total recaudado en este periodo de tiempo es: $";
+                cout << aux << endl;
+                cout << "Presione cualquier tecla para volver.";
+                rlutil::anykey();
+                system("cls");
+                }
+            case 8:
                 {
                 salir = true;
                 system("cls");

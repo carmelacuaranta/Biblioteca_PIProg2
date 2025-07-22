@@ -25,7 +25,7 @@ void Cursor::dibujar(int y) {
 int Cursor::moverArriba(int posicionActual) {
     int y = posicionActual;
     rlutil::locate(27,12 + posicionActual);
-    cout << " " << endl; // esto borra el cursor cuando cambia de posición
+    cout << " " << endl; // esto borra el cursor cuando cambia de posicion
     rlutil::locate(59,12 + y);
     cout << " " << endl;
     y--;
@@ -38,7 +38,7 @@ int Cursor::moverArriba(int posicionActual) {
 int Cursor::moverAbajo(int posicionActual) {
     int y = posicionActual;
     rlutil::locate(27,12 + posicionActual);
-    cout << " "; // esto borra el cursor cuando cambia de posición
+    cout << " "; // esto borra el cursor cuando cambia de posicion
     rlutil::locate(59,12 + y);
     cout << " ";
     y++;

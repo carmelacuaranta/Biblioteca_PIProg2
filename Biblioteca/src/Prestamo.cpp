@@ -40,8 +40,8 @@ void Prestamo::cargarPrestamo(){
     fechaPrestado.cargarFechaSistema();
     cout << "Fecha de inicio del préstamo: " << fechaPrestado.toString() << endl;
 
-    cout << "Informacion sobre la finalización del prestamo: " << endl;
-    cout << "Ingrese el dia de finalización del prestamo: " << endl;
+    cout << "Informacion sobre la finalizacion del prestamo: " << endl;
+    cout << "Ingrese el dia de finalizacion del prestamo: " << endl;
     cin >> aux;
     this->fechaDevolucion.setDia(aux);
     cout << "Ingrese el mes de finalizacion del prestamo: " << endl;
