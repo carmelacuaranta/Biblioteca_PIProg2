@@ -14,7 +14,7 @@ private:
 public:
     Menu(int cantidad);
     virtual ~Menu(); // Destructor
-    //void mostrar();  // Solo sirve para Menúes que se implementen
+    //void mostrar();  // Solo sirve para Menues que se implementen
     //int seleccionarOpcion();  // no necesitamos?
 
 

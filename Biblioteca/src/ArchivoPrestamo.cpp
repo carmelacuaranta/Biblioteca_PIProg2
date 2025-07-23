@@ -12,7 +12,7 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
     int idLibroValido = lib.buscarLibroPorID(pres.getIdLibro());
 
     if (idSocioValido < 0 || idLibroValido < 0) {
-        cout << "No se puede realizar el préstamo. ID inválido." << endl;
+        cout << "No se puede realizar el prestamo. ID invalido." << endl;
         return -1;
     }
 
@@ -29,7 +29,7 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
     fwrite(&pres, sizeof(Prestamo), 1, pPrestamo);
     fclose(pPrestamo);
 
-    cout << "Préstamo registrado con ID: " << nuevoID << endl;
+    cout << "Prestamo registrado con ID: " << nuevoID << endl;
     return nuevoID;
 }
 
@@ -81,7 +81,7 @@ int ArchivoPrestamo::buscarPrestamoPorId(int idBuscado){
 void ArchivoPrestamo::listarPrestamosPorIdLibro(int idBuscado){
     FILE* p = fopen("prestamos.dat", "rb");
     if (p == nullptr) {
-        cout << "Error al abrir el archivo de préstamos." << endl;
+        cout << "Error al abrir el archivo de prestamos." << endl;
         return;
     }
 
@@ -98,7 +98,7 @@ void ArchivoPrestamo::listarPrestamosPorIdLibro(int idBuscado){
     fclose(p);
 
     if (!encontrado) {
-        cout << "No se encontraron préstamos activos con ese ID de libro." << endl;
+        cout << "No se encontraron prestamos activos con ese ID de libro." << endl;
     }
 }
 
@@ -122,7 +122,7 @@ void ArchivoPrestamo::listarPrestamosPorIdSocio(int idBuscado){
     fclose(p);
 
     if (!encontrado) {
-        cout << "No se encontraron préstamos activos con ese ID de socio." << endl;
+        cout << "No se encontraron prestamos activos con ese ID de socio." << endl;
     }
 }
 
@@ -314,7 +314,7 @@ int ArchivoPrestamo::registrarDevolucion(int idPrestamo){
 void ArchivoPrestamo::listarPrestamosVencidos() {
     FILE* p = fopen("prestamos.dat", "rb");
     if (p == nullptr) {
-        cout << "Error al abrir el archivo de préstamos." << endl;
+        cout << "Error al abrir el archivo de prestamos." << endl;
         return;
     }
 
@@ -332,7 +332,7 @@ void ArchivoPrestamo::listarPrestamosVencidos() {
             Fecha fechaLimite = pres.getFechaDevolucion();
 
             if (fechaLimite.esMayorQue(hoy)) {
-                // Está vencido
+                // Esta vencido
                 pres.mostrarPrestamo();
                 cout << "-------------------" << endl;
                 hayVencidos = true;
@@ -341,7 +341,7 @@ void ArchivoPrestamo::listarPrestamosVencidos() {
     }
 
     if (!hayVencidos) {
-        cout << "No hay préstamos vencidos." << endl;
+        cout << "No hay prestamos vencidos." << endl;
     }
 
     fclose(p);

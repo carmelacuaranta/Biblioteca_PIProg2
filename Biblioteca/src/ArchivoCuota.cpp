@@ -12,7 +12,7 @@ ArchivoCuota::ArchivoCuota(){
 int ArchivoCuota::agregarCuota(Cuota cuot){
     bool idRepetido=false;
     FILE* archivoCuotaLectura = fopen("cuotas.dat","rb");
-    if (archivoCuotaLectura !=nullptr) {
+    if (archivoCuotaLectura != nullptr) {
         Cuota cuotaGuardada;
         while (fread(&cuotaGuardada, sizeof(Cuota),1,archivoCuotaLectura) == 1){
             if (cuotaGuardada.getIdCuota() == cuot.getIdCuota()) {
@@ -115,7 +115,7 @@ bool ArchivoCuota::generarCuotasDelMes(float monto, Fecha fecha) {
     Socio socio;
     int idCuota = 1;
 
-    // Obtener el último ID usado para continuar
+    // Obtener el ultimo ID usado para continuar
     FILE* f = fopen("cuotas.dat", "rb");
     if (f != nullptr) {
         Cuota c;
@@ -152,7 +152,7 @@ int ArchivoCuota::modificarRegistro(Cuota cu, int pos){
     fclose(pCuota);
     return escribio;
 }
-int ArchivoCuota::modificarCuota(int idCuota){}
+//int ArchivoCuota::modificarCuota(int idCuota){};
 
 Cuota ArchivoCuota::leerRegistro(int pos){
     Cuota cu;
@@ -231,8 +231,8 @@ float ArchivoCuota::calcularRecaudacion(Fecha inicio, Fecha fin) {
 
         while (fread(&cuota, sizeof(Cuota), 1, p)) {
             Fecha fechaPago = cuota.getFecha();
-            if (fechaPago.estaEntre(inicio, fin)) {
-                cout << cuota.getMonto() << endl;
+            if (fechaPago.estaEntre(inicio, fin) && cuota.getEstado() && cuota.getPagada()) {
+                //cout << cuota.getMonto() << endl;
                 total += cuota.getMonto();
             }
         }

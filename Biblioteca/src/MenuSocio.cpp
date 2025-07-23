@@ -97,10 +97,10 @@ void MenuSocio::mostrar() {
                 }
             case 3:
                 {
-                Socio nuevoSocio;
+                //Socio nuevoSocio;
                 system("cls");
-                nuevoSocio.agregarSocio();
-                archivoSocio.agregarRegistro(nuevoSocio);
+                //nuevoSocio.agregarSocio();
+                archivoSocio.agregarRegistro();
                 rlutil::anykey();
                 system("cls");
                 break;

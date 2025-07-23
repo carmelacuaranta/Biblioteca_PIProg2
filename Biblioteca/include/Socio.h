@@ -5,7 +5,6 @@
 class Socio {
 private:
     int id;
-    int numSocio;
     char dni[10];
     char nombre[30];
     char apellido[30];
@@ -17,12 +16,11 @@ private:
 
 public:
     Socio();
-    Socio(int id, int numSocio, const char* dni, const char* nombre, const char* apellido,
+    Socio(int id, const char* dni, const char* nombre, const char* apellido,
           const char* telefono, const char* direccion, const char* email, Fecha fechaNac);
 
     // Getters
     int getId();
-    int getNumSocio();
     const char* getDni();
     const char* getNombre();
     const char* getApellido();
@@ -34,7 +32,6 @@ public:
 
     // Setters
     void setId(int idSocio);
-    void setNumSocio(int numS);
     void setDni(const char* documento);
     void setNombre(const char* nombreSocio);
     void setApellido(const char* apellidoSocio);

@@ -153,9 +153,7 @@ void MenuCuota::mostrar() {
                 cout << "Ingrese la fecha final para calcular lo recaudado: " << endl;
                 fin.cargarManual();
                 aux = archivoCuota.calcularRecaudacion(inicio,fin);
-                cout << "El total recaudado en este periodo de tiempo es: $";
-                cout << aux << endl;
-                cout << "Presione cualquier tecla para volver.";
+                cout << "El total recaudado en este periodo de tiempo es: $" << aux << endl;
                 rlutil::anykey();
                 system("cls");
                 break;

@@ -8,6 +8,8 @@ class ArchivoSocio {
 private:
     char nombre[30];
     int tamanioRegistro;
+    bool idRepetido(int id);              // para verificar ID repetido
+    bool emailValido(const char* email);  // para validar email
 
 public:
     ArchivoSocio(const char *n = "Socios.dat") {
@@ -16,7 +18,7 @@ public:
         tamanioRegistro = sizeof(Socio);
     }
 
-    int agregarRegistro(Socio soc);
+    int agregarRegistro();
     bool listarRegistros();
     int listarSocios();
     int buscarSocioPorID(int idBuscado);

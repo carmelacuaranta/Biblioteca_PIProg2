@@ -61,46 +61,6 @@ void Fecha::cargarFechaSistema(){
     _anio = now->tm_year + 1900;  // tm_year cuenta desde 1900
 }
 
-/**
-bool Fecha::esMayorQue(Fecha otraFecha, Fecha fechaActual) const{
-    if (otraFecha.getAnio() > fechaActual.getAnio()){
-        //la mayor es la otra, todavia no paso
-        return false;
-    }
-    if (otraFecha.getAnio() < fechaActual.getAnio()){
-        //ya paso la otra fecha, está vencido
-        return true;
-    }
-    if (otraFecha.getAnio() == fechaActual.getAnio()){
-        //mismo anio, hay que comparar mes
-        if (otraFecha.getMes() > fechaActual.getMes()){
-            //el mes todavia no llego
-            return false;
-        }
-        if (otraFecha.getMes() < fechaActual.getMes()){
-            //el mes ya paso
-            return true;
-        }
-        if (otraFecha.getMes() == fechaActual.getMes()){
-            //mismo mes, comparo dias.
-            if (otraFecha.getDia() > fechaActual.getDia()){
-                //el dia todavia no llego
-                return false;
-            }
-            if (otraFecha.getDia() < fechaActual.getDia()){
-                //el dia ya paso
-                return true;
-            }
-            if (otraFecha.getDia() == fechaActual.getDia()){
-                    //vence hoy
-                return false;
-            }
-        }
-
-    }
-    return false;
-}
-**/
 
 bool Fecha::esMayorQue(const Fecha& otraFecha) const {
     // Compara años
@@ -111,7 +71,7 @@ bool Fecha::esMayorQue(const Fecha& otraFecha) const {
     if (_mes > otraFecha._mes) return true;
     if (_mes < otraFecha._mes) return false;
 
-    // Mismo mes, compara días
+    // Mismo mes, compara dias
     if (_dia > otraFecha._dia) return true;
     if (_dia < otraFecha._dia) return false;
 
@@ -124,7 +84,7 @@ bool Fecha::esBisiesto(int anio) {
 }
 
 bool Fecha::esFechaValida(int d, int m, int a) {
-    if (a < 1 || m < 1 || m > 12 || d < 1) return false;
+    if (a < 1 || a > 2026 || m < 1 || m > 12 || d < 1) return false;
 
     int diasDelMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 

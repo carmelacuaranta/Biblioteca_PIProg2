@@ -14,7 +14,7 @@ class ArchivoCuota
 
 public:
     ArchivoCuota();
-    int agregarCuota(Cuota cuo);
+    int agregarCuota(Cuota cuota);
     bool listarCuotas();
     int buscarCuotaPorID(int idBuscado);
     int buscarCuotaPorIDSocio(int idBuscado);

@@ -38,18 +38,9 @@ void Prestamo::cargarPrestamo(){
     cin >> idLibro;
 
     fechaPrestado.cargarFechaSistema();
-    cout << "Fecha de inicio del préstamo: " << fechaPrestado.toString() << endl;
-
-    cout << "Informacion sobre la finalizacion del prestamo: " << endl;
-    cout << "Ingrese el dia de finalizacion del prestamo: " << endl;
-    cin >> aux;
-    this->fechaDevolucion.setDia(aux);
-    cout << "Ingrese el mes de finalizacion del prestamo: " << endl;
-    cin >> aux;
-    this->fechaDevolucion.setMes(aux);
-    cout << "Ingrese el anio de finalizacion del prestamo: " << endl;
-    cin >> aux;
-    this->fechaDevolucion.setAnio(aux);
+    cout << "Fecha de inicio del prestamo: " << fechaPrestado.toString() << endl;
+    cout << "Ingrese la fecha de finalizacion del prestamo: " << endl;
+    this->fechaDevolucion.cargarManual();
 }
 
 // Getters

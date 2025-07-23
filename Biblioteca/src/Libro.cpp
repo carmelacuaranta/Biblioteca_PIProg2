@@ -81,15 +81,8 @@ void Libro::agregarLibro(){
     cin >> cantEjemplares;
     cin.ignore();
 
-    cout << "Ingrese anio de publicacion: ";
-    cin >> aux;
-    this->fechaPublicacion.setAnio(aux);
-    cout << "Ingrese mes de publicacion: ";
-    cin >> aux;
-    this->fechaPublicacion.setMes(aux);
-    cout << "Ingrese dia de publicacion: ";
-    cin >> aux;
-    this->fechaPublicacion.setDia(aux);
+    cout << "Ingrese la fecha de publicacion: ";
+    this->fechaPublicacion.cargarManual();
 }
 
 void Libro::mostrarLibro() {

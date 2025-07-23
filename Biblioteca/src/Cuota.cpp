@@ -73,15 +73,8 @@ void Cuota::agregarCuota(){
         break;
     }
 
-    cout << "Ingrese anio de Pago: ";
-    cin >> aux;
-    this->fecha.setAnio(aux);
-    cout << "Ingrese mes de Pago: ";
-    cin >> aux;
-    this->fecha.setMes(aux);
-    cout << "Ingrese dia de pago: ";
-    cin >> aux;
-    this->fecha.setDia(aux);
+    cout << "Ingrese la fecha de Pago: ";
+    this->fecha.cargarManual();
     estado = true;
 }
 

@@ -5,6 +5,74 @@
 #include <cstring>
 using namespace std;
 
+bool ArchivoSocio::idRepetido(int id) {
+    FILE* archivoSocioLectura = fopen("socios.dat", "rb");
+    if (archivoSocioLectura == nullptr) {
+        return false; // Si el archivo no existe, no hay IDs repetidos
+    }
+
+    Socio socioGuardado;
+    while (fread(&socioGuardado, sizeof(Socio), 1, archivoSocioLectura) == 1) {
+        if ((socioGuardado.getId() == id) && (socioGuardado.getEstado() == true)) {
+            fclose(archivoSocioLectura);
+            return true; // ID repetido encontrado
+        }
+    }
+
+    fclose(archivoSocioLectura);
+    return false; // ID no repetido
+}
+
+bool ArchivoSocio::emailValido(const char* email) {
+    bool tieneArroba = false;
+    bool tienePuntoDespuesArroba = false;
+
+    for (int i = 0; email[i] != '\0'; i++) {
+        if (email[i] == '@') {
+            tieneArroba = true;
+            // Verificar que hay al menos un carácter después del '@' y antes del '.'
+            for (int j = i + 1; email[j] != '\0'; j++) {
+                if (email[j] == '.') {
+                    tienePuntoDespuesArroba = true;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+
+    return tieneArroba && tienePuntoDespuesArroba;
+}
+
+int ArchivoSocio::agregarRegistro() {
+    system("cls");
+    Socio soc;
+    soc.agregarSocio();
+
+    if (idRepetido(soc.getId())) {
+        cout << "ID repetido, no se puede guardar el socio." << endl;
+        return -2;
+    }
+
+    if (!emailValido(soc.getEmail())) {
+        cout << "El formato del email es incorrecto. Debe contener '@' y un '.' después del '@'." << endl;
+        return -3;
+    }
+
+    FILE* pSocio = fopen("socios.dat", "ab");
+    if (pSocio == nullptr) {
+        cout << "Error de archivo." << endl;
+        return -1;
+    }
+
+    fwrite(&soc, sizeof(soc), 1, pSocio);
+    cout << "Socio guardado correctamente." << endl;
+
+    fclose(pSocio);
+    return 0;
+}
+
+/**
 int ArchivoSocio::agregarRegistro(Socio soc){
     system("cls");
     //para controlar que no exista el ID
@@ -33,9 +101,9 @@ int ArchivoSocio::agregarRegistro(Socio soc){
         }
     }
 
-if (!tieneArroba) {
-    cout << "El formato del email es incorrecto. Debe contener @. No se podra guardar." << endl;
-}
+    if (!tieneArroba) {
+        cout << "El formato del email es incorrecto. Debe contener @. No se podra guardar." << endl;
+    }
 
 
     FILE *pSocio;
@@ -55,7 +123,7 @@ if (!tieneArroba) {
 
     return 0;
 }
-
+**/
 
 int ArchivoSocio::listarSocios() {
     FILE* pSocio = fopen("socios.dat", "rb");
@@ -135,25 +203,25 @@ bool ArchivoSocio::cargaVariosAux(){
         return false;
     }
     Fecha fecha = Fecha(10,10,1980);
-    Socio aux1 =  Socio(1, 01, "24908987", "Juan", "Sosa", "1234", "Wallaby 12", "jsosa@mail.com", fecha);
+    Socio aux1 =  Socio(1, "24908987", "Juan", "Sosa", "1234", "Wallaby 12", "jsosa@mail.com", fecha);
     fwrite(&aux1, sizeof aux1, 1, p);
 
     fecha.setAnio(1990);
     fecha.setMes(3);
     fecha.setDia(22);
-    Socio aux2 =  Socio(2, 02, "33926749", "Juana", "LopezGomez", "1234", "Calle Falsa 123", "jgomez@mail.com", fecha);
+    Socio aux2 =  Socio(2, "33926749", "Juana", "LopezGomez", "1234", "Calle Falsa 123", "jgomez@mail.com", fecha);
     fwrite(&aux2, sizeof aux2, 1, p);
 
     fecha.setAnio(2000);
     fecha.setMes(1);
     fecha.setDia(12);
-    Socio aux3 =  Socio(3, 03, "44908987", "Maria", "Lopez", "1234", "Private Drive 4", "mlopez@mail.com", fecha);
+    Socio aux3 =  Socio(3, "44908987", "Maria", "Lopez", "1234", "Private Drive 4", "mlopez@mail.com", fecha);
     fwrite(&aux3, sizeof aux3, 1, p);
 
     fecha.setAnio(1985);
     fecha.setMes(10);
     fecha.setDia(5);
-    Socio aux4 =  Socio(4, 04, "39483481", "Pedro", "Gimenez", "1234", "Siempreviva 742", "pgimenez@mail.com", fecha);
+    Socio aux4 =  Socio(4, "39483481", "Pedro", "Gimenez", "1234", "Siempreviva 742", "pgimenez@mail.com", fecha);
     fwrite(&aux4, sizeof aux4, 1, p);
 
     fclose(p);
@@ -192,7 +260,7 @@ bool ArchivoSocio::bajaLogica(){
     } else {
         soc.setEstado(false);
         if(archiSocio.modificarRegistro(soc,encontro)==1){
-            cout << "Socio elimindo con éxito. " << endl;
+            cout << "Socio elimindo con exito. " << endl;
            return true;
         } else { return false;}
     }
@@ -229,7 +297,6 @@ int ArchivoSocio::modificarSocio(int idSocio){
 
     char nombre[30], apellido[30], dni[10], direccion[50], email[50], telefono[50];
     int idSocioNuevo = soc.getId();  // se mantiene
-    int numSocioNuevo = soc.getNumSocio();
     Fecha fechaNac = soc.getFechaNac();
 
     cout << "Nombre/s: ";
@@ -247,15 +314,9 @@ int ArchivoSocio::modificarSocio(int idSocio){
     cin.getline(telefono, 50);
 
     cout << "Fecha de nacimiento:" << endl;
-    int dia, mes, anio;
-    cout << "Dia: "; cin >> dia;
-    cout << "Mes: "; cin >> mes;
-    cout << "Anio: "; cin >> anio;
-    fechaNac.setDia(dia);
-    fechaNac.setMes(mes);
-    fechaNac.setAnio(anio);
+    fechaNac.cargarManual();
 
-    Socio nuevoSocio(idSocioNuevo, numSocioNuevo,dni, nombre, apellido, telefono, direccion, email,fechaNac);
+    Socio nuevoSocio(idSocioNuevo, dni, nombre, apellido, telefono, direccion, email,fechaNac);
     nuevoSocio.setEstado(true);
 
     if (archiSocio.modificarRegistro(nuevoSocio, pos) == 1){

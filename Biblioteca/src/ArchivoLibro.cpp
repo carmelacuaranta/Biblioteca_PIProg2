@@ -76,7 +76,7 @@ bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
     bool encontrado = false;
 
     while (fread(&lib, sizeof(Libro), 1, p) == 1) {
-            cout << "Leído desde archivo: [" << lib.getTitulo() << "]" << endl;
+            cout << "Leido desde archivo: [" << lib.getTitulo() << "]" << endl;
     cout << "Buscando: [" << tituloBuscado << "]" << endl;
 
         if (strcmp(lib.getTitulo(), tituloBuscado) == 0) {
@@ -194,7 +194,7 @@ bool ArchivoLibro::bajaLogica(){
     } else {
         lib.setEstado(false);
         if(archiLibro.modificarRegistro(lib,encontro)==1){
-            cout << "Libro elimindo con éxito. " << endl;
+            cout << "Libro elimindo con exito. " << endl;
            return true;
         } else { return false;}
     }
@@ -237,13 +237,7 @@ int ArchivoLibro::modificarLibro(int idLibro){
 
 
     cout << "Fecha de publicacion:" << endl;
-    int dia, mes, anio;
-    cout << "Dia: "; cin >> dia;
-    cout << "Mes: "; cin >> mes;
-    cout << "Anio: "; cin >> anio;
-    fechaPubli.setDia(dia);
-    fechaPubli.setMes(mes);
-    fechaPubli.setAnio(anio);
+    fechaPubli.cargarManual();
 
     Libro nuevoLibro(idNuevo, isbnNuevo, titulo, autor, genero, cantidadNuevo, fechaPubli);
     nuevoLibro.setEstado(true);
@@ -258,7 +252,7 @@ int ArchivoLibro::modificarLibro(int idLibro){
 }
 
 void ArchivoLibro::listarLibrosMasPrestados(int cantidadMaxima = 5) {
-    const int MAX_LIBROS = 1000; // Tamaño máximo asumido
+    const int MAX_LIBROS = 1000; // Tamaño maximo asumido
     struct LibroPrestamos {
         int idLibro;
         int cantidadPrestamos;
@@ -267,10 +261,10 @@ void ArchivoLibro::listarLibrosMasPrestados(int cantidadMaxima = 5) {
     LibroPrestamos conteoPrestamos[MAX_LIBROS] = {0};
     int totalLibrosUnicos = 0;
 
-    // 1. Contar préstamos por libro
+    // 1. Contar prestamos por libro
     FILE* pPrestamos = fopen("prestamos.dat", "rb");
     if (pPrestamos == nullptr) {
-        cout << "No hay préstamos registrados." << endl;
+        cout << "No hay prestamos registrados." << endl;
         return;
     }
 
@@ -297,7 +291,7 @@ void ArchivoLibro::listarLibrosMasPrestados(int cantidadMaxima = 5) {
     }
     fclose(pPrestamos);
 
-    // 2. Ordenar los libros por cantidad de préstamos (bubble sort)
+    // 2. Ordenar los libros por cantidad de prestamos (bubble sort)
     for (int i = 0; i < totalLibrosUnicos - 1; i++) {
         for (int j = 0; j < totalLibrosUnicos - i - 1; j++) {
             if (conteoPrestamos[j].cantidadPrestamos < conteoPrestamos[j+1].cantidadPrestamos) {

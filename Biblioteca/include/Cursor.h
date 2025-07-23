@@ -15,7 +15,7 @@ public:
     int moverAbajo(int posicionActual);
     /**int getPosicion() const;
 
-    // Este método puede usarse para mostrar el cursor
+    // Este metodo puede usarse para mostrar el cursor
     bool estaEn(int posicion) const;
     **/
 };

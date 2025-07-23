@@ -6,7 +6,6 @@ using namespace std;
 
 Socio::Socio() {
     id = 0;
-    numSocio = 0;
     strcpy(dni, "");
     strcpy(nombre, "");
     strcpy(apellido, "");
@@ -16,10 +15,9 @@ Socio::Socio() {
     fechaNac = Fecha();
 }
 
-Socio::Socio(int id, int numSocio, const char* dni, const char* nombre, const char* apellido,
+Socio::Socio(int id, const char* dni, const char* nombre, const char* apellido,
              const char* telefono, const char* direccion, const char* email, Fecha fechaNac) {
     this->id = id;
-    this->numSocio = numSocio;
     strncpy(this->dni, dni, sizeof(this->dni));
     strncpy(this->nombre, nombre, sizeof(this->nombre));
     strncpy(this->apellido, apellido, sizeof(this->apellido));
@@ -40,7 +38,6 @@ Socio::Socio(int id, int numSocio, const char* dni, const char* nombre, const ch
 
 // Getters
 int Socio::getId() { return id; }
-int Socio::getNumSocio() { return numSocio; }
 const char* Socio::getDni() { return dni; }
 const char* Socio::getNombre() { return nombre; }
 const char* Socio::getApellido() { return apellido; }
@@ -52,7 +49,6 @@ bool Socio::getEstado(){return estado;}
 
 // Setters
 void Socio::setId(int idSocio) { id = idSocio; }
-void Socio::setNumSocio(int numS) { numSocio = numS; }
 void Socio::setDni(const char* documento) { strncpy(dni, documento, sizeof(dni)); dni[sizeof(dni) - 1] = '\0'; }
 void Socio::setNombre(const char* nombreSocio) { strncpy(nombre, nombreSocio, sizeof(nombre)); nombre[sizeof(nombre) - 1] = '\0'; }
 void Socio::setApellido(const char* apellidoSocio) { strncpy(apellido, apellidoSocio, sizeof(apellido)); apellido[sizeof(apellido) - 1] = '\0'; }
@@ -66,10 +62,6 @@ void Socio::agregarSocio() {
     int aux = 0;
     cout << "Ingrese ID: ";
     cin >> id;
-    cin.ignore();
-
-    cout << "Ingrese numero de socio: ";
-    cin >> numSocio;
     cin.ignore();
 
     cout << "Ingrese DNI: ";
@@ -90,21 +82,14 @@ void Socio::agregarSocio() {
     cout << "Ingrese email: ";
     cin.getline(email, sizeof(email));
 
-    cout << "Ingrese anio de nacimiento: ";
-    cin >> aux;
-    this->fechaNac.setAnio(aux);
-    cout << "Ingrese mes de nacimiento: ";
-    cin >> aux;
-    this->fechaNac.setMes(aux);
-    cout << "Ingrese dia de nacimiento: ";
-    cin >> aux;
-    this->fechaNac.setDia(aux);
+    cout << "Ingrese la fecha de nacimiento:" << endl;
+
+    this->fechaNac.cargarManual();
     estado=true;
 }
 
 void Socio::mostrarSocio() {
         cout << "ID: " << id << endl;
-        cout << "Numero de Socio: " << numSocio << endl;
         cout << "DNI: " << dni << endl;
         cout << "Nombre: " << nombre << endl;
         cout << "Apellido: " << apellido << endl;

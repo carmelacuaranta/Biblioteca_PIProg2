@@ -23,8 +23,8 @@
 using namespace std;
 
 
-// Primero completa el menú correspondiente, en este caso Menú Principal.
-// Esto se hace para cada SubMenú sin intervencion del usuario, cada vez que se invoca a dicho SubMenú.
+// Primero completa el menu correspondiente, en este caso Menu Principal.
+// Esto se hace para cada SubMenu sin intervencion del usuario, cada vez que se invoca a dicho SubMenu.
 
 MenuPrincipal::MenuPrincipal() : Menu(4) {
     setOpcion(0, "Menu Socios");
