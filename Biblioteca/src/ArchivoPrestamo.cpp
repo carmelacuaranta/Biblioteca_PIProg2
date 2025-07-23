@@ -256,16 +256,8 @@ int ArchivoPrestamo::extenderFechaDevolucion(int idPrestamo){
     bool ven=false;
     bool fin=false;
 
-    int anio, mes, dia;
-
-    cout << "Ingrese anio:" << endl;
-    cin >> anio;
-    cout << "Ingrese mes:" << endl;
-    cin >> mes;
-    cout << "Ingrese dia:" << endl;
-    cin >> dia;
-
-    Fecha fechaD(dia,mes,anio);
+    Fecha fechaD;
+    fechaD.cargarManual();
 
     Prestamo nuevoPrestamo(idNuevo,idLibroNuevo, idSocioNuevo, fechaP, fechaD, ven, ven);
 
@@ -331,7 +323,7 @@ void ArchivoPrestamo::listarPrestamosVencidos() {
         if (pres.getEstado() && !pres.getFinalizado()) {
             Fecha fechaLimite = pres.getFechaDevolucion();
 
-            if (fechaLimite.esMayorQue(hoy)) {
+            if (hoy.esMayorQue(fechaLimite)) {
                 // Esta vencido
                 pres.mostrarPrestamo();
                 cout << "-------------------" << endl;
