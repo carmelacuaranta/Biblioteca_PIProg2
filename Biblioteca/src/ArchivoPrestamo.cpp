@@ -128,7 +128,7 @@ void ArchivoPrestamo::listarPrestamosPorIdSocio(int idBuscado){
 
 int ArchivoPrestamo::obtenerUltimoID() {
     FILE* p = fopen("prestamos.dat", "rb");
-    if (p == nullptr) return 0;
+    if (p == nullptr) return -1;
 
     Prestamo pres;
     fseek(p, -sizeof(Prestamo), SEEK_END);  // SEEK_END posicion al final

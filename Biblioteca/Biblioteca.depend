@@ -19,7 +19,7 @@
 	"ArchivoSocio.h"
 	"Socio.h"
 
-1753237607 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivocuota.h
+1753551843 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\archivocuota.h
 	"Cuota.h"
 	<iostream>
 	<cstring>
@@ -53,7 +53,7 @@
 1753232907 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\prestamo.h
 	"Fecha.h"
 
-1753233524 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivoprestamo.cpp
+1753548094 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivoprestamo.cpp
 	<iostream>
 	"ArchivoPrestamo.h"
 	"ArchivoSocio.h"

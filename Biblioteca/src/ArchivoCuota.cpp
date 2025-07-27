@@ -11,7 +11,7 @@ ArchivoCuota::ArchivoCuota(){
 
 int ArchivoCuota::agregarCuota(Cuota cuot){
     bool idRepetido=false;
-    FILE* archivoCuotaLectura = fopen("cuotas.dat","rb");
+    FILE *archivoCuotaLectura = fopen("cuotas.dat","rb");
     if (archivoCuotaLectura != nullptr) {
         Cuota cuotaGuardada;
         while (fread(&cuotaGuardada, sizeof(Cuota),1,archivoCuotaLectura) == 1){
@@ -27,7 +27,6 @@ int ArchivoCuota::agregarCuota(Cuota cuot){
     if (idRepetido == false){
         FILE *pCuota;
         pCuota=fopen("cuotas.dat", "ab");
-
         if(pCuota==nullptr) {
             cout << "Error de archivo." << endl;
             return -1;
@@ -125,7 +124,7 @@ bool ArchivoCuota::generarCuotasDelMes(float monto, Fecha fecha) {
             }
         }
         fclose(f);
-    }
+    }   else return false;
 
     int total = archiSocio.cantidadRegistros();
     for (int pos = 0; pos < total; pos++) {

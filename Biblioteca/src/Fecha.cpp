@@ -9,7 +9,7 @@ Fecha::Fecha(){
     _mes = 1;
     _anio = 2000;
 }
-
+/// Cambiar con setters en vez de asignar directamente.
 Fecha::Fecha(int dia, int mes, int anio){
     _dia = dia;
     _mes = mes;
