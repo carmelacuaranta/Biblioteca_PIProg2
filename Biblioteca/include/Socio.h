@@ -4,15 +4,15 @@
 
 class Socio {
 private:
-    int id;
-    char dni[10];
-    char nombre[30];
-    char apellido[30];
-    char telefono[20];
-    char direccion[50];
-    char email[50];
-    Fecha fechaNac;
-    bool estado; //activo, borrado
+    int _id;
+    char _dni[10];
+    char _nombre[30];
+    char _apellido[30];
+    char _telefono[20];
+    char _direccion[50];
+    char _email[50];
+    Fecha _fechaNac;
+    bool _estado; //activo=true, borrado=false
 
 public:
     Socio();
@@ -40,9 +40,6 @@ public:
     void setEmail(const char* emailSocio);
     void setFechaNac(Fecha fechaSocio);
     void setEstado(bool est);
-
-    void agregarSocio();
-    void mostrarSocio();
 };
 
 #endif // SOCIO_H

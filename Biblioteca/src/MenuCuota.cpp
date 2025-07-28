@@ -4,6 +4,7 @@ using namespace std;
 #include "ArchivoCuota.h"
 #include "Cuota.h"
 #include "rlutil.h"
+#include "Funcionalidades.h"
 
 /**cout << "\n--- Menu Cuotas ---" << endl;
                 cout << "1) Cargar una cuota" << endl;
@@ -80,8 +81,7 @@ void MenuCuota::mostrar() {
             case 1:
                 {
                 system("cls");
-                Cuota cuota;
-                cuota.agregarCuota();
+                Cuota cuota = cargarCuotaDesdeConsola();
                 archivoCuota.agregarCuota(cuota);
                 rlutil::anykey();
                 system("cls");

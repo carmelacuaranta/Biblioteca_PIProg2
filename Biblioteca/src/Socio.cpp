@@ -5,96 +5,97 @@
 using namespace std;
 
 Socio::Socio() {
-    id = 0;
-    strcpy(dni, "");
-    strcpy(nombre, "");
-    strcpy(apellido, "");
-    strcpy(telefono, "");
-    strcpy(direccion, "");
-    strcpy(email, "");
-    fechaNac = Fecha();
+    _id = 0;
+    strcpy(_dni, "");
+    strcpy(_nombre, "");
+    strcpy(_apellido, "");
+    strcpy(_telefono, "");
+    strcpy(_direccion, "");
+    strcpy(_email, "");
+    _fechaNac = Fecha();
 }
 
 Socio::Socio(int id, const char* dni, const char* nombre, const char* apellido,
              const char* telefono, const char* direccion, const char* email, Fecha fechaNac) {
-    this->id = id;
-    strncpy(this->dni, dni, sizeof(this->dni));
-    strncpy(this->nombre, nombre, sizeof(this->nombre));
-    strncpy(this->apellido, apellido, sizeof(this->apellido));
-    strncpy(this->telefono, telefono, sizeof(this->telefono));
-    strncpy(this->direccion, direccion, sizeof(this->direccion));
-    strncpy(this->email, email, sizeof(this->email));
-    this->fechaNac=fechaNac;
-    estado=true;
+    _id = id;
+    strncpy(_dni, dni, sizeof(_dni));
+    strncpy(_nombre, nombre, sizeof(_nombre));
+    strncpy(_apellido, apellido, sizeof(_apellido));
+    strncpy(_telefono, telefono, sizeof(_telefono));
+    strncpy(_direccion, direccion, sizeof(_direccion));
+    strncpy(_email, email, sizeof(_email));
+    _fechaNac=fechaNac;
+    _estado=true;
 
-    this->dni[sizeof(this->dni) - 1] = '\0';
-    this->nombre[sizeof(this->nombre) - 1] = '\0';
-    this->apellido[sizeof(this->apellido) - 1] = '\0';
-    this->telefono[sizeof(this->telefono) - 1] = '\0';
-    this->direccion[sizeof(this->direccion) - 1] = '\0';
-    this->email[sizeof(this->email) - 1] = '\0';
+    _dni[sizeof(_dni) - 1] = '\0';
+    _nombre[sizeof(_nombre) - 1] = '\0';
+    _apellido[sizeof(_apellido) - 1] = '\0';
+    _telefono[sizeof(_telefono) - 1] = '\0';
+    _direccion[sizeof(_direccion) - 1] = '\0';
+    _email[sizeof(_email) - 1] = '\0';
 
 }
 
 // Getters
-int Socio::getId() { return id; }
-const char* Socio::getDni() { return dni; }
-const char* Socio::getNombre() { return nombre; }
-const char* Socio::getApellido() { return apellido; }
-const char* Socio::getTelefono() { return telefono; }
-const char* Socio::getDireccion() { return direccion; }
-const char* Socio::getEmail() { return email; }
-Fecha Socio::getFechaNac() { return fechaNac; }
-bool Socio::getEstado(){return estado;}
+int Socio::getId() {
+    return _id;
+    }
+const char* Socio::getDni() {
+    return _dni;
+    }
+const char* Socio::getNombre() {
+    return _nombre;
+    }
+const char* Socio::getApellido() {
+    return _apellido;
+    }
+const char* Socio::getTelefono() {
+    return _telefono;
+    }
+const char* Socio::getDireccion() {
+    return _direccion;
+    }
+const char* Socio::getEmail() {
+    return _email;
+    }
+Fecha Socio::getFechaNac() {
+    return _fechaNac;
+    }
+bool Socio::getEstado(){
+    return _estado;
+    }
 
 // Setters
-void Socio::setId(int idSocio) { id = idSocio; }
-void Socio::setDni(const char* documento) { strncpy(dni, documento, sizeof(dni)); dni[sizeof(dni) - 1] = '\0'; }
-void Socio::setNombre(const char* nombreSocio) { strncpy(nombre, nombreSocio, sizeof(nombre)); nombre[sizeof(nombre) - 1] = '\0'; }
-void Socio::setApellido(const char* apellidoSocio) { strncpy(apellido, apellidoSocio, sizeof(apellido)); apellido[sizeof(apellido) - 1] = '\0'; }
-void Socio::setTelefono(const char* telSocio) { strncpy(telefono, telSocio, sizeof(telefono)); telefono[sizeof(telefono) - 1] = '\0'; }
-void Socio::setDireccion(const char* direccionSocio) { strncpy(direccion, direccionSocio, sizeof(direccion)); direccion[sizeof(direccion) - 1] = '\0'; }
-void Socio::setEmail(const char* emailSocio) { strncpy(email, emailSocio, sizeof(email)); email[sizeof(email) - 1] = '\0'; }
-void Socio::setFechaNac(Fecha fechaSocio) { fechaNac = fechaSocio; }
-void Socio::setEstado(bool est) { estado = est;}
-
-void Socio::agregarSocio() {
-    int aux = 0;
-    cout << "Ingrese ID: ";
-    cin >> id;
-    cin.ignore();
-
-    cout << "Ingrese DNI: ";
-    cin.getline(dni, sizeof(dni));
-
-    cout << "Ingrese nombre: ";
-    cin.getline(nombre, sizeof(nombre));
-
-    cout << "Ingrese apellido: ";
-    cin.getline(apellido, sizeof(apellido));
-
-    cout << "Ingrese telefono: ";
-    cin.getline(telefono, sizeof(telefono));
-
-    cout << "Ingrese direccion: ";
-    cin.getline(direccion, sizeof(direccion));
-
-    cout << "Ingrese email: ";
-    cin.getline(email, sizeof(email));
-
-    cout << "Ingrese la fecha de nacimiento:" << endl;
-
-    this->fechaNac.cargarManual();
-    estado=true;
-}
-
-void Socio::mostrarSocio() {
-        cout << "ID: " << id << endl;
-        cout << "DNI: " << dni << endl;
-        cout << "Nombre: " << nombre << endl;
-        cout << "Apellido: " << apellido << endl;
-        cout << "Telefono: " << telefono << endl;
-        cout << "Direccion: " << direccion << endl;
-        cout << "Email: " << email << endl;
-        cout << "Fecha de Nacimiento: " << fechaNac.toString() << endl;
-}
+void Socio::setId(int idSocio) {
+    _id = idSocio;
+    }
+void Socio::setDni(const char* dni) {
+    strncpy(_dni, dni, sizeof(_dni));
+    _dni[sizeof(_dni) - 1] = '\0';
+    }
+void Socio::setNombre(const char* nombre) {
+    strncpy(_nombre, nombre, sizeof(_nombre));
+    _nombre[sizeof(_nombre) - 1] = '\0';
+    }
+void Socio::setApellido(const char* apellido) {
+    strncpy(_apellido, apellido, sizeof(_apellido));
+    _apellido[sizeof(_apellido) - 1] = '\0';
+    }
+void Socio::setTelefono(const char* telefono) {
+    strncpy(_telefono, telefono, sizeof(_telefono));
+    _telefono[sizeof(_telefono) - 1] = '\0';
+    }
+void Socio::setDireccion(const char* direccion) {
+    strncpy(_direccion, direccion, sizeof(_direccion));
+    _direccion[sizeof(_direccion) - 1] = '\0';
+    }
+void Socio::setEmail(const char* email) {
+    strncpy(_email, email, sizeof(_email));
+    _email[sizeof(_email) - 1] = '\0';
+    }
+void Socio::setFechaNac(Fecha fechaNac) {
+    _fechaNac = fechaNac;
+    }
+void Socio::setEstado(bool estado) {
+    _estado = estado;
+    }

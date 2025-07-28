@@ -3,6 +3,7 @@
 #include "ArchivoLibro.h"
 #include "Libro.h"
 #include "Cursor.h"
+#include "Funcionalidades.h"
 using namespace std;
 #include "rlutil.h"
 
@@ -68,10 +69,8 @@ void MenuLibro::mostrar() {
                 break;
                 }
             case 1:
-                {
-                Libro nuevoLibro;
-                system("cls");
-                nuevoLibro.agregarLibro();
+                {system("cls");
+                Libro nuevoLibro = cargarLibroPorConsola();
                 archivoLibro.agregarLibro(nuevoLibro);
                 rlutil::anykey();
                 system("cls");

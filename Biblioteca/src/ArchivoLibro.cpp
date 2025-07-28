@@ -1,6 +1,7 @@
 #include "ArchivoLibro.h"
 #include "Libro.h"
 #include "Prestamo.h"
+#include "Funcionalidades.h"
 #include <iostream>
 using namespace std;
 
@@ -33,7 +34,7 @@ bool ArchivoLibro::listarLibros() {
 
     while (fread(&lib, sizeof(Libro), 1, pLibro) == 1) {
         if(lib.getEstado()==true){
-            lib.mostrarLibro();
+            mostrarLibroPorConsola(lib);
             cout << "-------------------" << endl;
         }
     }
@@ -52,9 +53,9 @@ int ArchivoLibro::buscarLibroPorID(int idBuscado){
     Libro lib;
     int pos=0;
     while (fread(&lib, sizeof(Libro), 1, p) == 1) {
-        if (lib.getLibroId() == idBuscado) {
+        if (lib.getId() == idBuscado) {
             cout << "Libro encontrado: " << endl;
-            lib.mostrarLibro();
+            mostrarLibroPorConsola(lib);
             fclose(p);
             return pos;
         }
@@ -81,7 +82,7 @@ bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
 
         if (strcmp(lib.getTitulo(), tituloBuscado) == 0) {
             cout << "Libro encontrado: " << endl;
-            lib.mostrarLibro();
+            mostrarLibroPorConsola(lib);
             encontrado = true;
         }
     }
@@ -104,7 +105,7 @@ bool ArchivoLibro::buscarLibroPorGenero(const char* generoBuscado){
 
     while (fread(&lib, sizeof(Libro), 1, p) == 1) {
         if (strcmp(lib.getGenero(), generoBuscado) == 0) {
-            lib.mostrarLibro();
+            mostrarLibroPorConsola(lib);
             encontrado = true;
         }
     }
@@ -218,7 +219,7 @@ int ArchivoLibro::modificarLibro(int idLibro){
     cout << "Ingrese los nuevos datos del libro:" << endl;
 
     char titulo[100], autor[50], genero[30];
-    int idNuevo = lib.getLibroId();
+    int idNuevo = lib.getId();
     int isbnNuevo = lib.getIsbn();
     int cantidadNuevo = lib.getCantEjemplares();
     Fecha fechaPubli = lib.getFechaPublicacion();

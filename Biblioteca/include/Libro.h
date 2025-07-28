@@ -4,23 +4,23 @@
 
 class Libro {
 private:
-    int libroId;
-    int isbn;
-    char titulo[100];
-    char autor[50];
-    char genero[30];
-    int cantEjemplares;
-    Fecha fechaPublicacion;
-    bool estado;
+    int _id;
+    int _isbn;
+    char _titulo[100];
+    char _autor[50];
+    char _genero[30];
+    int _cantEjemplares;
+    Fecha _fechaPublicacion;
+    bool _estado;
 
 public:
     Libro();
 
-    Libro(int _libroId, int _isbn, const char* _titulo, const char* _autor,
-          const char* _genero, int _cantEjemplares, Fecha _fechaPublicacion);
+    Libro(int libroId, int isbn, const char* titulo, const char* autor,
+          const char* genero, int cantEjemplares, Fecha fechaPublicacion);
 
     // Getters
-    int getLibroId();
+    int getId();
     int getIsbn();
     const char* getTitulo();
     const char* getAutor();
@@ -30,17 +30,14 @@ public:
     bool getEstado();
 
     // Setters
-    void setLibroId(int id);
-    void setIsbn(int i);
-    void setTitulo(const char* t);
-    void setAutor(const char* a);
-    void setGenero(const char* g);
-    void setCantEjemplares(int c);
-    void setFechaPublicacion(Fecha f);
-    void setEstado(bool est);
-
-    void agregarLibro();
-    void mostrarLibro();
+    void setId(int id);
+    void setIsbn(int isbn);
+    void setTitulo(const char* titulo);
+    void setAutor(const char* autor);
+    void setGenero(const char* genero);
+    void setCantEjemplares(int cantidad);
+    void setFechaPublicacion(Fecha fechaPublicacion);
+    void setEstado(bool estado);
 };
 
 #endif // LIBRO_H

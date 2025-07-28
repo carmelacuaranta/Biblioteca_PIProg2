@@ -4,87 +4,51 @@ using namespace std;
 #include "ArchivoSocio.h"
 
 Cuota::Cuota() {
-    idCuota = 0;
-    monto = 0.0f;
-    idSocio = 0;
-    pagada = false;
-    estado = true;
+    _idCuota = 0;
+    _monto = 0.0f;
+    _idSocio = 0;
+    _pagada = false;
+    _estado = true;
 }
 
-Cuota::Cuota(int _idCuota, float _monto, int _idSocio, Fecha _fecha, bool _pagada) {
-    idCuota = _idCuota;
-    monto = _monto;
-    idSocio = _idSocio;
-    fecha = _fecha;
-    pagada = _pagada;
-    estado=true;
+Cuota::Cuota(int idCuota, float monto, int idSocio, Fecha fecha, bool pagada) {
+    _idCuota = idCuota;
+    _monto = monto;
+    _idSocio = idSocio;
+    _fecha = fecha;
+    _pagada = pagada;
+    _estado=true;
 }
 
 //Getters
-int Cuota::getIdCuota() { return idCuota; }
-float Cuota::getMonto() { return monto; }
-int Cuota::getIdSocio() { return idSocio; }
-Fecha Cuota::getFecha() { return fecha; }
-bool Cuota::getPagada() { return pagada; }
-bool Cuota::getEstado() { return estado; }
+int Cuota::getIdCuota() const {
+    return _idCuota;
+}
+
+float Cuota::getMonto() const {
+    return _monto;
+}
+
+int Cuota::getIdSocio() const {
+    return _idSocio;
+}
+
+bool Cuota::getPagada() const {
+    return _pagada;
+}
+
+Fecha Cuota::getFecha() const {
+    return _fecha;
+}
+
+bool Cuota::getEstado() const {
+    return _estado;
+}
 
 //Setters
-void Cuota::setIdCuota(int id) { idCuota = id; }
-void Cuota::setMonto(float m) { monto = m; }
-void Cuota::setIdSocio(int id) { idSocio = id; }
-void Cuota::setFecha(Fecha f) { fecha = f; }
-void Cuota::setPagada(bool p) { pagada = p; }
-void Cuota::setEstado(bool est) { estado = est; }
-
-void Cuota::agregarCuota(){
-    //para validar que exista el id del socio
-    ArchivoSocio archivoSoc;
-    int idSocioValido = -1;
-
-    int aux = 0;
-    cout << "Ingrese ID: ";
-    cin >> idCuota;
-    cin.ignore();
-
-    cout << "Ingrese ID del socio: ";
-    cin >> aux;
-    cin.ignore();
-    idSocioValido = archivoSoc.buscarSocioPorID(aux);
-    if (idSocioValido < 0 ){
-        setIdSocio(aux);
-    }
-
-    cout << "Ingrese monto: ";
-    cin >> monto;
-    cin.ignore();
-
-    cout << "Esta pagada? para SI ingrese 1, para NO, 0: ";
-    cin >> aux;
-    cin.ignore();
-    switch (aux) {
-    case 0:
-        pagada=false;
-        break;
-    case 1:
-        pagada = true;
-        break;
-    default:
-        cout << "Valor invalido." << endl;
-        break;
-    }
-
-    cout << "Ingrese la fecha de Pago: ";
-    this->fecha.cargarManual();
-    estado = true;
-}
-
-void Cuota::mostrarCuota() {
-    cout << "ID: " << idCuota << endl;
-    cout << "ID Socio: " << idSocio << endl;
-    cout << "Monto: " << monto << endl;
-    cout << "Esta pagada: ";
-    if (pagada == true ){
-        cout << "SI" << endl;
-    } else { cout << "NO" << endl;}
-    cout << "Fecha de pago: " << fecha.toString() << endl;
-}
+void Cuota::setIdCuota(int id) { _idCuota = id; }
+void Cuota::setMonto(float m) { _monto = m; }
+void Cuota::setIdSocio(int id) { _idSocio = id; }
+void Cuota::setFecha(Fecha f) { _fecha = f; }
+void Cuota::setPagada(bool p) { _pagada = p; }
+void Cuota::setEstado(bool est) { _estado = est; }

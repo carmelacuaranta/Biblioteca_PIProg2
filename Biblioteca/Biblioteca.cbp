@@ -41,6 +41,7 @@
 		<Unit filename="include/Cuota.h" />
 		<Unit filename="include/Cursor.h" />
 		<Unit filename="include/Fecha.h" />
+		<Unit filename="include/Funcionalidades.h" />
 		<Unit filename="include/Libro.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MenuCuota.h" />
@@ -59,6 +60,7 @@
 		<Unit filename="src/Cuota.cpp" />
 		<Unit filename="src/Cursor.cpp" />
 		<Unit filename="src/Fecha.cpp" />
+		<Unit filename="src/Funcionalidades.cpp" />
 		<Unit filename="src/Libro.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/MenuCuota.cpp" />

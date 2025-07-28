@@ -178,3 +178,210 @@
 	<iostream>
 	<cstring>
 
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\main.cpp
+	<iostream>
+	"MenuPrincipal.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menuprincipal.h
+	<Menu.h>
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menu.h
+	<string>
+	"Cursor.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\cursor.h
+
+1753719148 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivolibro.cpp
+	"ArchivoLibro.h"
+	"Libro.h"
+	"Prestamo.h"
+	"Funcionalidades.h"
+	<iostream>
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivolibro.h
+	"Libro.h"
+	<cstring>
+
+1753719926 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\libro.h
+	"Fecha.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\fecha.h
+	<string>
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\prestamo.h
+	"Fecha.h"
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivoprestamo.cpp
+	<iostream>
+	"ArchivoPrestamo.h"
+	"ArchivoSocio.h"
+	"ArchivoLibro.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivoprestamo.h
+	"Prestamo.h"
+	<iostream>
+	<string.h>
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivosocio.h
+	"Socio.h"
+	<cstring>
+
+1753719926 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\socio.h
+	"Fecha.h"
+
+1753716993 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivosocio.cpp
+	"ArchivoSocio.h"
+	"ArchivoCuota.h"
+	"Socio.h"
+	"Funcionalidades.h"
+	<iostream>
+	<cstring>
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivocuota.h
+	"Cuota.h"
+	<iostream>
+	<cstring>
+
+1753719926 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\cuota.h
+	"Fecha.h"
+
+1753714670 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\cuota.cpp
+	<iostream>
+	"Cuota.h"
+	"ArchivoSocio.h"
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\cursor.cpp
+	<iostream>
+	"rlutil.h"
+	"Cursor.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\fecha.cpp
+	<iostream>
+	<ctime>
+	"Fecha.h"
+
+1753718708 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\libro.cpp
+	"Libro.h"
+	<iostream>
+	<cstring>
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1753715117 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menucuota.cpp
+	<iostream>
+	"MenuCuota.h"
+	"ArchivoCuota.h"
+	"Cuota.h"
+	"rlutil.h"
+	"Funcionalidades.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menucuota.h
+	<Menu.h>
+
+1753719548 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menulibro.cpp
+	<iostream>
+	"MenuLibro.h"
+	"ArchivoLibro.h"
+	"Libro.h"
+	"Cursor.h"
+	"Funcionalidades.h"
+	"rlutil.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menulibro.h
+	<Menu.h>
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menuprestamo.cpp
+	<iostream>
+	"MenuPrestamo.h"
+	"ArchivoPrestamo.h"
+	"Prestamo.h"
+	"rlutil.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menuprestamo.h
+	<Menu.h>
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menuprincipal.cpp
+	<iostream>
+	"rlutil.h"
+	"MenuPrincipal.h"
+	"MenuSocio.h"
+	"MenuLibro.h"
+	"MenuPrestamo.h"
+	"MenuCuota.h"
+	"ArchivoSocio.h"
+	"ArchivoLibro.h"
+	"ArchivoPrestamo.h"
+	"ArchivoCuota.h"
+	"Socio.h"
+	"Libro.h"
+	"Prestamo.h"
+	"Cuota.h"
+	"Cursor.h"
+	"rlutil.h"
+
+1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menusocio.h
+	"Menu.h"
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menusocio.cpp
+	<iostream>
+	"MenuPrincipal.h"
+	"MenuSocio.h"
+	"ArchivoSocio.h"
+	"rlutil.h"
+
+1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\prestamo.cpp
+	<iostream>
+	"Prestamo.h"
+
+1753716747 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\socio.cpp
+	"Socio.h"
+	<iostream>
+	<cstring>
+
+1753715037 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivocuota.cpp
+	<iostream>
+	<string.h>
+	"ArchivoCuota.h"
+	"ArchivoSocio.h"
+	"Socio.h"
+	"Funcionalidades.h"
+
+1753714568 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionlidades.cpp
+	<iostream>
+	"Cuota.h"
+	"ArchivoSocio.h"
+
+1753714568 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionlidades.cpp
+	<iostream>
+	"Cuota.h"
+	"ArchivoSocio.h"
+
+1753719076 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\funcionalidades.h
+	"Cuota.h"
+	"Socio.h"
+	"Libro.h"
+
+1753719889 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionalidades.cpp
+	"Funcionalidades.h"
+	<iostream>
+	"Cuota.h"
+	"Socio.h"
+	"Libro.h"
+	"ArchivoSocio.h"
+

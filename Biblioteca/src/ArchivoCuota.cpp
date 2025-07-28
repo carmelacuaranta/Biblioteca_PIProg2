@@ -4,6 +4,7 @@ using namespace std;
 #include "ArchivoCuota.h"
 #include "ArchivoSocio.h"
 #include "Socio.h"
+#include "Funcionalidades.h"
 
 ArchivoCuota::ArchivoCuota(){
     tamanioRegistro = sizeof(Cuota);
@@ -53,7 +54,7 @@ bool ArchivoCuota::listarCuotas() {
 
     while (fread(&cuot, sizeof(Cuota), 1, pCuota) == 1) {
         if (cuot.getEstado()==true){
-                cuot.mostrarCuota();
+                mostrarCuotaPorConsola(cuot);
                 cout << "-------------------" << endl;
             }
     }
@@ -73,7 +74,7 @@ int ArchivoCuota::buscarCuotaPorID(int idBuscado) {
     while (fread(&cu, sizeof(Cuota), 1, p) == 1) {
         if (cu.getIdCuota() == idBuscado) {
             cout << "Cuota encontrada: " << endl;
-            cu.mostrarCuota();
+            mostrarCuotaPorConsola(cu);
             fclose(p);
             return pos;
         }
@@ -97,7 +98,7 @@ int ArchivoCuota::buscarCuotaPorIDSocio(int idBuscado) {
     while (fread(&cu, sizeof(Cuota), 1, p) == 1) {
         if (cu.getIdSocio() == idBuscado) {
             cout << "Cuota encontrada: " << endl;
-            cu.mostrarCuota();
+            mostrarCuotaPorConsola(cu);
             fclose(p);
             return pos;
         }

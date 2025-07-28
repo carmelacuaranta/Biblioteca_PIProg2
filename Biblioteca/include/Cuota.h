@@ -7,23 +7,23 @@
 class Cuota
 {
     private:
-        int idCuota;
-        float monto;
-        int idSocio;
-        Fecha fecha;
-        bool pagada;
-        bool estado;
+        int _idCuota;
+        float _monto;
+        int _idSocio;
+        Fecha _fecha;
+        bool _pagada;
+        bool _estado;
 
     public:
         Cuota();
-        Cuota(int _idCuota, float _monto, int _idSocio, Fecha _fecha, bool _pagada);
+        Cuota(int idCuota, float monto, int idSocio, Fecha fecha, bool pagada);
 
-        int getIdCuota();
-        float getMonto();
-        int getIdSocio();
-        Fecha getFecha();
-        bool getPagada();
-        bool getEstado();
+        int getIdCuota() const;
+        float getMonto() const;
+        int getIdSocio() const;
+        Fecha getFecha() const;
+        bool getPagada() const;
+        bool getEstado() const;
 
         void setIdCuota(int id);
         void setMonto(float m);
@@ -31,9 +31,6 @@ class Cuota
         void setFecha(Fecha f);
         void setPagada(bool p);
         void setEstado(bool est);
-
-        void mostrarCuota();
-        void agregarCuota();
 };
 
 #endif // CUOTA_H

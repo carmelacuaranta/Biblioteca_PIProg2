@@ -1,6 +1,7 @@
 #include "ArchivoSocio.h"
 #include "ArchivoCuota.h"
 #include "Socio.h"
+#include "Funcionalidades.h"
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -46,8 +47,7 @@ bool ArchivoSocio::emailValido(const char* email) {
 
 int ArchivoSocio::agregarRegistro() {
     system("cls");
-    Socio soc;
-    soc.agregarSocio();
+    Socio soc = cargarSocioPorConsola();
 
     if (idRepetido(soc.getId())) {
         cout << "ID repetido, no se puede guardar el socio." << endl;
@@ -138,7 +138,7 @@ int ArchivoSocio::listarSocios() {
 
     while (fread(&soc, sizeof(Socio), 1, pSocio) == 1) {
             if(soc.getEstado()==true){
-                soc.mostrarSocio();
+                mostrarSocioPorConsola(soc);
                 cout << "-----------------" << endl;
             }
     }
@@ -159,7 +159,7 @@ int ArchivoSocio::buscarSocioPorID(int idBuscado) {
     while (fread(&soc, sizeof(Socio), 1, p) == 1) {
         if (soc.getId() == idBuscado) {
             cout << "Socio encontrado: " << endl;
-            soc.mostrarSocio();
+            mostrarSocioPorConsola(soc);
             fclose(p);
             return pos;
         }
@@ -184,7 +184,7 @@ bool ArchivoSocio::buscarSocioPorNombre(const char* nombreBuscado) {
     while (fread(&soc, sizeof(Socio), 1, p) == 1) {
         if (strcmp(soc.getNombre(), nombreBuscado) == 0) {
             cout << "Socio encontrado: " << endl;
-            soc.mostrarSocio();
+            mostrarSocioPorConsola(soc);
             encontrado = true;
         }
     }
