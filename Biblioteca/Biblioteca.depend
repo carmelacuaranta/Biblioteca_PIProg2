@@ -208,14 +208,15 @@
 1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\fecha.h
 	<string>
 
-1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\prestamo.h
+1753720804 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\prestamo.h
 	"Fecha.h"
 
-1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivoprestamo.cpp
+1753722307 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivoprestamo.cpp
 	<iostream>
 	"ArchivoPrestamo.h"
 	"ArchivoSocio.h"
 	"ArchivoLibro.h"
+	"Funcionalidades.h"
 
 1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivoprestamo.h
 	"Prestamo.h"
@@ -306,11 +307,12 @@
 1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menulibro.h
 	<Menu.h>
 
-1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menuprestamo.cpp
+1753722287 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menuprestamo.cpp
 	<iostream>
 	"MenuPrestamo.h"
 	"ArchivoPrestamo.h"
 	"Prestamo.h"
+	"Funcionalidades.h"
 	"rlutil.h"
 
 1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\menuprestamo.h
@@ -345,7 +347,7 @@
 	"ArchivoSocio.h"
 	"rlutil.h"
 
-1753713066 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\prestamo.cpp
+1753722045 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\prestamo.cpp
 	<iostream>
 	"Prestamo.h"
 
@@ -372,16 +374,18 @@
 	"Cuota.h"
 	"ArchivoSocio.h"
 
-1753719076 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\funcionalidades.h
+1753722457 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\funcionalidades.h
 	"Cuota.h"
 	"Socio.h"
 	"Libro.h"
+	"Prestamo.h"
 
-1753719889 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionalidades.cpp
+1753722208 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionalidades.cpp
 	"Funcionalidades.h"
 	<iostream>
 	"Cuota.h"
 	"Socio.h"
 	"Libro.h"
 	"ArchivoSocio.h"
+	"Prestamo.h"
 

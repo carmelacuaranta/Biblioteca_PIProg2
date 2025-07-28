@@ -1,10 +1,14 @@
 #include "Cuota.h"
 #include "Socio.h"
 #include "Libro.h"
+#include "Prestamo.h"
 
 Cuota cargarCuotaDesdeConsola();
-void mostrarCuotaPorConsola(const Cuota& c);
-Socio cargarSocioPorConsola();
-void mostrarSocioPorConsola(Socio socio);
 Libro cargarLibroPorConsola();
+Socio cargarSocioPorConsola();
+Prestamo cargarPrestamoDesdeConsola();
+void mostrarSocioPorConsola(Socio socio);
+void mostrarCuotaPorConsola(Cuota c);
 void mostrarLibroPorConsola(Libro lib);
+void mostrarPrestamoPorConsola(Prestamo pres);
+

@@ -6,22 +6,22 @@
 class Prestamo
 {
     private:
-        int idPrestamo;
-        int idLibro;
-        int idSocio;
-        Fecha fechaPrestado;
-        Fecha fechaDevolucion;
-        bool vencido;
-        bool finalizado;
-        bool estado;
+        int _id;
+        int _idLibro;
+        int _idSocio;
+        Fecha _fechaPrestado;
+        Fecha _fechaDevolucion;
+        bool _vencido;
+        bool _finalizado;
+        bool _estado;
     public:
         Prestamo();
-        Prestamo(int idPrestamo, int idLibro, int idSocio, Fecha fechaPrestado, Fecha fechaDevolucion, bool vencido, bool finalizado);
+        Prestamo(int id, int idLibro, int idSocio, Fecha fechaPrestado, Fecha fechaDevolucion, bool vencido, bool finalizado);
         void mostrarPrestamo();
         void cargarPrestamo();
 
         // Getters
-        int getIdPrestamo();
+        int getId();
         int getIdLibro();
         int getIdSocio();
         Fecha getFechaPrestado();
@@ -31,7 +31,7 @@ class Prestamo
         bool getEstado();
 
         // Setters
-        void setIdPrestamo(int id);
+        void setId(int id);
         void setIdLibro(int idLibro);
         void setIdSocio(int idSocio);
         void setFechaPrestado(Fecha f);

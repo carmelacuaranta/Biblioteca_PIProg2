@@ -5,6 +5,7 @@ using namespace std;
 #include "Socio.h"
 #include "Libro.h"
 #include "ArchivoSocio.h"
+#include "Prestamo.h"
 
 Cuota cargarCuotaDesdeConsola() {
     Cuota c;
@@ -46,7 +47,7 @@ Cuota cargarCuotaDesdeConsola() {
     return c;
 }
 
-void mostrarCuotaPorConsola(const Cuota& c) {
+void mostrarCuotaPorConsola(Cuota c) {
     cout << "ID: " << c.getIdCuota() << endl;
     cout << "ID Socio: " << c.getIdSocio() << endl;
     cout << "Monto: " << c.getMonto() << endl;
@@ -162,4 +163,34 @@ void mostrarLibroPorConsola(Libro lib) {
     cout << "Cantidad de ejemplares: " << lib.getCantEjemplares() << endl;
     cout << "Fecha de Publicacion: " << lib.getFechaPublicacion().toString() << endl;
     cout << "Estado: " << (lib.getEstado() ? "disponible" : "eliminado") << endl;
+}
+
+void mostrarPrestamoPorConsola(Prestamo pres){
+    cout<<"ID del prestamo: " << pres.getId() << endl;
+    cout<<"ID del socio: " << pres.getIdSocio() << endl;
+    cout<<"ID del libro: " << pres.getIdLibro() << endl;
+    cout<< "Fecha de inicio: " << pres.getFechaPrestado().toString() << endl;
+    cout << "Fecha de finalizacion: " << pres.getFechaDevolucion().toString() << endl;
+}
+
+Prestamo cargarPrestamoDesdeConsola(){
+    Prestamo pres;
+    int idSocio, idLibro;
+    Fecha fechaPrestado, fechaDevolucion;
+    cout << "Ingrese ID del Socio: " << endl;
+    cin >> idSocio;
+    cout << "Ingrese ID del Libro: " << endl;
+    cin >> idLibro;
+
+    fechaPrestado.cargarFechaSistema();
+    cout << "Fecha de inicio del prestamo: " << fechaPrestado.toString() << endl;
+    cout << "Ingrese la fecha de finalizacion del prestamo: " << endl;
+    fechaDevolucion.cargarManual();
+
+    pres.setIdSocio(idSocio);
+    pres.setIdLibro(idLibro);
+    pres.setFechaPrestado(fechaPrestado);
+    pres.setFechaDevolucion(fechaDevolucion);
+
+    return pres;
 }

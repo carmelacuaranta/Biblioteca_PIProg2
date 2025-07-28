@@ -2,6 +2,7 @@
 #include "ArchivoPrestamo.h"
 #include "ArchivoSocio.h"
 #include "ArchivoLibro.h"
+#include "Funcionalidades.h"
 using namespace std;
 
 int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
@@ -23,7 +24,7 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
     }
 
     int nuevoID = obtenerUltimoID() + 1;
-    pres.setIdPrestamo(nuevoID);      // ID autoincremental
+    pres.setId(nuevoID);      // ID autoincremental
     pres.setEstado(true);     // Estado activo
 
     fwrite(&pres, sizeof(Prestamo), 1, pPrestamo);
@@ -46,7 +47,7 @@ bool ArchivoPrestamo::listarPrestamos() {
 
     while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
         if(pres.getEstado()==true && pres.getFinalizado()==false){
-            pres.mostrarPrestamo();
+            mostrarPrestamoPorConsola(pres);
             cout << "-------------------" << endl;
         }
     }
@@ -65,9 +66,9 @@ int ArchivoPrestamo::buscarPrestamoPorId(int idBuscado){
     Prestamo pres;
     int pos=0;
     while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
-        if (pres.getIdPrestamo() == idBuscado) {
+        if (pres.getId() == idBuscado) {
             cout << "Prestamo encontrado: " << endl;
-            pres.mostrarPrestamo();
+            mostrarPrestamoPorConsola(pres);
             fclose(p);
             return pos;
         }
@@ -90,7 +91,7 @@ void ArchivoPrestamo::listarPrestamosPorIdLibro(int idBuscado){
 
     while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
         if (pres.getIdLibro() == idBuscado && pres.getEstado()) {
-            pres.mostrarPrestamo();
+            mostrarPrestamoPorConsola(pres);
             encontrado = true;
         }
     }
@@ -114,7 +115,7 @@ void ArchivoPrestamo::listarPrestamosPorIdSocio(int idBuscado){
 
     while (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
         if (pres.getIdSocio() == idBuscado && pres.getEstado()) {
-            pres.mostrarPrestamo();
+            mostrarPrestamoPorConsola(pres);
             encontrado = true;
         }
     }
@@ -134,7 +135,7 @@ int ArchivoPrestamo::obtenerUltimoID() {
     fseek(p, -sizeof(Prestamo), SEEK_END);  // SEEK_END posicion al final
     if (fread(&pres, sizeof(Prestamo), 1, p) == 1) {
         fclose(p);
-        return pres.getIdPrestamo();
+        return pres.getId();
     }
 
     fclose(p);
@@ -207,7 +208,7 @@ int ArchivoPrestamo::modificarPrestamo(int idPrestamo){
         return -2;
     }
 
-    int idNuevo=pres.getIdPrestamo();
+    int idNuevo=pres.getId();
     Fecha fechaP = pres.getFechaPrestado();
     Fecha fechaD=pres.getFechaDevolucion();
     bool ven=pres.getVencido();
@@ -249,7 +250,7 @@ int ArchivoPrestamo::extenderFechaDevolucion(int idPrestamo){
         return -2;
     }
 
-    int idNuevo=pres.getIdPrestamo();
+    int idNuevo=pres.getId();
     int idLibroNuevo=pres.getIdLibro();
     int idSocioNuevo=pres.getIdSocio();
     Fecha fechaP = pres.getFechaPrestado();
@@ -284,7 +285,7 @@ int ArchivoPrestamo::registrarDevolucion(int idPrestamo){
         return -2;
     }
 
-    int idNuevo=pres.getIdPrestamo();
+    int idNuevo=pres.getId();
     int idLibroNuevo=pres.getIdLibro();
     int idSocioNuevo=pres.getIdSocio();
     Fecha fechaP = pres.getFechaPrestado();
@@ -325,7 +326,7 @@ void ArchivoPrestamo::listarPrestamosVencidos() {
 
             if (hoy.esMayorQue(fechaLimite)) {
                 // Esta vencido
-                pres.mostrarPrestamo();
+                mostrarPrestamoPorConsola(pres);
                 cout << "-------------------" << endl;
                 hayVencidos = true;
             }

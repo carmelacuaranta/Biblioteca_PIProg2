@@ -3,6 +3,7 @@ using namespace std;
 #include "MenuPrestamo.h"
 #include "ArchivoPrestamo.h"
 #include "Prestamo.h"
+#include "Funcionalidades.h"
 #include "rlutil.h"
 
 MenuPrestamo::MenuPrestamo() : Menu(4) {
@@ -78,8 +79,7 @@ void MenuPrestamo::mostrar() {
             case 1:
                 {
                 system("cls");
-                Prestamo prest;
-                prest.cargarPrestamo();
+                Prestamo prest = cargarPrestamoDesdeConsola();
                 archivoPrestamo.agregarPrestamo(prest);
                 system("cls");
                 break;

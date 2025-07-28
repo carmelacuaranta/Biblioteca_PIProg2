@@ -3,62 +3,73 @@
 using namespace std;
 
 Prestamo::Prestamo() {
-    idPrestamo = 0;
-    idLibro = 0;
-    idSocio = 0;
-    vencido = false;
-    finalizado = false;
-    estado=true;
+    _id = 0;
+    _idLibro = 0;
+    _idSocio = 0;
+    _vencido = false;
+    _finalizado = false;
+    _estado=true;
 }
 
-Prestamo::Prestamo(int _idPrestamo, int _idLibro, int _idSocio, Fecha _fechaPrestado, Fecha _fechaDevolucion, bool _vencido, bool _finalizado) {
-    idPrestamo = _idPrestamo;
-    idLibro = _idLibro;
-    idSocio = _idSocio;
-    fechaPrestado = _fechaPrestado;
-    fechaDevolucion = _fechaDevolucion;
-    vencido = _vencido;
-    finalizado = _finalizado;
-    estado=true;
-}
-
-void Prestamo::mostrarPrestamo(){
-    cout<<"ID del prestamo: " << idPrestamo << endl;
-    cout<<"ID del socio: " << idSocio << endl;
-    cout<<"ID del libro: " << idLibro << endl;
-    cout<< "Fecha de inicio: " << fechaPrestado.toString() << endl;
-    cout << "Fecha de finalizacion: " << fechaDevolucion.toString() << endl;
-}
-
-void Prestamo::cargarPrestamo(){
-    int aux;
-    cout << "Ingrese ID del Socio: " << endl;
-    cin >> idSocio;
-    cout << "Ingrese ID del Libro: " << endl;
-    cin >> idLibro;
-
-    fechaPrestado.cargarFechaSistema();
-    cout << "Fecha de inicio del prestamo: " << fechaPrestado.toString() << endl;
-    cout << "Ingrese la fecha de finalizacion del prestamo: " << endl;
-    this->fechaDevolucion.cargarManual();
+Prestamo::Prestamo(int id, int idLibro, int idSocio, Fecha fechaPrestado, Fecha fechaDevolucion, bool vencido, bool finalizado) {
+    _id = id;
+    _idLibro = idLibro;
+    _idSocio = idSocio;
+    _fechaPrestado = fechaPrestado;
+    _fechaDevolucion = fechaDevolucion;
+    _vencido = vencido;
+    _finalizado = finalizado;
+    _estado=true;
 }
 
 // Getters
-int Prestamo::getIdPrestamo() { return idPrestamo; }
-int Prestamo::getIdLibro() { return idLibro; }
-int Prestamo::getIdSocio() { return idSocio; }
-Fecha Prestamo::getFechaPrestado() { return fechaPrestado; }
-Fecha Prestamo::getFechaDevolucion() { return fechaDevolucion; }
-bool Prestamo::getVencido() { return vencido; }
-bool Prestamo::getFinalizado() { return finalizado; }
-bool Prestamo::getEstado() { return estado; }
+int Prestamo::getId() {
+    return _id;
+    }
+int Prestamo::getIdLibro() {
+    return _idLibro;
+    }
+int Prestamo::getIdSocio() {
+    return _idSocio;
+    }
+Fecha Prestamo::getFechaPrestado() {
+    return _fechaPrestado;
+    }
+Fecha Prestamo::getFechaDevolucion() {
+    return _fechaDevolucion;
+    }
+bool Prestamo::getVencido() {
+    return _vencido;
+    }
+bool Prestamo::getFinalizado() {
+    return _finalizado;
+    }
+bool Prestamo::getEstado() {
+    return _estado;
+    }
 
 // Setters
-void Prestamo::setIdPrestamo(int id) { idPrestamo = id; }
-void Prestamo::setIdLibro(int idL) { idLibro = idL; }
-void Prestamo::setIdSocio(int idS) { idSocio = idS; }
-void Prestamo::setFechaPrestado(Fecha f) { fechaPrestado = f; }
-void Prestamo::setFechaDevolucion(Fecha f) { fechaDevolucion = f; }
-void Prestamo::setVencido(bool v) { vencido = v; }
-void Prestamo::setFinalizado(bool f) { finalizado = f; }
-void Prestamo::setEstado(bool f) { estado = f; }
+void Prestamo::setId(int id) {
+    _id = id;
+    }
+void Prestamo::setIdLibro(int idLibro) {
+    _idLibro = idLibro;
+    }
+void Prestamo::setIdSocio(int idSocio) {
+    _idSocio = idSocio;
+    }
+void Prestamo::setFechaPrestado(Fecha fechaPrestado) {
+    _fechaPrestado = fechaPrestado;
+    }
+void Prestamo::setFechaDevolucion(Fecha fechaDevolucion) {
+    _fechaDevolucion = fechaDevolucion;
+    }
+void Prestamo::setVencido(bool vencido) {
+    _vencido = vencido;
+    }
+void Prestamo::setFinalizado(bool finalizado) {
+    _finalizado = finalizado;
+    }
+void Prestamo::setEstado(bool estado) {
+    _estado = estado;
+    }
