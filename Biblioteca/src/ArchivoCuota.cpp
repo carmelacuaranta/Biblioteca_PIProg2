@@ -6,9 +6,11 @@ using namespace std;
 #include "Socio.h"
 #include "Funcionalidades.h"
 
-ArchivoCuota::ArchivoCuota(){
-    tamanioRegistro = sizeof(Cuota);
-}
+    ArchivoCuota::ArchivoCuota(const char *nombreArchivo) {
+        strncpy(_nombreArchivo, nombreArchivo, sizeof(_nombreArchivo));
+        _nombreArchivo[sizeof(_nombreArchivo) - 1] = '\0';
+        _tamanioRegistro = sizeof(Cuota);
+    }
 
 int ArchivoCuota::agregarCuota(Cuota cuot){
     bool idRepetido=false;

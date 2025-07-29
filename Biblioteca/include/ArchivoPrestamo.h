@@ -8,16 +8,11 @@ using namespace std;
 class ArchivoPrestamo
 {
 private:
-    char prest[50];
-    int tamanioRegistro;
+    char _nombreArchivo[50];
+    int _tamanioRegistro;
 
 public:
-    ArchivoPrestamo(const char *n = "Prestamos.dat") {
-        strncpy(prest, n, sizeof(prest));
-        prest[sizeof(prest) - 1] = '\0';
-        tamanioRegistro = sizeof(Prestamo);
-    }
-
+    ArchivoPrestamo(const char *nombreArchivo = "Prestamos.dat");
     int agregarPrestamo(Prestamo pres);
     bool listarPrestamos();
     int buscarPrestamoPorId(int idBuscado);

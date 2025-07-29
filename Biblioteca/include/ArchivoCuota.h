@@ -9,11 +9,11 @@ using namespace std;
 class ArchivoCuota
 {
     private:
-    char cuota[50];
-    int tamanioRegistro;
+    char _nombreArchivo[50];
+    int _tamanioRegistro;
 
 public:
-    ArchivoCuota();
+    ArchivoCuota(const char *nombreArchivo = "Cuotas.dat");
     int agregarCuota(Cuota cuota);
     bool listarCuotas();
     int buscarCuotaPorID(int idBuscado);

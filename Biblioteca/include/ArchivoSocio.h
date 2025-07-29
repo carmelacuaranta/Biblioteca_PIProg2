@@ -6,16 +6,17 @@
 
 class ArchivoSocio {
 private:
-    char nombre[30];
-    int tamanioRegistro;
-    bool idRepetido(int id);              // para verificar ID repetido
-    bool emailValido(const char* email);  // para validar email
+    char _nombreArchivo[30];
+    int _tamanioRegistro;
+    bool idRepetido(int id);
+    bool emailValido(const char* email);
+
 
 public:
-    ArchivoSocio(const char *n = "Socios.dat") {
-        strncpy(nombre, n, sizeof(nombre));
-        nombre[sizeof(nombre) - 1] = '\0';
-        tamanioRegistro = sizeof(Socio);
+    ArchivoSocio(const char *nombreArchivo = "Socios.dat") {
+        strncpy(_nombreArchivo, nombreArchivo, sizeof(_nombreArchivo));
+        _nombreArchivo[sizeof(_nombreArchivo) - 1] = '\0';
+        _tamanioRegistro = sizeof(Socio);
     }
 
     int agregarRegistro();
@@ -30,6 +31,7 @@ public:
     bool bajaLogica();
     int cantidadRegistros();
     void listarSociosConDeudas();
+
 };
 
 #endif // ARCHIVOSOCIO_H

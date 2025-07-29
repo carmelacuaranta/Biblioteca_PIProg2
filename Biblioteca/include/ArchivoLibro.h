@@ -7,14 +7,14 @@
 
 class ArchivoLibro {
 private:
-    char librito[50];
-    int tamanioRegistro;
+    char _nombreArchivo[50];
+    int _tamanioRegistro;
 
 public:
-    ArchivoLibro(const char *n = "Libros.dat") {
-        strncpy(librito, n, sizeof(librito));
-        librito[sizeof(librito) - 1] = '\0';
-        tamanioRegistro = sizeof(Libro);
+    ArchivoLibro(const char *nombreArchivo = "Libros.dat") {
+        strncpy(_nombreArchivo, nombreArchivo, sizeof(_nombreArchivo));
+        _nombreArchivo[sizeof(_nombreArchivo) - 1] = '\0';
+        _tamanioRegistro = sizeof(Libro);
     }
 
     int agregarLibro(Libro lib);

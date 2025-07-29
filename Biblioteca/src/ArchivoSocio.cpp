@@ -7,21 +7,21 @@
 using namespace std;
 
 bool ArchivoSocio::idRepetido(int id) {
-    FILE* archivoSocioLectura = fopen("socios.dat", "rb");
+    FILE* archivoSocioLectura = fopen(_nombreArchivo, "rb");
     if (archivoSocioLectura == nullptr) {
-        return false; // Si el archivo no existe, no hay IDs repetidos
+        return false;
     }
 
     Socio socioGuardado;
     while (fread(&socioGuardado, sizeof(Socio), 1, archivoSocioLectura) == 1) {
         if ((socioGuardado.getId() == id) && (socioGuardado.getEstado() == true)) {
             fclose(archivoSocioLectura);
-            return true; // ID repetido encontrado
+            return true;
         }
     }
 
     fclose(archivoSocioLectura);
-    return false; // ID no repetido
+    return false;
 }
 
 bool ArchivoSocio::emailValido(const char* email) {
@@ -48,9 +48,10 @@ bool ArchivoSocio::emailValido(const char* email) {
 int ArchivoSocio::agregarRegistro() {
     system("cls");
     Socio soc = cargarSocioPorConsola();
+    int aux;
 
     if (idRepetido(soc.getId())) {
-        cout << "ID repetido, no se puede guardar el socio." << endl;
+        cout << "ID repetido. No se puede guardar el socio. " << endl;
         return -2;
     }
 
@@ -59,7 +60,7 @@ int ArchivoSocio::agregarRegistro() {
         return -3;
     }
 
-    FILE* pSocio = fopen("socios.dat", "ab");
+    FILE* pSocio = fopen(_nombreArchivo, "ab");
     if (pSocio == nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
@@ -126,7 +127,7 @@ int ArchivoSocio::agregarRegistro(Socio soc){
 **/
 
 int ArchivoSocio::listarSocios() {
-    FILE* pSocio = fopen("socios.dat", "rb");
+    FILE* pSocio = fopen(_nombreArchivo, "rb");
     if (pSocio == nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
@@ -148,7 +149,7 @@ int ArchivoSocio::listarSocios() {
 }
 
 int ArchivoSocio::buscarSocioPorID(int idBuscado) {
-    FILE* p = fopen("socios.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "No se pudo abrir el archivo."<< endl;
         return -1;
@@ -172,7 +173,7 @@ int ArchivoSocio::buscarSocioPorID(int idBuscado) {
 }
 
 bool ArchivoSocio::buscarSocioPorNombre(const char* nombreBuscado) {
-    FILE* p = fopen("socios.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
         return false;
@@ -197,7 +198,7 @@ bool ArchivoSocio::buscarSocioPorNombre(const char* nombreBuscado) {
 }
 
 bool ArchivoSocio::cargaVariosAux(){
-    FILE* p = fopen("socios.dat", "ab");
+    FILE* p = fopen(_nombreArchivo, "ab");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
         return false;
@@ -209,7 +210,7 @@ bool ArchivoSocio::cargaVariosAux(){
     fecha.setAnio(1990);
     fecha.setMes(3);
     fecha.setDia(22);
-    Socio aux2 =  Socio(2, "33926749", "Juana", "LopezGomez", "1234", "Calle Falsa 123", "jgomez@mail.com", fecha);
+    Socio aux2 =  Socio(2, "33926749", "Juana", "Gomez", "1234", "Calle Falsa 123", "jgomez@mail.com", fecha);
     fwrite(&aux2, sizeof aux2, 1, p);
 
     fecha.setAnio(2000);
@@ -231,20 +232,20 @@ bool ArchivoSocio::cargaVariosAux(){
 Socio ArchivoSocio::leerRegistro(int pos){
     Socio soc;
     FILE *pSocio;
-    pSocio = fopen("socios.dat","rb");
+    pSocio = fopen(_nombreArchivo,"rb");
     if(pSocio==nullptr){
         cout << "Eror de archivo." << endl;
         return soc;
     }
-    fseek(pSocio,pos*tamanioRegistro,0);
-    fread(&soc, tamanioRegistro, 1, pSocio);
+    fseek(pSocio,pos*_tamanioRegistro,0);
+    fread(&soc, _tamanioRegistro, 1, pSocio);
     fclose(pSocio);
     return soc;
 }
 
 bool ArchivoSocio::bajaLogica(){
     Socio soc;
-    ArchivoSocio archiSocio("socios.dat");
+    ArchivoSocio archiSocio(_nombreArchivo);
     int id;
     cout << "ingresar id del socio a eliminar: ";
     cin >> id;
@@ -268,18 +269,18 @@ bool ArchivoSocio::bajaLogica(){
 
 int ArchivoSocio::modificarRegistro(Socio soc, int pos){
     FILE *pSocio;
-    pSocio = fopen("socios.dat","rb+");
+    pSocio = fopen(_nombreArchivo,"rb+");
     if (pSocio == nullptr){
         return -1;
     }
-    fseek(pSocio,pos*tamanioRegistro,0);
-    int escribio=fwrite(&soc, tamanioRegistro, 1, pSocio);
+    fseek(pSocio,pos*_tamanioRegistro,0);
+    int escribio=fwrite(&soc, _tamanioRegistro, 1, pSocio);
     fclose(pSocio);
     return escribio;
 }
 
 int ArchivoSocio::modificarSocio(int idSocio){
-    ArchivoSocio archiSocio("socios.dat");
+    ArchivoSocio archiSocio(_nombreArchivo);
 
     int pos = archiSocio.buscarSocioPorID(idSocio);
     if (pos == -1) {
@@ -295,8 +296,13 @@ int ArchivoSocio::modificarSocio(int idSocio){
 
     cout << "Ingrese los nuevos datos del socio:" << endl;
 
-    char nombre[30], apellido[30], dni[10], direccion[50], email[50], telefono[50];
-    int idSocioNuevo = soc.getId();  // se mantiene
+    char nombre[30];
+    char apellido[30];
+    char dni[10];
+    char direccion[50];
+    char email[50];
+    char telefono[50];
+    int idSocioNuevo = soc.getId();
     Fecha fechaNac = soc.getFechaNac();
 
     cout << "Nombre/s: ";
@@ -329,7 +335,7 @@ int ArchivoSocio::modificarSocio(int idSocio){
 }
 
 int ArchivoSocio::cantidadRegistros() {
-    FILE* f = fopen("socios.dat", "rb");
+    FILE* f = fopen(_nombreArchivo, "rb");
     if (f == nullptr) return 0;
     fseek(f, 0, SEEK_END);
     int tam = ftell(f);
@@ -348,7 +354,7 @@ void ArchivoSocio::listarSociosConDeudas() {
     for(int i = 0; i < cantidadSocios; i++) {
         Socio socio = leerRegistro(i);
         if(socio.getEstado()) {
-            FILE* pCuota = fopen("cuotas.dat", "rb");
+            FILE* pCuota = fopen(_nombreArchivo, "rb");
             if(pCuota != nullptr) {
                 Cuota cuota;
                 int cuotasPendientes = 0;

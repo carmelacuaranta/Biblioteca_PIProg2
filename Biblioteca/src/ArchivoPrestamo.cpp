@@ -5,6 +5,12 @@
 #include "Funcionalidades.h"
 using namespace std;
 
+    ArchivoPrestamo::ArchivoPrestamo(const char *nombreArchivo) {
+        strncpy(_nombreArchivo, nombreArchivo, sizeof(_nombreArchivo));
+        _nombreArchivo[sizeof(_nombreArchivo) - 1] = '\0';
+        _tamanioRegistro = sizeof(Prestamo);
+    }
+
 int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
     ArchivoLibro lib;
     ArchivoSocio soc;
@@ -17,7 +23,7 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
         return -1;
     }
 
-    FILE *pPrestamo = fopen("prestamos.dat", "ab");
+    FILE *pPrestamo = fopen(_nombreArchivo, "ab");
     if(pPrestamo == nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
@@ -35,7 +41,7 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
 }
 
 bool ArchivoPrestamo::listarPrestamos() {
-    FILE* p = fopen("prestamos.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
@@ -57,7 +63,7 @@ bool ArchivoPrestamo::listarPrestamos() {
 }
 
 int ArchivoPrestamo::buscarPrestamoPorId(int idBuscado){
-    FILE* p = fopen("prestamos.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo.";
         return false;
@@ -80,7 +86,7 @@ int ArchivoPrestamo::buscarPrestamoPorId(int idBuscado){
 }
 
 void ArchivoPrestamo::listarPrestamosPorIdLibro(int idBuscado){
-    FILE* p = fopen("prestamos.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error al abrir el archivo de prestamos." << endl;
         return;
@@ -104,7 +110,7 @@ void ArchivoPrestamo::listarPrestamosPorIdLibro(int idBuscado){
 }
 
 void ArchivoPrestamo::listarPrestamosPorIdSocio(int idBuscado){
-    FILE* p = fopen("prestamos.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
         return;
@@ -128,7 +134,7 @@ void ArchivoPrestamo::listarPrestamosPorIdSocio(int idBuscado){
 }
 
 int ArchivoPrestamo::obtenerUltimoID() {
-    FILE* p = fopen("prestamos.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) return -1;
 
     Prestamo pres;
@@ -145,7 +151,7 @@ int ArchivoPrestamo::obtenerUltimoID() {
 Prestamo ArchivoPrestamo::leerRegistro(int pos){
     Prestamo pres;
     FILE *pPrestamo;
-    pPrestamo = fopen("prestamos.dat","rb");
+    pPrestamo = fopen(_nombreArchivo,"rb");
     if(pPrestamo==nullptr){
         cout << "Eror de archivo." << endl;
         return pres;
@@ -158,7 +164,7 @@ Prestamo ArchivoPrestamo::leerRegistro(int pos){
 
 bool ArchivoPrestamo::bajaLogica(){
     Prestamo pres;
-    ArchivoPrestamo archiPrestamo("prestamos.dat");
+    ArchivoPrestamo archiPrestamo(_nombreArchivo);
     int id;
     cout << "Ingresar id del prestamo a eliminar: ";
     cin >> id;
@@ -182,7 +188,7 @@ bool ArchivoPrestamo::bajaLogica(){
 
 int ArchivoPrestamo::modificarRegistro(Prestamo pres, int pos){
     FILE *p;
-    p = fopen("prestamos.dat","rb+");
+    p = fopen(_nombreArchivo,"rb+");
     if (p == nullptr){
         return -1;
     }
@@ -194,7 +200,7 @@ int ArchivoPrestamo::modificarRegistro(Prestamo pres, int pos){
 
 
 int ArchivoPrestamo::modificarPrestamo(int idPrestamo){
-    ArchivoPrestamo archiPrestamo("prestamos.dat");
+    ArchivoPrestamo archiPrestamo(_nombreArchivo);
 
     int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
     if (pos == -1) {
@@ -237,7 +243,7 @@ int ArchivoPrestamo::modificarPrestamo(int idPrestamo){
 
 int ArchivoPrestamo::extenderFechaDevolucion(int idPrestamo){
 
-    ArchivoPrestamo archiPrestamo("prestamos.dat");
+    ArchivoPrestamo archiPrestamo(_nombreArchivo);
     int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
     if (pos == -1) {
         cout << "No se encontro prestamo con ese ID." << endl;
@@ -272,7 +278,7 @@ int ArchivoPrestamo::extenderFechaDevolucion(int idPrestamo){
 }
 
 int ArchivoPrestamo::registrarDevolucion(int idPrestamo){
-    ArchivoPrestamo archiPrestamo("prestamos.dat");
+    ArchivoPrestamo archiPrestamo(_nombreArchivo);
     int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
     if (pos == -1) {
         cout << "No se encontro prestamo con ese ID." << endl;
@@ -305,7 +311,7 @@ int ArchivoPrestamo::registrarDevolucion(int idPrestamo){
 }
 
 void ArchivoPrestamo::listarPrestamosVencidos() {
-    FILE* p = fopen("prestamos.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error al abrir el archivo de prestamos." << endl;
         return;

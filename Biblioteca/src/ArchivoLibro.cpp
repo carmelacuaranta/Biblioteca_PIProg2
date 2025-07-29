@@ -7,7 +7,7 @@ using namespace std;
 
 int ArchivoLibro::agregarLibro(Libro lib){
     FILE *pLibro;
-    pLibro=fopen("libros.dat", "ab");
+    pLibro=fopen(_nombreArchivo, "ab");
     if(pLibro==nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
@@ -23,7 +23,7 @@ int ArchivoLibro::agregarLibro(Libro lib){
 }
 
 bool ArchivoLibro::listarLibros() {
-    FILE* pLibro = fopen("libros.dat", "rb");
+    FILE* pLibro = fopen(_nombreArchivo, "rb");
     if (pLibro == nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
@@ -44,7 +44,7 @@ bool ArchivoLibro::listarLibros() {
 }
 
 int ArchivoLibro::buscarLibroPorID(int idBuscado){
-    FILE* p = fopen("libros.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "No se pudo abrir el archivo.";
         return false;
@@ -67,7 +67,7 @@ int ArchivoLibro::buscarLibroPorID(int idBuscado){
 }
 
 bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
-    FILE* p = fopen("libros.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
         return false;
@@ -94,7 +94,7 @@ bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
 }
 
 bool ArchivoLibro::buscarLibroPorGenero(const char* generoBuscado){
-    FILE* p = fopen("libros.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
         return false;
@@ -117,7 +117,7 @@ bool ArchivoLibro::buscarLibroPorGenero(const char* generoBuscado){
 }
 
 bool ArchivoLibro::cargaVariosAux(){
-    FILE* p = fopen("libros.dat", "ab");
+    FILE* p = fopen(_nombreArchivo, "ab");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
         return false;
@@ -153,12 +153,12 @@ bool ArchivoLibro::cargaVariosAux(){
 
 int ArchivoLibro::modificarRegistro(Libro lib, int pos){
     FILE *pLibro;
-    pLibro= fopen("libros.dat","rb+");
+    pLibro= fopen(_nombreArchivo,"rb+");
     if (pLibro == nullptr){
         return -1;
     }
-    fseek(pLibro,pos*tamanioRegistro,0);
-    int escribio=fwrite(&lib, tamanioRegistro, 1, pLibro);
+    fseek(pLibro,pos*_tamanioRegistro,0);
+    int escribio=fwrite(&lib, _tamanioRegistro, 1, pLibro);
     fclose(pLibro);
     return escribio;
 }
@@ -166,20 +166,20 @@ int ArchivoLibro::modificarRegistro(Libro lib, int pos){
 Libro ArchivoLibro::leerRegistro(int pos){
     Libro lib;
     FILE *pLibro;
-    pLibro= fopen("libros.dat","rb");
+    pLibro= fopen(_nombreArchivo,"rb");
     if(pLibro==nullptr){
         cout << "Eror de archivo." << endl;
         return lib;
     }
-    fseek(pLibro,pos*tamanioRegistro,0);
-    fread(&lib, tamanioRegistro, 1, pLibro);
+    fseek(pLibro,pos*_tamanioRegistro,0);
+    fread(&lib, _tamanioRegistro, 1, pLibro);
     fclose(pLibro);
     return lib;
 }
 
 bool ArchivoLibro::bajaLogica(){
     Libro lib;
-    ArchivoLibro archiLibro("libros.dat");
+    ArchivoLibro archiLibro(_nombreArchivo);
     int id;
     cout << "ingresar id del libro a eliminar: ";
     cin >> id;
@@ -202,7 +202,7 @@ bool ArchivoLibro::bajaLogica(){
 }
 
 int ArchivoLibro::modificarLibro(int idLibro){
-    ArchivoLibro archiLibro("libros.dat");
+    ArchivoLibro archiLibro(_nombreArchivo);
 
     int pos = archiLibro.buscarLibroPorID(idLibro);
     if (pos == -1) {
@@ -218,7 +218,9 @@ int ArchivoLibro::modificarLibro(int idLibro){
 
     cout << "Ingrese los nuevos datos del libro:" << endl;
 
-    char titulo[100], autor[50], genero[30];
+    char titulo[100];
+    char autor[50];
+    char genero[30];
     int idNuevo = lib.getId();
     int isbnNuevo = lib.getIsbn();
     int cantidadNuevo = lib.getCantEjemplares();
@@ -253,7 +255,7 @@ int ArchivoLibro::modificarLibro(int idLibro){
 }
 
 void ArchivoLibro::listarLibrosMasPrestados(int cantidadMaxima = 5) {
-    const int MAX_LIBROS = 1000; // Tamaño maximo asumido
+    const int MAX_LIBROS = 1000;
     struct LibroPrestamos {
         int idLibro;
         int cantidadPrestamos;
@@ -263,7 +265,7 @@ void ArchivoLibro::listarLibrosMasPrestados(int cantidadMaxima = 5) {
     int totalLibrosUnicos = 0;
 
     // 1. Contar prestamos por libro
-    FILE* pPrestamos = fopen("prestamos.dat", "rb");
+    FILE* pPrestamos = fopen(_nombreArchivo, "rb");
     if (pPrestamos == nullptr) {
         cout << "No hay prestamos registrados." << endl;
         return;

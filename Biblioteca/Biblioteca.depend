@@ -191,14 +191,14 @@
 
 1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\cursor.h
 
-1753719148 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivolibro.cpp
+1753819689 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivolibro.cpp
 	"ArchivoLibro.h"
 	"Libro.h"
 	"Prestamo.h"
 	"Funcionalidades.h"
 	<iostream>
 
-1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivolibro.h
+1753819671 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivolibro.h
 	"Libro.h"
 	<cstring>
 
@@ -211,26 +211,26 @@
 1753720804 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\prestamo.h
 	"Fecha.h"
 
-1753722307 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivoprestamo.cpp
+1753820331 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivoprestamo.cpp
 	<iostream>
 	"ArchivoPrestamo.h"
 	"ArchivoSocio.h"
 	"ArchivoLibro.h"
 	"Funcionalidades.h"
 
-1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivoprestamo.h
+1753820598 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivoprestamo.h
 	"Prestamo.h"
 	<iostream>
 	<string.h>
 
-1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivosocio.h
+1753819127 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivosocio.h
 	"Socio.h"
 	<cstring>
 
 1753719926 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\socio.h
 	"Fecha.h"
 
-1753716993 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivosocio.cpp
+1753819353 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"ArchivoCuota.h"
 	"Socio.h"
@@ -238,7 +238,7 @@
 	<iostream>
 	<cstring>
 
-1753713066 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivocuota.h
+1753820433 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivocuota.h
 	"Cuota.h"
 	<iostream>
 	<cstring>
@@ -356,7 +356,7 @@
 	<iostream>
 	<cstring>
 
-1753715037 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivocuota.cpp
+1753820547 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivocuota.cpp
 	<iostream>
 	<string.h>
 	"ArchivoCuota.h"
@@ -380,7 +380,7 @@
 	"Libro.h"
 	"Prestamo.h"
 
-1753722208 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionalidades.cpp
+1753818473 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionalidades.cpp
 	"Funcionalidades.h"
 	<iostream>
 	"Cuota.h"
