@@ -211,7 +211,7 @@
 1753720804 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\prestamo.h
 	"Fecha.h"
 
-1753820331 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivoprestamo.cpp
+1753820598 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivoprestamo.cpp
 	<iostream>
 	"ArchivoPrestamo.h"
 	"ArchivoSocio.h"
@@ -238,7 +238,7 @@
 	<iostream>
 	<cstring>
 
-1753820433 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivocuota.h
+1753821042 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivocuota.h
 	"Cuota.h"
 	<iostream>
 	<cstring>

@@ -14,7 +14,7 @@ using namespace std;
 
 int ArchivoCuota::agregarCuota(Cuota cuot){
     bool idRepetido=false;
-    FILE *archivoCuotaLectura = fopen("cuotas.dat","rb");
+    FILE *archivoCuotaLectura = fopen(_nombreArchivo,"rb");
     if (archivoCuotaLectura != nullptr) {
         Cuota cuotaGuardada;
         while (fread(&cuotaGuardada, sizeof(Cuota),1,archivoCuotaLectura) == 1){
@@ -29,7 +29,7 @@ int ArchivoCuota::agregarCuota(Cuota cuot){
     }
     if (idRepetido == false){
         FILE *pCuota;
-        pCuota=fopen("cuotas.dat", "ab");
+        pCuota=fopen(_nombreArchivo, "ab");
         if(pCuota==nullptr) {
             cout << "Error de archivo." << endl;
             return -1;
@@ -45,7 +45,7 @@ int ArchivoCuota::agregarCuota(Cuota cuot){
 }
 
 bool ArchivoCuota::listarCuotas() {
-    FILE* pCuota = fopen("cuotas.dat", "rb");
+    FILE* pCuota = fopen(_nombreArchivo, "rb");
     if (pCuota == nullptr) {
         cout << "Error de archivo." << endl;
         return -1;
@@ -65,7 +65,7 @@ bool ArchivoCuota::listarCuotas() {
 }
 
 int ArchivoCuota::buscarCuotaPorID(int idBuscado) {
-    FILE* p = fopen("cuotas.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo."<< endl;
         return -1;
@@ -89,7 +89,7 @@ int ArchivoCuota::buscarCuotaPorID(int idBuscado) {
 }
 
 int ArchivoCuota::buscarCuotaPorIDSocio(int idBuscado) {
-    FILE* p = fopen("cuotas.dat", "rb");
+    FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo."<< endl;
         return -1;
@@ -118,7 +118,7 @@ bool ArchivoCuota::generarCuotasDelMes(float monto, Fecha fecha) {
     int idCuota = 1;
 
     // Obtener el ultimo ID usado para continuar
-    FILE* f = fopen("cuotas.dat", "rb");
+    FILE* f = fopen(_nombreArchivo, "rb");
     if (f != nullptr) {
         Cuota c;
         while (fread(&c, sizeof(Cuota), 1, f) == 1) {
@@ -145,7 +145,7 @@ bool ArchivoCuota::generarCuotasDelMes(float monto, Fecha fecha) {
 
 int ArchivoCuota::modificarRegistro(Cuota cu, int pos){
     FILE *pCuota;
-    pCuota = fopen("cuotas.dat","rb+");
+    pCuota = fopen(_nombreArchivo,"rb+");
     if (pCuota == nullptr){
         return -1;
     }
@@ -159,7 +159,7 @@ int ArchivoCuota::modificarRegistro(Cuota cu, int pos){
 Cuota ArchivoCuota::leerRegistro(int pos){
     Cuota cu;
     FILE *pCuota;
-    pCuota = fopen("cuotas.dat","rb");
+    pCuota = fopen(_nombreArchivo,"rb");
     if(pCuota==nullptr){
         cout << "Eror de archivo." << endl;
         return cu;
@@ -228,7 +228,7 @@ bool ArchivoCuota::pagarCuota(int idCuota) {
 float ArchivoCuota::calcularRecaudacion(Fecha inicio, Fecha fin) {
     float total = 0;
         Cuota cuota;
-        FILE* p = fopen("cuotas.dat", "rb");
+        FILE* p = fopen(_nombreArchivo, "rb");
         if (p == nullptr) return 0;
 
         while (fread(&cuota, sizeof(Cuota), 1, p)) {
