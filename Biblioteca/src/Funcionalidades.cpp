@@ -11,7 +11,9 @@ Cuota cargarCuotaDesdeConsola() {
     Cuota c;
     ArchivoSocio archivoSoc;
 
-    int id, idSocio, aux;
+    int id;
+    int idSocio;
+    int aux;
     float monto;
     bool pagada;
     Fecha fecha;
@@ -26,19 +28,19 @@ Cuota cargarCuotaDesdeConsola() {
     if (archivoSoc.buscarSocioPorID(idSocio) >= 0) {
         c.setIdSocio(idSocio);
     } else {
-        std::cout << "El socio no existe. Se asignará igual el ID (no recomendado)." << std::endl;
+        cout << "El socio no existe. Se asignará igual el ID (no recomendado)." << std::endl;
         c.setIdSocio(idSocio);
     }
 
-    std::cout << "Ingrese monto: ";
-    std::cin >> monto;
+    cout << "Ingrese monto: ";
+    cin >> monto;
     c.setMonto(monto);
 
-    std::cout << "¿Está pagada? (1=Sí, 0=No): ";
-    std::cin >> aux;
+    cout << "¿Está pagada? (1=Sí, 0=No): ";
+    cin >> aux;
     c.setPagada(aux == 1);
 
-    std::cout << "Ingrese fecha de pago: ";
+    cout << "Ingrese fecha de pago: ";
     fecha.cargarManual();
     c.setFecha(fecha);
 
@@ -51,14 +53,23 @@ void mostrarCuotaPorConsola(Cuota c) {
     cout << "ID: " << c.getIdCuota() << endl;
     cout << "ID Socio: " << c.getIdSocio() << endl;
     cout << "Monto: " << c.getMonto() << endl;
-    cout << "Pagada: " << (c.getPagada() ? "Sí" : "No") << endl;
-    cout << "Fecha de pago: " << c.getFecha().toString() << endl;
+    if (c.getPagada() == true ){
+        cout << "Pagada: SÍ. " << endl;
+    } else {
+        cout << "Pagada: NO. " << endl;
+    }
+    cout << "Fecha de vencimiento: " << c.getFecha().toString() << endl;
 }
 
 Socio cargarSocioPorConsola() {
     Socio socio;
     int id;
-    char dni[10], nombre[50], apellido[50], telefono[20], direccion[100], email[50];
+    char dni[10];
+    char nombre[50];
+    char apellido[50];
+    char telefono[20];
+    char direccion[100];
+    char  email[50];
     Fecha fechaNac;
 
     cout << "Ingrese ID: ";
@@ -113,8 +124,12 @@ void mostrarSocioPorConsola(Socio socio) {
 
 Libro cargarLibroPorConsola() {
     Libro libro;
-    int id, isbn, cantEjemplares;
-    char titulo[100], autor[50], genero[30];
+    int id;
+    int isbn;
+    int cantEjemplares;
+    char titulo[100];
+    char autor[50];
+    char genero[30];
     Fecha fechaPub;
 
     cout << "Ingrese ID del libro: ";
@@ -142,10 +157,10 @@ Libro cargarLibroPorConsola() {
     cout << "Ingrese cantidad de ejemplares: ";
     cin >> cantEjemplares;
     libro.setCantEjemplares(cantEjemplares);
-    cin.ignore();  // Limpiar el salto de línea
+    cin.ignore();
 
-    cout << "Ingrese la fecha de publicación:\n";
-    fechaPub.cargarManual();  // Suponiendo que esta función tiene su propio input
+    cout << "Ingrese la fecha de publicación:" << endl;
+    fechaPub.cargarManual();
     libro.setFechaPublicacion(fechaPub);
 
     libro.setEstado(true);
@@ -162,7 +177,11 @@ void mostrarLibroPorConsola(Libro lib) {
     cout << "Genero: " << lib.getGenero() << endl;
     cout << "Cantidad de ejemplares: " << lib.getCantEjemplares() << endl;
     cout << "Fecha de Publicacion: " << lib.getFechaPublicacion().toString() << endl;
-    cout << "Estado: " << (lib.getEstado() ? "disponible" : "eliminado") << endl;
+    if (lib.getEstado() == true){
+        cout << "Disponible." << endl;
+    } else {
+        cout << "Eliminado." << endl;
+    }
 }
 
 void mostrarPrestamoPorConsola(Prestamo pres){
@@ -170,13 +189,15 @@ void mostrarPrestamoPorConsola(Prestamo pres){
     cout<<"ID del socio: " << pres.getIdSocio() << endl;
     cout<<"ID del libro: " << pres.getIdLibro() << endl;
     cout<< "Fecha de inicio: " << pres.getFechaPrestado().toString() << endl;
-    cout << "Fecha de finalizacion: " << pres.getFechaDevolucion().toString() << endl;
+    cout << "Fecha de vencimiento: " << pres.getFechaDevolucion().toString() << endl;
 }
 
 Prestamo cargarPrestamoDesdeConsola(){
     Prestamo pres;
-    int idSocio, idLibro;
-    Fecha fechaPrestado, fechaDevolucion;
+    int idSocio;
+    int idLibro;
+    Fecha fechaPrestado;
+    Fecha fechaDevolucion;
     cout << "Ingrese ID del Socio: " << endl;
     cin >> idSocio;
     cout << "Ingrese ID del Libro: " << endl;
