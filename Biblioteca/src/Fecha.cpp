@@ -95,10 +95,6 @@ bool Fecha::esFechaValida(int dia, int mes, int anio) {
     return dia <= diasDelMes[mes - 1];
 }
 
-bool Fecha::esValida() {
-    return esFechaValida(_dia, _mes, _anio);
-}
-
 void Fecha::cargarManual() {
     int dia, mes, anio;
     do {

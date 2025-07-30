@@ -44,8 +44,30 @@ void MenuSocio::ejecutarOpcion(int indice) {
     }
 
     case 3:
-        archivoSocio.agregarRegistro();
-        break;
+		{
+		int resultado = archivoSocio.agregarRegistro();
+
+		switch (resultado) {
+			case 0:
+			cout << "Socio guardado correctamente.\n";
+			break;
+			case -1:
+			cout << "Error al abrir el archivo.\n";
+			break;
+			case -2:
+			cout << "ID repetido. No se puede guardar el socio.\n";
+			break;
+			case -3:
+			cout << "Email inválido. Debe contener '@' y '.' luego del '@'.\n";
+			break;
+			default:
+			cout << "Error desconocido.\n";
+		break;
+		}
+
+    rlutil::anykey();
+    break;
+	}
 
     case 4:
         archivoSocio.cargaVariosAux();
@@ -56,10 +78,20 @@ void MenuSocio::ejecutarOpcion(int indice) {
         break;
 
     case 6: {
-        int aux;
+        int id;
         cout << "Ingrese ID del socio que desea modificar: ";
-        cin >> aux;
-        archivoSocio.modificarSocio(aux);
+        cin >> id;
+        int res = archivoSocio.modificarSocio(id);
+        switch (res) {
+        case -1:
+            cout << "Error de archivo." << endl;
+            break;
+        case -2:
+            cout << "El socio está eliminado. No se puede modificar." << endl;
+            break;
+        case 0:
+            break;
+        }
         break;
     }
 
@@ -68,7 +100,6 @@ void MenuSocio::ejecutarOpcion(int indice) {
         break;
 
     case 8:
-        /// Volver no hace falta implementarlo, Menu::mostrar() se encarga
         break;
     }
 

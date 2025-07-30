@@ -1,6 +1,7 @@
 #include "Funcionalidades.h"
 #include <iostream>
 using namespace std;
+
 #include "Cuota.h"
 #include "Socio.h"
 #include "Libro.h"
@@ -28,7 +29,7 @@ Cuota cargarCuotaDesdeConsola() {
     if (archivoSoc.buscarSocioPorID(idSocio) >= 0) {
         c.setIdSocio(idSocio);
     } else {
-        cout << "El socio no existe. Se asignará igual el ID (no recomendado)." << std::endl;
+        cout << "El socio no existe. Se asignara igual el ID (no recomendado)." << std::endl;
         c.setIdSocio(idSocio);
     }
 
@@ -36,7 +37,7 @@ Cuota cargarCuotaDesdeConsola() {
     cin >> monto;
     c.setMonto(monto);
 
-    cout << "¿Está pagada? (1=Si, 0=No): ";
+    cout << "¿Esta pagada? (1=Si, 0=No): ";
     cin >> aux;
     c.setPagada(aux == 1);
 
@@ -112,14 +113,14 @@ Socio cargarSocioPorConsola() {
 
 
 void mostrarSocioPorConsola(Socio socio) {
-        cout << "ID: " << socio.getId() << endl;
-        cout << "DNI: " << socio.getDni() << endl;
-        cout << "Nombre: " << socio.getNombre() << endl;
-        cout << "Apellido: " << socio.getApellido() << endl;
-        cout << "Telefono: " << socio.getTelefono() << endl;
-        cout << "Direccion: " << socio.getDireccion() << endl;
-        cout << "Email: " << socio.getEmail() << endl;
-        cout << "Fecha de Nacimiento: " << socio.getFechaNac().toString() << endl;
+    cout << "ID: " << socio.getId() << endl;
+    cout << "DNI: " << socio.getDni() << endl;
+    cout << "Nombre: " << socio.getNombre() << endl;
+    cout << "Apellido: " << socio.getApellido() << endl;
+    cout << "Telefono: " << socio.getTelefono() << endl;
+    cout << "Direccion: " << socio.getDireccion() << endl;
+    cout << "Email: " << socio.getEmail() << endl;
+    cout << "Fecha de Nacimiento: " << socio.getFechaNac().toString() << endl;
 }
 
 Libro cargarLibroPorConsola() {
@@ -137,7 +138,7 @@ Libro cargarLibroPorConsola() {
     libro.setId(id);
     cin.ignore();
 
-    cout << "Ingrese número de ISBN: ";
+    cout << "Ingrese numero de ISBN: ";
     cin >> isbn;
     libro.setIsbn(isbn);
     cin.ignore();
@@ -150,7 +151,7 @@ Libro cargarLibroPorConsola() {
     cin.getline(autor, 100);
     libro.setAutor(autor);
 
-    cout << "Ingrese género: ";
+    cout << "Ingrese genero: ";
     cin.getline(genero, 50);
     libro.setGenero(genero);
 
@@ -159,7 +160,7 @@ Libro cargarLibroPorConsola() {
     libro.setCantEjemplares(cantEjemplares);
     cin.ignore();
 
-    cout << "Ingrese la fecha de publicación:" << endl;
+    cout << "Ingrese la fecha de publicacion:" << endl;
     fechaPub.cargarManual();
     libro.setFechaPublicacion(fechaPub);
 

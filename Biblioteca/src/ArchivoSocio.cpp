@@ -46,6 +46,21 @@ bool ArchivoSocio::emailValido(const char* email) {
 }
 
 int ArchivoSocio::agregarRegistro() {
+    Socio soc = cargarSocioPorConsola();
+
+    if (idRepetido(soc.getId())) return -2;
+    if (!emailValido(soc.getEmail())) return -3;
+
+    FILE* p = fopen(_nombreArchivo, "ab");
+    if (!p) return -1;
+
+    fwrite(&soc, sizeof(Socio), 1, p);
+    fclose(p);
+    return 0; // Éxito
+}
+
+/**
+int ArchivoSocio::agregarRegistro() {
     system("cls");
     Socio soc = cargarSocioPorConsola();
     int aux;
@@ -72,59 +87,8 @@ int ArchivoSocio::agregarRegistro() {
     fclose(pSocio);
     return 0;
 }
-
-/**
-int ArchivoSocio::agregarRegistro(Socio soc){
-    system("cls");
-    //para controlar que no exista el ID
-    bool idRepetido=false;
-    FILE* archivoSocioLectura = fopen("socios.dat","rb");
-    if (archivoSocioLectura !=nullptr) {
-        Socio socioGuardado;
-        while (fread(&socioGuardado, sizeof(Socio),1,archivoSocioLectura) == 1){
-            if (socioGuardado.getId() == soc.getId()) {
-                cout << "Id repetido, no se puede guardar el socio." << endl;
-                idRepetido=true;
-                fclose(archivoSocioLectura);
-                return -2;
-            }
-        }
-        fclose(archivoSocioLectura);
-    }
-
-    // para controlar que el mail tenga un @
-    bool tieneArroba = false;
-    const char* email = soc.getEmail();
-    for (int i = 0; email[i] != '\0'; i++) {
-        if (email[i] == '@') {
-            tieneArroba = true;
-            break;
-        }
-    }
-
-    if (!tieneArroba) {
-        cout << "El formato del email es incorrecto. Debe contener @. No se podra guardar." << endl;
-    }
-
-
-    FILE *pSocio;
-    pSocio=fopen("socios.dat", "ab");
-    if(pSocio==nullptr) {
-        cout << "Error de archivo." << endl;
-        return -1;
-    }
-
-    if (tieneArroba == true && idRepetido == false){
-        fwrite(&soc, sizeof soc, 1, pSocio);
-        cout << "Socio guardado correctamente." << endl;
-    }
-
-    fclose(pSocio);
-
-
-    return 0;
-}
 **/
+
 
 int ArchivoSocio::listarSocios() {
     FILE* pSocio = fopen(_nombreArchivo, "rb");
@@ -327,10 +291,10 @@ int ArchivoSocio::modificarSocio(int idSocio){
 
     if (archiSocio.modificarRegistro(nuevoSocio, pos) == 1){
         cout << "Se actualizo correctamente." << endl;
-        return 1;
+        return 0;
     } else {
         cout << "Error al modificar el socio." << endl;
-        return 0;
+        return -1;
     }
 }
 

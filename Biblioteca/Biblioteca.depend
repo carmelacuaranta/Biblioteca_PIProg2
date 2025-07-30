@@ -70,7 +70,7 @@
 	<iostream>
 	<string.h>
 
-1753822341 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivosocio.cpp
+1753836342 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"ArchivoCuota.h"
 	"Socio.h"
@@ -102,7 +102,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1753829171 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\fecha.cpp
+1753834795 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
@@ -200,7 +200,7 @@
 	"Menu.h"
 	"Menu.h"
 
-1753828982 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menusocio.cpp
+1753836150 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\menusocio.cpp
 	<iostream>
 	"MenuSocio.h"
 	"ArchivoSocio.h"
@@ -437,7 +437,7 @@
 	"Libro.h"
 	"Prestamo.h"
 
-1753824995 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\funcionalidades.cpp
+1753836509 source:e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\src\funcionalidades.cpp
 	"Funcionalidades.h"
 	<iostream>
 	"Cuota.h"
