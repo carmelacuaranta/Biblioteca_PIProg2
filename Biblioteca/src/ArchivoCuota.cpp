@@ -5,6 +5,7 @@ using namespace std;
 #include "ArchivoSocio.h"
 #include "Socio.h"
 #include "Funcionalidades.h"
+#include "Errores.h"
 
 ArchivoCuota::ArchivoCuota(const char *nombreArchivo) {
     strncpy(_nombreArchivo, nombreArchivo, sizeof(_nombreArchivo));
@@ -22,7 +23,7 @@ int ArchivoCuota::agregarCuota(Cuota cuot){
                 cout << "El ID ya existe. No se pudo guardar." << endl;
                 idRepetido=true;
                 fclose(archivoCuotaLectura);
-                return -2;
+                return ID_REPETIDO;
             }
         }
         fclose(archivoCuotaLectura);
@@ -32,7 +33,7 @@ int ArchivoCuota::agregarCuota(Cuota cuot){
         pCuota=fopen(_nombreArchivo, "ab");
         if(pCuota==nullptr) {
             cout << "Error de archivo." << endl;
-            return -1;
+            return OK;
         }
 
         fwrite(&cuot, sizeof cuot, 1, pCuota);
@@ -40,15 +41,15 @@ int ArchivoCuota::agregarCuota(Cuota cuot){
         fclose(pCuota);
         return 0;
     } else {
-        return -1;
+        return ERROR_ARCHIVO;
     }
 }
 
-bool ArchivoCuota::listarCuotas() {
+int ArchivoCuota::listarCuotas() {
     FILE* pCuota = fopen(_nombreArchivo, "rb");
     if (pCuota == nullptr) {
         cout << "Error de archivo." << endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
     Cuota cuot;
@@ -61,14 +62,14 @@ bool ArchivoCuota::listarCuotas() {
             }
     }
     fclose(pCuota);
-    return 0;
+    return OK;
 }
 
 int ArchivoCuota::buscarCuotaPorID(int idBuscado) {
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo."<< endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
     Cuota cu;
@@ -85,14 +86,14 @@ int ArchivoCuota::buscarCuotaPorID(int idBuscado) {
 
     cout << "No se encontro una cuota con ese ID. "<< endl;
     fclose(p);
-    return -1;
+    return REGISTRO_NO_ENCONTRADO;
 }
 
 int ArchivoCuota::buscarCuotaPorIDSocio(int idBuscado) {
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo."<< endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
     Cuota cu;
@@ -109,7 +110,7 @@ int ArchivoCuota::buscarCuotaPorIDSocio(int idBuscado) {
 
     cout << "No se encontro una cuota asociada a esa ID de socio."<< endl;
     fclose(p);
-    return -1;
+    return ERROR_ARCHIVO;
 }
 
 bool ArchivoCuota::generarCuotasDelMes(float monto, Fecha fecha) {
@@ -147,7 +148,7 @@ int ArchivoCuota::modificarRegistro(Cuota cu, int pos){
     FILE *pCuota;
     pCuota = fopen(_nombreArchivo,"rb+");
     if (pCuota == nullptr){
-        return -1;
+        return ERROR_ARCHIVO;
     }
     fseek(pCuota,pos*sizeof(Cuota),0);
     int escribio=fwrite(&cu, sizeof(Cuota), 1, pCuota);
@@ -228,7 +229,7 @@ float ArchivoCuota::calcularRecaudacion(Fecha inicio, Fecha fin) {
     float total = 0;
         Cuota cuota;
         FILE* p = fopen(_nombreArchivo, "rb");
-        if (p == nullptr) return 0;
+        if (p == nullptr) return ERROR_ARCHIVO;
 
         while (fread(&cuota, sizeof(Cuota), 1, p)) {
             Fecha fechaPago = cuota.getFecha();

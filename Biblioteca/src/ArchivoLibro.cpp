@@ -2,6 +2,7 @@
 #include "Libro.h"
 #include "Prestamo.h"
 #include "Funcionalidades.h"
+#include "Errores.h"
 #include <iostream>
 using namespace std;
 
@@ -10,7 +11,7 @@ int ArchivoLibro::agregarLibro(Libro lib){
     pLibro=fopen(_nombreArchivo, "ab");
     if(pLibro==nullptr) {
         cout << "Error de archivo." << endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
         fwrite(&lib, sizeof lib, 1, pLibro);
@@ -19,14 +20,14 @@ int ArchivoLibro::agregarLibro(Libro lib){
     fclose(pLibro);
 
 
-    return 0;
+    return OK;
 }
 
 bool ArchivoLibro::listarLibros() {
     FILE* pLibro = fopen(_nombreArchivo, "rb");
     if (pLibro == nullptr) {
         cout << "Error de archivo." << endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
     Libro lib;
@@ -40,14 +41,14 @@ bool ArchivoLibro::listarLibros() {
     }
 
     fclose(pLibro);
-    return 0;
+    return OK;
 }
 
 int ArchivoLibro::buscarLibroPorID(int idBuscado){
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "No se pudo abrir el archivo.";
-        return false;
+        return ERROR_ARCHIVO;
     }
 
     Libro lib;
@@ -63,7 +64,7 @@ int ArchivoLibro::buscarLibroPorID(int idBuscado){
     }
     cout << "No se encontro un libro con ese ID." << endl;
     fclose(p);
-    return -1;
+    return REGISTRO_NO_ENCONTRADO;
 }
 
 bool ArchivoLibro::buscarLibroPorTitulo(const char* tituloBuscado){
@@ -155,7 +156,7 @@ int ArchivoLibro::modificarRegistro(Libro lib, int pos){
     FILE *pLibro;
     pLibro= fopen(_nombreArchivo,"rb+");
     if (pLibro == nullptr){
-        return -1;
+        return ERROR_ARCHIVO;
     }
     fseek(pLibro,pos*_tamanioRegistro,0);
     int escribio=fwrite(&lib, _tamanioRegistro, 1, pLibro);
@@ -207,13 +208,13 @@ int ArchivoLibro::modificarLibro(int idLibro){
     int pos = archiLibro.buscarLibroPorID(idLibro);
     if (pos == -1) {
         cout << "No existe un libro con ese ID." << endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
     Libro lib = archiLibro.leerRegistro(pos);
     if (lib.getEstado()==false) {
         cout << "Libro eliminado, no se puede modificar." << endl;
-        return -2;
+        return REGISTRO_ELIMINADO;
     }
 
     cout << "Ingrese los nuevos datos del libro:" << endl;

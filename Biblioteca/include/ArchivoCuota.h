@@ -15,7 +15,7 @@ class ArchivoCuota
 public:
     ArchivoCuota(const char *nombreArchivo = "Cuotas.dat");
     int agregarCuota(Cuota cuota);
-    bool listarCuotas();
+    int listarCuotas();
     int buscarCuotaPorID(int idBuscado);
     int buscarCuotaPorIDSocio(int idBuscado);
     bool generarCuotasDelMes(float monto, Fecha fecha);

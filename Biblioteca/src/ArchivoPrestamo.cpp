@@ -3,6 +3,7 @@
 #include "ArchivoSocio.h"
 #include "ArchivoLibro.h"
 #include "Funcionalidades.h"
+#include "Errores.h"
 using namespace std;
 
     ArchivoPrestamo::ArchivoPrestamo(const char *nombreArchivo) {
@@ -20,13 +21,13 @@ int ArchivoPrestamo::agregarPrestamo(Prestamo pres){
 
     if (idSocioValido < 0 || idLibroValido < 0) {
         cout << "No se puede realizar el prestamo. ID invalido." << endl;
-        return -1;
+        return REGISTRO_NO_ENCONTRADO;
     }
 
     FILE *pPrestamo = fopen(_nombreArchivo, "ab");
     if(pPrestamo == nullptr) {
         cout << "Error de archivo." << endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
     int nuevoID = obtenerUltimoID() + 1;
@@ -44,7 +45,7 @@ bool ArchivoPrestamo::listarPrestamos() {
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo." << endl;
-        return -1;
+        return ERROR_ARCHIVO;
     }
 
     Prestamo pres;
@@ -59,14 +60,14 @@ bool ArchivoPrestamo::listarPrestamos() {
     }
 
     fclose(p);
-    return 0;
+    return OK;
 }
 
 int ArchivoPrestamo::buscarPrestamoPorId(int idBuscado){
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
         cout << "Error de archivo.";
-        return false;
+        return ERROR_ARCHIVO;
     }
 
     Prestamo pres;
@@ -82,7 +83,7 @@ int ArchivoPrestamo::buscarPrestamoPorId(int idBuscado){
     }
     cout << "No se encontro un prestamo con ese ID." << endl;
     fclose(p);
-    return -1;
+    return REGISTRO_NO_ENCONTRADO;
 }
 
 void ArchivoPrestamo::listarPrestamosPorIdLibro(int idBuscado){
@@ -106,6 +107,7 @@ void ArchivoPrestamo::listarPrestamosPorIdLibro(int idBuscado){
 
     if (!encontrado) {
         cout << "No se encontraron prestamos activos con ese ID de libro." << endl;
+        return;
     }
 }
 
@@ -135,7 +137,7 @@ void ArchivoPrestamo::listarPrestamosPorIdSocio(int idBuscado){
 
 int ArchivoPrestamo::obtenerUltimoID() {
     FILE* p = fopen(_nombreArchivo, "rb");
-    if (p == nullptr) return -1;
+    if (p == nullptr) return ERROR_ARCHIVO;
 
     Prestamo pres;
     fseek(p, -sizeof(Prestamo), SEEK_END);  // SEEK_END posicion al final
@@ -145,7 +147,7 @@ int ArchivoPrestamo::obtenerUltimoID() {
     }
 
     fclose(p);
-    return 0;
+    return OK;
 }
 
 Prestamo ArchivoPrestamo::leerRegistro(int pos){
@@ -190,7 +192,7 @@ int ArchivoPrestamo::modificarRegistro(Prestamo pres, int pos){
     FILE *p;
     p = fopen(_nombreArchivo,"rb+");
     if (p == nullptr){
-        return -1;
+        return ERROR_ARCHIVO;
     }
     fseek(p,pos*sizeof(Prestamo),0);
     int escribio=fwrite(&pres, sizeof(Prestamo), 1, p);
@@ -205,13 +207,13 @@ int ArchivoPrestamo::modificarPrestamo(int idPrestamo){
     int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
     if (pos == -1) {
         cout << "No se encontro socio con ese ID." << endl;
-        return -1;
+        return REGISTRO_NO_ENCONTRADO;
     }
 
     Prestamo pres = archiPrestamo.leerRegistro(pos);
     if (pres.getEstado()==false) {
         cout << "Prestamo eliminado, no se puede modificar." << endl;
-        return -2;
+        return REGISTRO_ELIMINADO;
     }
 
     int idNuevo=pres.getId();
@@ -247,13 +249,13 @@ int ArchivoPrestamo::extenderFechaDevolucion(int idPrestamo){
     int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
     if (pos == -1) {
         cout << "No se encontro prestamo con ese ID." << endl;
-        return -1;
+        return REGISTRO_NO_ENCONTRADO;
     }
 
     Prestamo pres = archiPrestamo.leerRegistro(pos);
     if (pres.getEstado()==false) {
         cout << "Prestamo eliminado, no se puede modificar." << endl;
-        return -2;
+        return REGISTRO_ELIMINADO;
     }
 
     int idNuevo=pres.getId();
@@ -282,13 +284,13 @@ int ArchivoPrestamo::registrarDevolucion(int idPrestamo){
     int pos = archiPrestamo.buscarPrestamoPorId(idPrestamo);
     if (pos == -1) {
         cout << "No se encontro prestamo con ese ID." << endl;
-        return -1;
+        return REGISTRO_NO_ENCONTRADO;
     }
 
     Prestamo pres = archiPrestamo.leerRegistro(pos);
     if (pres.getEstado()==false) {
         cout << "Prestamo eliminado, no se puede modificar." << endl;
-        return -2;
+        return REGISTRO_ELIMINADO;
     }
 
     int idNuevo=pres.getId();
