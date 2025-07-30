@@ -56,7 +56,7 @@ int ArchivoSocio::agregarRegistro() {
     }
 
     if (!emailValido(soc.getEmail())) {
-        cout << "El formato del email es incorrecto. Debe contener '@' y un '.' después del '@'." << endl;
+        cout << "El formato del email es incorrecto. Debe contener '@' y al menos un '.' despues del '@'." << endl;
         return -3;
     }
 

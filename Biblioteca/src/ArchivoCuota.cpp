@@ -6,10 +6,10 @@ using namespace std;
 #include "Socio.h"
 #include "Funcionalidades.h"
 
-    ArchivoCuota::ArchivoCuota(const char *nombreArchivo) {
-        strncpy(_nombreArchivo, nombreArchivo, sizeof(_nombreArchivo));
-        _nombreArchivo[sizeof(_nombreArchivo) - 1] = '\0';
-        _tamanioRegistro = sizeof(Cuota);
+ArchivoCuota::ArchivoCuota(const char *nombreArchivo) {
+    strncpy(_nombreArchivo, nombreArchivo, sizeof(_nombreArchivo));
+    _nombreArchivo[sizeof(_nombreArchivo) - 1] = '\0';
+    _tamanioRegistro = sizeof(Cuota);
     }
 
 int ArchivoCuota::agregarCuota(Cuota cuot){
@@ -154,7 +154,6 @@ int ArchivoCuota::modificarRegistro(Cuota cu, int pos){
     fclose(pCuota);
     return escribio;
 }
-//int ArchivoCuota::modificarCuota(int idCuota){};
 
 Cuota ArchivoCuota::leerRegistro(int pos){
     Cuota cu;

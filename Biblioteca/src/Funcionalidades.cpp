@@ -36,7 +36,7 @@ Cuota cargarCuotaDesdeConsola() {
     cin >> monto;
     c.setMonto(monto);
 
-    cout << "¿Está pagada? (1=Sí, 0=No): ";
+    cout << "¿Está pagada? (1=Si, 0=No): ";
     cin >> aux;
     c.setPagada(aux == 1);
 
@@ -54,7 +54,7 @@ void mostrarCuotaPorConsola(Cuota c) {
     cout << "ID Socio: " << c.getIdSocio() << endl;
     cout << "Monto: " << c.getMonto() << endl;
     if (c.getPagada() == true ){
-        cout << "Pagada: SÍ. " << endl;
+        cout << "Pagada: SI. " << endl;
     } else {
         cout << "Pagada: NO. " << endl;
     }
@@ -142,7 +142,7 @@ Libro cargarLibroPorConsola() {
     libro.setIsbn(isbn);
     cin.ignore();
 
-    cout << "Ingrese título: ";
+    cout << "Ingrese titulo: ";
     cin.getline(titulo, 100);
     libro.setTitulo(titulo);
 

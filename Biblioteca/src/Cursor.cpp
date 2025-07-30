@@ -16,21 +16,21 @@ void Cursor::ocultar() {
 }
 
 void Cursor::dibujar(int y) {
-    rlutil::locate(27, 12 + y);
+    rlutil::locate(28, 12 + y);
     cout << /*(char)76*/"[" << endl;
-    rlutil::locate(59, 12 + y);
+    rlutil::locate(69, 12 + y);
     cout << /*(char)74*/ "]" << endl;
 }
 
 int Cursor::moverArriba(int posicionActual) {
     int y = posicionActual;
-    rlutil::locate(27,12 + posicionActual);
+    rlutil::locate(28,12 + posicionActual);
     cout << " " << endl; // esto borra el cursor cuando cambia de posicion
-    rlutil::locate(59,12 + y);
+    rlutil::locate(68,12 + y);
     cout << " " << endl;
     y--;
     if (y < 0) {
-        y = maxOpciones;
+        y = maxOpciones - 1;
     }
     return y;
 }
@@ -39,10 +39,10 @@ int Cursor::moverAbajo(int posicionActual) {
     int y = posicionActual;
     rlutil::locate(27,12 + posicionActual);
     cout << " "; // esto borra el cursor cuando cambia de posicion
-    rlutil::locate(59,12 + y);
+    rlutil::locate(69,12 + y);
     cout << " ";
     y++;
-    if (y > maxOpciones) {
+    if (y > maxOpciones - 1) {
         y = 0;
     }
     return y;

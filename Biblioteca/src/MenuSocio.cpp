@@ -1,4 +1,82 @@
 #include <iostream>
+#include "MenuSocio.h"
+#include "ArchivoSocio.h"
+#include "rlutil.h"
+
+using namespace std;
+
+MenuSocio::MenuSocio() : Menu(9) {
+    setOpcion(0, "Ver lista de socios");
+    setOpcion(1, "Buscar socio por ID");
+    setOpcion(2, "Buscar socio por nombre");
+    setOpcion(3, "Agregar socio");
+    setOpcion(4, "Cargar socios de prueba");
+    setOpcion(5, "Eliminar socio");
+    setOpcion(6, "Modificar socio");
+    setOpcion(7, "Ver lista de morosos");
+    setOpcion(8, "Volver");
+}
+
+void MenuSocio::ejecutarOpcion(int indice) {
+    ArchivoSocio archivoSocio;
+    system("cls");
+
+    switch (indice) {
+    case 0:
+        archivoSocio.listarSocios();
+        break;
+
+    case 1: {
+        int id;
+        cout << "Ingrese el ID que desea buscar: ";
+        cin >> id;
+        archivoSocio.buscarSocioPorID(id);
+        break;
+    }
+
+    case 2: {
+        char nombre[30];
+        cout << "Ingrese el nombre a buscar: ";
+        cin.ignore();
+        cin.getline(nombre, sizeof(nombre));
+        archivoSocio.buscarSocioPorNombre(nombre);
+        break;
+    }
+
+    case 3:
+        archivoSocio.agregarRegistro();
+        break;
+
+    case 4:
+        archivoSocio.cargaVariosAux();
+        break;
+
+    case 5:
+        archivoSocio.bajaLogica();
+        break;
+
+    case 6: {
+        int aux;
+        cout << "Ingrese ID del socio que desea modificar: ";
+        cin >> aux;
+        archivoSocio.modificarSocio(aux);
+        break;
+    }
+
+    case 7:
+        archivoSocio.listarSociosConDeudas();
+        break;
+
+    case 8:
+        /// Volver no hace falta implementarlo, Menu::mostrar() se encarga
+        break;
+    }
+
+    rlutil::anykey();
+}
+
+/**
+#include <iostream>
 #include "MenuPrincipal.h"
 #include "MenuSocio.h"
 #include "ArchivoSocio.h"
@@ -8,11 +86,11 @@ using namespace std;
 
 // ARREGLAR ESTO. NO TIENE SENTIDO CARGAR EL MENU ACA SI LO MOSTRAMOS POR PANTALLA
 MenuSocio::MenuSocio() : Menu(5) {
-    /*setOpcion(0, "Menu Socios");
+    setOpcion(0, "Menu Socios");
     setOpcion(1, "Menu Libros");
     setOpcion(2, "Menu Prestamos");
     setOpcion(3, "Menu Cuotas");
-    setOpcion(4, "Salir");*/
+    setOpcion(4, "Salir");
 }
 
 void MenuSocio::mostrar() {
@@ -152,3 +230,4 @@ void MenuSocio::mostrar() {
         }
     } while (!salir);
 }
+**/

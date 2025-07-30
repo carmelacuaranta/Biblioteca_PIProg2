@@ -25,8 +25,6 @@ public:
     bool bajaLogica();
     bool pagarCuota(int idCuota);
     float calcularRecaudacion(Fecha fechaInicio, Fecha fechaFin);
-    ///FALTA IMPLEMENTAR
-    //~ArchivoCuota();
 };
 
 #endif // ARCHIVOCUOTA_H

@@ -4,12 +4,12 @@
 #include <Menu.h>
 
 
-class MenuLibro : public Menu
-{
-    public:
-        MenuLibro();
-       // virtual ~MenuLibro();
-        void mostrar();
+class MenuLibro : public Menu {
+public:
+    MenuLibro();
+
+protected:
+    void ejecutarOpcion(int indice) override;
 };
 
 #endif // MENULIBRO_H

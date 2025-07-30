@@ -83,16 +83,16 @@ bool Fecha::esBisiesto(int anio) {
     return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
 }
 
-bool Fecha::esFechaValida(int d, int m, int a) {
-    if (a < 1 || a > 2026 || m < 1 || m > 12 || d < 1) return false;
+bool Fecha::esFechaValida(int dia, int mes, int anio) {
+    if (anio < 1 || anio > 2026 || mes < 1 || mes > 12 || dia < 1) return false;
 
     int diasDelMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    if (m == 2 && esBisiesto(a)) {
-        return d <= 29;
+    if (mes == 2 && esBisiesto(anio)) {
+        return dia <= 29;
     }
 
-    return d <= diasDelMes[m - 1];
+    return dia <= diasDelMes[mes - 1];
 }
 
 bool Fecha::esValida() {
@@ -100,41 +100,41 @@ bool Fecha::esValida() {
 }
 
 void Fecha::cargarManual() {
-    int d, m, a;
+    int dia, mes, anio;
     do {
         std::cout << "Ingrese dia: ";
-        std::cin >> d;
+        std::cin >> dia;
         std::cout << "Ingrese mes: ";
-        std::cin >> m;
+        std::cin >> mes;
         std::cout << "Ingrese anio: ";
-        std::cin >> a;
+        std::cin >> anio;
 
-        if (!esFechaValida(d, m, a)) {
+        if (!esFechaValida(dia, mes, anio)) {
             std::cout << "Fecha invalida. Intente de nuevo.\n";
         }
-    } while (!esFechaValida(d, m, a));
+    } while (!esFechaValida(dia, mes, anio));
 
-    _dia = d;
-    _mes = m;
-    _anio = a;
+    _dia = dia;
+    _mes = mes;
+    _anio = anio;
 }
 
 void Fecha::cargarManualAnioMes() {
-    int m, a;
+    int mes, anio;
     do {
         std::cout << "Ingrese mes: ";
-        std::cin >> m;
+        std::cin >> mes;
         std::cout << "Ingrese anio: ";
-        std::cin >> a;
+        std::cin >> anio;
 
-        if (!esFechaValida(1, m, a)) {
+        if (!esFechaValida(1, mes, anio)) {
             std::cout << "Fecha invalida. Intente de nuevo.\n";
         }
-    } while (!esFechaValida(1, m, a));
+    } while (!esFechaValida(1, mes, anio));
 
     _dia = 1;
-    _mes = m;
-    _anio = a;
+    _mes = mes;
+    _anio = anio;
 }
 
 bool Fecha::estaEntre(const Fecha& inicio, const Fecha& fin) const {
