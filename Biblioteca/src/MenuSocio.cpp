@@ -2,6 +2,7 @@
 #include "MenuSocio.h"
 #include "ArchivoSocio.h"
 #include "Funcionalidades.h"
+#include "Errores.h"
 #include "rlutil.h"
 
 using namespace std;
@@ -29,95 +30,68 @@ void MenuSocio::ejecutarOpcion(int indice) {
         archivoSocio.listarSocios();
         break;
 
-   case 1: {
-    int id;
-    int resultado;
-    cout << "Ingrese el ID que desea buscar: ";
-    cin >> id;
-    resultado = archivoSocio.buscarSocioPorID(id);
-
-    if (resultado >= 0) {
-        Socio soc = archivoSocio.leerRegistro(resultado);
-        mostrarSocioPorConsola(soc);
-    } else {
-        switch (resultado) {
-        case -1:
-            cout << "No se encontro un socio con ese ID." << endl;
-            break;
-        case -2:
-            cout << "Error de archivo" << endl;
-            break;
-        default:
-            cout << "Error desconocido" << endl;
-            break;
+    case 1: {
+        int id;
+        cout << "Ingrese el ID que desea buscar: ";
+        cin >> id;
+        int resultado = archivoSocio.buscarSocioPorID(id);
+        if (resultado >= 0) {
+            Socio soc = archivoSocio.leerRegistro(resultado);
+            mostrarSocioPorConsola(soc);
+        } else {
+            mostrarMensajeError(resultado);
         }
+        break;
     }
-    break;
-}
 
-case 2: {
-    char nombre[30];
-    cout << "Ingrese el nombre a buscar: ";
-    cin.ignore();
-    cin.getline(nombre, sizeof(nombre));
-    cout << nombre << endl;
-    archivoSocio.buscarSocioPorNombre(nombre);
-    break;
-}
-
-    case 3:
-		{
-		int resultado = archivoSocio.agregarRegistro();
-
-		switch (resultado) {
-			case 0:
-			cout << "Socio guardado correctamente.\n";
-			break;
-			case -1:
-			cout << "Error al abrir el archivo.\n";
-			break;
-			case -2:
-			cout << "ID repetido. No se puede guardar el socio.\n";
-			break;
-			case -3:
-			cout << "Email inválido. Debe contener '@' y '.' luego del '@'.\n";
-			break;
-			default:
-			cout << "Error desconocido.\n";
-		break;
-		}
-
-    rlutil::anykey();
-    break;
-	}
-
-    case 4:
-        archivoSocio.cargaVariosAux();
+    case 2: {
+        char nombre[30];
+        cout << "Ingrese el nombre a buscar: ";
+        cin.ignore();
+        cin.getline(nombre, sizeof(nombre));
+        int resultado = archivoSocio.buscarSocioPorNombre(nombre);
+        if (resultado >= 0) {
+            Socio soc = archivoSocio.leerRegistro(resultado);
+            mostrarSocioPorConsola(soc);
+        } else {
+            mostrarMensajeError(resultado);
+        }
         break;
+    }
 
-    case 5:
-        archivoSocio.bajaLogica();
+    case 3: {
+        int resultado = archivoSocio.agregarRegistro();
+        mostrarMensajeError(resultado);
         break;
+    }
+
+    case 4: {
+        bool resultado = archivoSocio.cargaVariosAux();
+        mostrarMensajeError(resultado ? OK : ERROR_ARCHIVO);
+        break;
+    }
+
+    case 5: {
+        int id;
+        cout << "Ingrese ID del socio a eliminar: ";
+        cin >> id;
+        int resultado = archivoSocio.bajaLogica(id);
+        mostrarMensajeError(resultado);
+        break;
+    }
 
     case 6: {
         int id;
         cout << "Ingrese ID del socio que desea modificar: ";
         cin >> id;
-        int res = archivoSocio.modificarSocio(id);
-        switch (res) {
-        case -1:
-            cout << "Error de archivo." << endl;
-            break;
-        case -2:
-            cout << "El socio está eliminado. No se puede modificar." << endl;
-            break;
-        case 0:
-            break;
-        }
+        int resultado = archivoSocio.modificarSocio(id);
+        mostrarMensajeError(resultado);
         break;
     }
 
     case 7:
+        cout << "LISTADO DE SOCIOS CON DEUDAS" << endl;
+        cout << "---------------------------" << endl;
         archivoSocio.listarSociosConDeudas();
         break;
 
@@ -127,6 +101,7 @@ case 2: {
 
     rlutil::anykey();
 }
+
 
 /**
 #include <iostream>

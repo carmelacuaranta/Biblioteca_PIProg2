@@ -11,4 +11,5 @@ void mostrarSocioPorConsola(Socio socio);
 void mostrarCuotaPorConsola(Cuota c);
 void mostrarLibroPorConsola(Libro lib);
 void mostrarPrestamoPorConsola(Prestamo pres);
+void mostrarMensajeError(int codigo);
 

@@ -268,20 +268,21 @@
 	<iostream>
 	<string.h>
 
-1753839547 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivosocio.h
+1753843001 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivosocio.h
 	"Socio.h"
 	<cstring>
 
 1753840758 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\socio.h
 	"Fecha.h"
 
-1753840590 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivosocio.cpp
+1753843974 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"ArchivoCuota.h"
 	"Socio.h"
 	"Funcionalidades.h"
 	<iostream>
 	<cstring>
+	"Errores.h"
 
 1753838129 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\archivocuota.h
 	"Cuota.h"
@@ -413,11 +414,12 @@
 	"Menu.h"
 	"Menu.h"
 
-1753840590 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menusocio.cpp
+1753844917 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\menusocio.cpp
 	<iostream>
 	"MenuSocio.h"
 	"ArchivoSocio.h"
 	"Funcionalidades.h"
+	"Errores.h"
 	"rlutil.h"
 	<iostream>
 	"MenuPrincipal.h"
@@ -452,13 +454,13 @@
 	"Cuota.h"
 	"ArchivoSocio.h"
 
-1753838129 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\funcionalidades.h
+1753843912 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\funcionalidades.h
 	"Cuota.h"
 	"Socio.h"
 	"Libro.h"
 	"Prestamo.h"
 
-1753838129 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionalidades.cpp
+1753844057 source:d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\src\funcionalidades.cpp
 	"Funcionalidades.h"
 	<iostream>
 	"Cuota.h"
@@ -466,6 +468,7 @@
 	"Libro.h"
 	"ArchivoSocio.h"
 	"Prestamo.h"
+	"Errores.h"
 
 1753734067 e:\biblioteca\documents\utn\2025\q1\programacion2\tpi\biblioteca\include\funcionalidades.h
 	"Cuota.h"
@@ -481,4 +484,6 @@
 	"Libro.h"
 	"ArchivoSocio.h"
 	"Prestamo.h"
+
+1753844095 d:\biblioteca\documents\tup\programación 2\biblioteca_piprog2\biblioteca\include\errores.h
 

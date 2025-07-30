@@ -23,12 +23,12 @@ public:
     bool listarRegistros();
     int listarSocios();
     int buscarSocioPorID(int idBuscado);
-    bool buscarSocioPorNombre(const char* nombreBuscado);
+    int buscarSocioPorNombre(const char* nombreBuscado);
     bool cargaVariosAux();
     int modificarRegistro(Socio soc, int pos);
     int modificarSocio(int idSocio);
     Socio leerRegistro(int pos);
-    bool bajaLogica();
+    int bajaLogica(int id);
     int cantidadRegistros();
     void listarSociosConDeudas();
 

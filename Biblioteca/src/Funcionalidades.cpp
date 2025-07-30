@@ -7,6 +7,7 @@ using namespace std;
 #include "Libro.h"
 #include "ArchivoSocio.h"
 #include "Prestamo.h"
+#include "Errores.h"
 
 Cuota cargarCuotaDesdeConsola() {
     Cuota c;
@@ -19,12 +20,12 @@ Cuota cargarCuotaDesdeConsola() {
     bool pagada;
     Fecha fecha;
 
-    std::cout << "Ingrese ID de la cuota: ";
-    std::cin >> id;
+    cout << "Ingrese ID de la cuota: ";
+    cin >> id;
     c.setIdCuota(id);
 
-    std::cout << "Ingrese ID del socio: ";
-    std::cin >> idSocio;
+    cout << "Ingrese ID del socio: ";
+    cin >> idSocio;
 
     if (archivoSoc.buscarSocioPorID(idSocio) >= 0) {
         c.setIdSocio(idSocio);
@@ -215,4 +216,30 @@ Prestamo cargarPrestamoDesdeConsola(){
     pres.setFechaDevolucion(fechaDevolucion);
 
     return pres;
+}
+
+void mostrarMensajeError(int codigo) {
+    switch (codigo) {
+        case OK:
+            cout << "Operación realizada correctamente." << endl;
+            break;
+        case ERROR_ARCHIVO:
+            cout << "Error de archivo." << endl;
+            break;
+        case ID_REPETIDO:
+            cout << "ID repetido. No se puede guardar el registro." << endl;
+            break;
+        case EMAIL_INVALIDO:
+            cout << "Email inválido. Debe contener '@' y '.' luego del '@'." << endl;
+            break;
+        case REGISTRO_NO_ENCONTRADO:
+            cout << "No se encontró un registro con ese dato." << endl;
+            break;
+        case REGISTRO_ELIMINADO:
+            cout << "El registro está eliminado. No se puede modificar." << endl;
+            break;
+        default:
+            cout << "Error desconocido." << endl;
+            break;
+    }
 }
