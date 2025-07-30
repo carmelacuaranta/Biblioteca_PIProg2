@@ -50,7 +50,7 @@ void Menu::mostrar() {
                 salir = true;
                 system("cls");
             } else {
-                ejecutarOpcion(y); // Llama a la implementación del hijo
+                ejecutarOpcion(y); // Llama a la implementacion del hijo
             }
             break;
         }

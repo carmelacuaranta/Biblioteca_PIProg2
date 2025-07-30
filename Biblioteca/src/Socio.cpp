@@ -37,31 +37,31 @@ Socio::Socio(int id, const char* dni, const char* nombre, const char* apellido,
 }
 
 // Getters
-int Socio::getId() {
+int Socio::getId() const {
     return _id;
     }
-const char* Socio::getDni() {
+const char* Socio::getDni() const {
     return _dni;
     }
-const char* Socio::getNombre() const{
+const char* Socio::getNombre() const {
     return _nombre;
     }
-const char* Socio::getApellido() {
+const char* Socio::getApellido()const {
     return _apellido;
     }
-const char* Socio::getTelefono() {
+const char* Socio::getTelefono() const {
     return _telefono;
     }
-const char* Socio::getDireccion() {
+const char* Socio::getDireccion() const {
     return _direccion;
     }
-const char* Socio::getEmail() {
+const char* Socio::getEmail() const {
     return _email;
     }
-Fecha Socio::getFechaNac() {
+Fecha Socio::getFechaNac() const {
     return _fechaNac;
     }
-bool Socio::getEstado(){
+bool Socio::getEstado() const {
     return _estado;
     }
 

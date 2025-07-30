@@ -221,7 +221,7 @@ Prestamo cargarPrestamoDesdeConsola(){
 void mostrarMensajeError(int codigo) {
     switch (codigo) {
         case OK:
-            cout << "Operación realizada correctamente." << endl;
+            cout << "Operacion realizada correctamente." << endl;
             break;
         case ERROR_ARCHIVO:
             cout << "Error de archivo." << endl;
@@ -230,13 +230,13 @@ void mostrarMensajeError(int codigo) {
             cout << "ID repetido. No se puede guardar el registro." << endl;
             break;
         case EMAIL_INVALIDO:
-            cout << "Email inválido. Debe contener '@' y '.' luego del '@'." << endl;
+            cout << "Email invalido. Debe contener '@' y '.' luego del '@'." << endl;
             break;
         case REGISTRO_NO_ENCONTRADO:
-            cout << "No se encontró un registro con ese dato." << endl;
+            cout << "No se encontro un registro con ese dato." << endl;
             break;
         case REGISTRO_ELIMINADO:
-            cout << "El registro está eliminado. No se puede modificar." << endl;
+            cout << "El registro esta eliminado. No se puede modificar." << endl;
             break;
         default:
             cout << "Error desconocido." << endl;

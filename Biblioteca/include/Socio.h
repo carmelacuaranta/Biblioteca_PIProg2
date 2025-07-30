@@ -20,15 +20,15 @@ public:
           const char* telefono, const char* direccion, const char* email, Fecha fechaNac);
 
     // Getters
-    int getId();
-    const char* getDni();
+    int getId()const;
+    const char* getDni() const;
     const char* getNombre() const;
-    const char* getApellido();
-    const char* getTelefono();
-    const char* getDireccion();
-    const char* getEmail();
-    Fecha getFechaNac();
-    bool getEstado();
+    const char* getApellido() const;
+    const char* getTelefono() const;
+    const char* getDireccion() const;
+    const char* getEmail() const;
+    Fecha getFechaNac() const;
+    bool getEstado() const;
 
     // Setters
     void setId(int idSocio);

@@ -527,7 +527,7 @@
 	"Socio.h"
 	<cstring>
 
-1753870071 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\socio.h
+1753876207 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\socio.h
 	"Fecha.h"
 
 1753870071 c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\include\funcionalidades.h
@@ -567,7 +567,7 @@
 	<iostream>
 	<string.h>
 
-1753873169 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\archivosocio.cpp
+1753873354 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\archivosocio.cpp
 	"ArchivoSocio.h"
 	"ArchivoCuota.h"
 	"Socio.h"
@@ -684,7 +684,7 @@
 	<iostream>
 	"Prestamo.h"
 
-1753870071 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\socio.cpp
+1753876161 source:c:\users\usuarioescritorio\desktop\tup\2025\programacion2\tpi\biblioteca\src\socio.cpp
 	"Socio.h"
 	<iostream>
 	<cstring>

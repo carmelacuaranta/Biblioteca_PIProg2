@@ -32,7 +32,7 @@ bool ArchivoSocio::emailValido(const char* email) {
     for (int i = 0; email[i] != '\0'; i++) {
         if (email[i] == '@') {
             tieneArroba = true;
-            // Verificar que hay al menos un carácter después del '@' y antes del '.'
+            // Verificar que hay al menos un caracter después del '@' y antes del '.'
             for (int j = i + 1; email[j] != '\0'; j++) {
                 if (email[j] == '.') {
                     tienePuntoDespuesArroba = true;
