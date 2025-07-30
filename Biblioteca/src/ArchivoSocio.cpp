@@ -60,35 +60,6 @@ int ArchivoSocio::agregarRegistro() {
     return 0;
 }
 
-/**
-int ArchivoSocio::agregarRegistro() {
-    system("cls");
-    Socio soc = cargarSocioPorConsola();
-    int aux;
-
-    if (idRepetido(soc.getId())) {
-        cout << "ID repetido. No se puede guardar el socio. " << endl;
-        return -2;
-    }
-
-    if (!emailValido(soc.getEmail())) {
-        cout << "El formato del email es incorrecto. Debe contener '@' y al menos un '.' despues del '@'." << endl;
-        return -3;
-    }
-
-    FILE* pSocio = fopen(_nombreArchivo, "ab");
-    if (pSocio == nullptr) {
-        cout << "Error de archivo." << endl;
-        return -1;
-    }
-
-    fwrite(&soc, sizeof(soc), 1, pSocio);
-    cout << "Socio guardado correctamente." << endl;
-
-    fclose(pSocio);
-    return 0;
-}
-**/
 
 
 int ArchivoSocio::listarSocios() {
@@ -262,7 +233,7 @@ void ArchivoSocio::listarSociosConDeudas() {
     for(int i = 0; i < cantidadSocios; i++) {
         Socio socio = leerRegistro(i);
         if(socio.getEstado()) {
-            FILE* pCuota = fopen(_nombreArchivo, "rb");
+            FILE* pCuota = fopen("Cuotas.dat", "rb");
             if(pCuota != nullptr) {
                 Cuota cuota;
                 int cuotasPendientes = 0;
