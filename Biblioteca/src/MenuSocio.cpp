@@ -1,6 +1,7 @@
 #include <iostream>
 #include "MenuSocio.h"
 #include "ArchivoSocio.h"
+#include "Funcionalidades.h"
 #include "rlutil.h"
 
 using namespace std;
@@ -23,25 +24,46 @@ void MenuSocio::ejecutarOpcion(int indice) {
 
     switch (indice) {
     case 0:
+        cout << "LISTADO DE SOCIOS:" << endl;
+        cout << "-----------------" << endl;
         archivoSocio.listarSocios();
         break;
 
-    case 1: {
-        int id;
-        cout << "Ingrese el ID que desea buscar: ";
-        cin >> id;
-        archivoSocio.buscarSocioPorID(id);
-        break;
-    }
+   case 1: {
+    int id;
+    int resultado;
+    cout << "Ingrese el ID que desea buscar: ";
+    cin >> id;
+    resultado = archivoSocio.buscarSocioPorID(id);
 
-    case 2: {
-        char nombre[30];
-        cout << "Ingrese el nombre a buscar: ";
-        cin.ignore();
-        cin.getline(nombre, sizeof(nombre));
-        archivoSocio.buscarSocioPorNombre(nombre);
-        break;
+    if (resultado >= 0) {
+        Socio soc = archivoSocio.leerRegistro(resultado);
+        mostrarSocioPorConsola(soc);
+    } else {
+        switch (resultado) {
+        case -1:
+            cout << "No se encontro un socio con ese ID." << endl;
+            break;
+        case -2:
+            cout << "Error de archivo" << endl;
+            break;
+        default:
+            cout << "Error desconocido" << endl;
+            break;
+        }
     }
+    break;
+}
+
+case 2: {
+    char nombre[30];
+    cout << "Ingrese el nombre a buscar: ";
+    cin.ignore();
+    cin.getline(nombre, sizeof(nombre));
+    cout << nombre << endl;
+    archivoSocio.buscarSocioPorNombre(nombre);
+    break;
+}
 
     case 3:
 		{

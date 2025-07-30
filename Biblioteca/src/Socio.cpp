@@ -43,7 +43,7 @@ int Socio::getId() {
 const char* Socio::getDni() {
     return _dni;
     }
-const char* Socio::getNombre() {
+const char* Socio::getNombre() const{
     return _nombre;
     }
 const char* Socio::getApellido() {

@@ -98,8 +98,6 @@ int ArchivoSocio::listarSocios() {
     }
 
     Socio soc;
-    cout << "LISTADO DE SOCIOS:" << endl;
-    cout << "-----------------" << endl;
 
     while (fread(&soc, sizeof(Socio), 1, pSocio) == 1) {
             if(soc.getEstado()==true){
@@ -115,23 +113,17 @@ int ArchivoSocio::listarSocios() {
 int ArchivoSocio::buscarSocioPorID(int idBuscado) {
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {
-        cout << "No se pudo abrir el archivo."<< endl;
-        return -1;
+        return -2;
     }
-
     Socio soc;
     int pos=0;
     while (fread(&soc, sizeof(Socio), 1, p) == 1) {
         if (soc.getId() == idBuscado) {
-            cout << "Socio encontrado: " << endl;
-            mostrarSocioPorConsola(soc);
             fclose(p);
             return pos;
         }
         pos++;
     }
-
-    cout << "No se encontro un socio con ese ID."<< endl;
     fclose(p);
     return -1;
 }

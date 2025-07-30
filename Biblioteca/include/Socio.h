@@ -22,7 +22,7 @@ public:
     // Getters
     int getId();
     const char* getDni();
-    const char* getNombre();
+    const char* getNombre() const;
     const char* getApellido();
     const char* getTelefono();
     const char* getDireccion();
